@@ -11,13 +11,13 @@ interface Props {
 // Valores por defecto para no tener que definirlos siempre
 const defaultTitle = 'Blog de Desarrollo Web y WordPress';
 const defaultDescription = 'Artículos sobre desarrollo web moderno, optimización, seguridad y estrategias de negocio con WordPress y Astro.';
-const siteURL = Astro.site;
+const siteURL = Astro.site?.toString() || Astro.url.origin;
 
-const { 
-  title = defaultTitle, 
-  description = defaultDescription, 
+const {
+  title = defaultTitle,
+  description = defaultDescription,
   image = '/default-social-image.png', // Una imagen genérica para redes sociales
-  canonicalURL = new URL(Astro.url.pathname, siteURL),
+  canonicalURL = Astro.url,
 } = Astro.props;
 
 const socialImageURL = new URL(image, siteURL);

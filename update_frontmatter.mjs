@@ -48,7 +48,7 @@ files.forEach(file => {
         // Reconstruct frontmatter
         let newFrontmatter = '---\n';
         newFrontmatter += `title: ${newData.title}\n`;
-        newFrontmatter += `excerpt: ${newData.excerpt}\n`;
+        newFrontmatter += `description: ${newData.excerpt}\n`;
         newFrontmatter += `date: ${newData.date}\n`;
         newFrontmatter += `author: ${newData.author}\n`;
         newFrontmatter += `image: ${newData.image}\n`;
