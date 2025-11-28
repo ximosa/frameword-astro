@@ -1,20 +1,28 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import { getSiteConfig } from '../../config';
+
+const siteConfig = getSiteConfig();
 ---
 
 <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
   <div class="container mx-auto px-4">
     <nav class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">MiSitio</a>
+        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">{siteConfig.name}</a>
       </div>
 
       <!-- Menú para escritorio -->
       <div class="hidden md:flex items-center space-x-4">
-        <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Inicio</a>
-        <a href="/servicios" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Servicios</a>
-        <a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Blog</a>
-        <a href="/contacto" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Contacto</a>
+        {siteConfig.navigation.main.map((item) => (
+          <a
+            href={item.href}
+            class={`px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 ${item.external ? 'external-link' : ''}`}
+            {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {item.label}
+          </a>
+        ))}
         <ThemeToggle />
       </div>
 
@@ -33,10 +41,15 @@ import ThemeToggle from './ThemeToggle.astro';
 
   <!-- Menú desplegable para móvil -->
   <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95">
-    <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Inicio</a>
-    <a href="/servicios" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hoverbg-gray-700">Servicios</a>
-    <a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Blog</a>
-    <a href="/contacto" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Contacto</a>
+    {siteConfig.navigation.main.map((item) => (
+      <a
+        href={item.href}
+        class={`block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 ${item.external ? 'external-link' : ''}`}
+        {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
+        {item.label}
+      </a>
+    ))}
   </div>
 </header>
 

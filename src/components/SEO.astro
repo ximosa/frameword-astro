@@ -1,49 +1,36 @@
 ---
-// src/components/SEO.astro
+// Componente SEO mejorado con configuración centralizada
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  // Agregamos una URL canónica opcional
-  canonicalURL?: URL | string;
+  title?: string;
+  description?: string;
 }
 
-// Valores por defecto para no tener que definirlos siempre
-const defaultTitle = 'Blog de Desarrollo Web y WordPress';
-const defaultDescription = 'Artículos sobre desarrollo web moderno, optimización, seguridad y estrategias de negocio con WordPress y Astro.';
-const siteURL = Astro.site?.toString() || Astro.url.origin;
+// Valores por defecto
+const defaultTitle = 'Mi Sitio Web';
+const defaultDescription = 'Un sitio web moderno construido con Astro';
 
-const {
-  title = defaultTitle,
-  description = defaultDescription,
-  image = '/default-social-image.png', // Una imagen genérica para redes sociales
-  canonicalURL = Astro.url,
-} = Astro.props;
+const { title = defaultTitle, description = defaultDescription } = Astro.props;
 
-const socialImageURL = new URL(image, siteURL);
+// Construir título completo
+const fullTitle = title === defaultTitle ? title : `${title} | ${defaultTitle}`;
 ---
 
 <!-- Título y metadatos básicos -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<title>{title}</title>
+<title>{fullTitle}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonicalURL} />
 
-<!-- Open Graph (para Facebook, LinkedIn, etc.) -->
-<meta property="og:title" content={title} />
+<!-- Open Graph -->
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:image" content={socialImageURL} />
-<meta property="og:type" content="article" />
-<meta property="og:site_name" content={defaultTitle} />
+<meta property="og:type" content="website" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={socialImageURL} />
 
-<!-- Favicon (ejemplo, deberías crear estos archivos) -->
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />

@@ -1,0 +1,29 @@
+{
+  "name": "create-frameword-app",
+  "version": "1.0.0",
+  "description": "CLI para crear aplicaciones con Frameword Astro",
+  "main": "index.js",
+  "bin": {
+    "create-frameword-app": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "astro",
+    "framework",
+    "cli",
+    "web",
+    "static-site"
+  ],
+  "author": "Frameword Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frameword/frameword-astro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frameword/frameword-astro/issues"
+  },
+  "homepage": "https://github.com/frameword/frameword-astro#readme"
+}

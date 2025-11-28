@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="es"> <head><!-- 2. Usar el componente SEO y quitar las etiquetas anteriores --><!-- Título y metadatos básicos --><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Autopsia de un Hackeo: Cuánto le costó realmente a esta empresa recuperar su reputación tras perder su base de datos | Mi Sitio Web</title><meta name="description" content="Un sitio web moderno construido con Astro"><!-- Open Graph --><meta property="og:title" content="Autopsia de un Hackeo: Cuánto le costó realmente a esta empresa recuperar su reputación tras perder su base de datos | Mi Sitio Web"><meta property="og:description" content="Un sitio web moderno construido con Astro"><meta property="og:type" content="website"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Autopsia de un Hackeo: Cuánto le costó realmente a esta empresa recuperar su reputación tras perder su base de datos | Mi Sitio Web"><meta name="twitter:description" content="Un sitio web moderno construido con Astro"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate icon" type="image/x-icon" href="/favicon.ico"><meta name="generator" content="Astro v5.16.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><link rel="stylesheet" href="/_astro/nuevo-post.em1xKnkt.css">
+<style>#toc-button[data-astro-cid-xvrfupwn]{animation:fadeInUp .5s ease-out}@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}html{scroll-behavior:smooth}
+</style>
+<link rel="stylesheet" href="/_astro/nuevo-post.BKJcTx8t.css"></head> <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans flex flex-col min-h-screen"> <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50"> <div class="container mx-auto px-4"> <nav class="flex items-center justify-between h-16"> <div class="flex items-center"> <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">Mi Sitio Web</a> </div> <!-- Menú para escritorio --> <div class="hidden md:flex items-center space-x-4"> <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">function l(){document.querySelectorAll(".theme-toggle").forEach(e=>{e.addEventListener("click",t=>{t.stopPropagation();const o=document.documentElement.classList.toggle("dark");localStorage.setItem("theme",o?"dark":"light")})})}document.addEventListener("astro:page-load",l);</script> </div> <!-- Botón de menú para móvil --> <div class="md:hidden flex items-center"> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  <button id="mobile-menu-button" class="ml-2 p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"> <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"> <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </nav> </div> <!-- Menú desplegable para móvil --> <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95"> <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> </div> </header> <script type="module">document.addEventListener("astro:page-load",()=>{const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu"),t=document.getElementById("menu-open-icon"),o=document.getElementById("menu-close-icon");e&&n&&e.addEventListener("click",()=>{n.classList.toggle("hidden"),t.classList.toggle("hidden"),o.classList.toggle("hidden")})});</script> <main class="container mx-auto px-4 py-8 flex-grow">  <article class="prose prose-lg dark:prose-invert mx-auto py-12 px-4"> <div class="text-center mb-8"> <div class="mb-4"> <span class="bg-gray-600 text-white text-sm font-bold px-3 py-1 rounded-full"> Hackeo Web </span> </div> <h1 class="text-4xl font-bold mb-4">Autopsia de un Hackeo: Cuánto le costó realmente a esta empresa recuperar su reputación tras perder su base de datos</h1> <time datetime="2025-11-26T00:00:00.000Z" class="text-gray-500 dark:text-gray-400">
+Publicado el 26 de noviembre de 2025 por ximo </time> </div> <img src="https://res.cloudinary.com/djjiagkho/image/upload/v1764115479/Hackeo_nsnzom.jpg" alt="Imagen para Autopsia de un Hackeo: Cuánto le costó realmente a esta empresa recuperar su reputación tras perder su base de datos" class="w-full h-auto rounded-lg shadow-lg mb-8"> <h2 id="el-día-que-todo-se-detuvo">El día que todo se detuvo</h2>
+<p>Era un martes común cuando el equipo de TechStyle, una empresa de e-commerce de moda con 85 empleados y 120.000 clientes activos, llegó a sus oficinas. A las 9:47 AM, el sistema de gestión dejó de responder. Lo que pensaron que era un problema técnico menor se convirtió en la peor pesadilla corporativa: habían sido hackeados.</p>
+<p><strong>Lo que perdieron en cuestión de horas:</strong></p>
+<ul>
+<li>Base de datos completa de clientes (nombres, direcciones, emails, historial de compras)</li>
+<li>47.000 números de tarjetas de crédito parcialmente encriptados</li>
+<li>Toda la documentación financiera del último trimestre</li>
+<li>El código fuente de su plataforma personalizada</li>
+</ul>
+<h2 id="la-factura-inmediata-los-primeros-30-días">La factura inmediata: Los primeros 30 días</h2>
+<h3 id="costos-técnicos-directos-87400">Costos técnicos directos: €87.400</h3>
+<ul>
+<li><strong>Empresa forense digital:</strong> €32.000 para identificar la brecha de seguridad</li>
+<li><strong>Consultoría de ciberseguridad de emergencia:</strong> €28.000</li>
+<li><strong>Reconstrucción de sistemas:</strong> €18.400</li>
+<li><strong>Nuevos servidores y migración:</strong> €9.000</li>
+</ul>
+<h3 id="costos-legales-y-de-cumplimiento-124000">Costos legales y de cumplimiento: €124.000</h3>
+<ul>
+<li><strong>Abogados especializados en GDPR:</strong> €68.000</li>
+<li><strong>Multa de la Agencia de Protección de Datos:</strong> €45.000 (considerada “leve” por colaboración)</li>
+<li><strong>Notificaciones obligatorias a clientes:</strong> €11.000</li>
+</ul>
+<h3 id="costos-operativos-156000">Costos operativos: €156.000</h3>
+<ul>
+<li><strong>Ventas perdidas (22 días offline):</strong> €134.000</li>
+<li><strong>Horas extra del equipo técnico:</strong> €22.000</li>
+</ul>
+<p><strong>Subtotal primeros 30 días: €367.400</strong></p>
+<h2 id="el-costo-invisible-meses-2-6">El costo invisible: Meses 2-6</h2>
+<p>Lo que nadie te cuenta es que el hackeo es solo el principio. La verdadera sangría financiera comienza después.</p>
+<h3 id="pérdida-de-clientes-890000">Pérdida de clientes: €890.000</h3>
+<ul>
+<li>El 43% de sus clientes nunca volvió a comprar</li>
+<li>Valor de vida útil del cliente perdido (LTV): calculado en 6 años</li>
+<li>Cancelaciones inmediatas de suscripciones premium: €12.000/mes × 6 meses</li>
+</ul>
+<h3 id="crisis-de-reputación-245000">Crisis de reputación: €245.000</h3>
+<ul>
+<li><strong>Agencia de relaciones públicas:</strong> €85.000</li>
+<li><strong>Campaña de recuperación de marca:</strong> €110.000</li>
+<li><strong>Programa de compensación a clientes:</strong> €50.000 (descuentos y bonificaciones)</li>
+</ul>
+<h3 id="reestructuración-de-seguridad-178000">Reestructuración de seguridad: €178.000</h3>
+<ul>
+<li><strong>CISO temporal (6 meses):</strong> €96.000</li>
+<li><strong>Auditoría completa de seguridad:</strong> €34.000</li>
+<li><strong>Implementación de nuevos protocolos:</strong> €28.000</li>
+<li><strong>Formación del equipo:</strong> €20.000</li>
+</ul>
+<h3 id="costos-de-personal-67000">Costos de personal: €67.000</h3>
+<ul>
+<li>Renuncia del CTO y Director de TI</li>
+<li>Procesos de búsqueda y onboarding de reemplazos</li>
+<li>Incremento salarial para retener talento técnico crítico</li>
+</ul>
+<p><strong>Subtotal meses 2-6: €1.380.000</strong></p>
+<h2 id="el-año-después-el-costo-que-nunca-termina">El año después: El costo que nunca termina</h2>
+<h3 id="costos-permanentes-adicionales">Costos permanentes adicionales:</h3>
+<ul>
+<li><strong>Ciberseguro (antes no tenían):</strong> €24.000/año</li>
+<li><strong>Monitoreo 24/7:</strong> €36.000/año</li>
+<li><strong>Pentesting trimestral:</strong> €28.000/año</li>
+<li><strong>Stack de seguridad mejorado:</strong> €42.000/año</li>
+</ul>
+<h3 id="impacto-en-valoración-empresarial">Impacto en valoración empresarial:</h3>
+<p>Los inversores que estaban considerando una ronda de financiación Serie A de €3 millones se retiraron. La empresa tuvo que conformarse con un préstamo bancario a tasas menos favorables.</p>
+<h2 id="factura-total-del-hackeo">Factura total del hackeo</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Concepto</th><th>Costo</th></tr></thead><tbody><tr><td><strong>Primer mes (respuesta inmediata)</strong></td><td>€367.400</td></tr><tr><td><strong>Meses 2-6 (recuperación)</strong></td><td>€1.380.000</td></tr><tr><td><strong>Año 1 (nuevos costos permanentes)</strong></td><td>€130.000</td></tr><tr><td><strong>Oportunidades perdidas</strong></td><td>€3.000.000+</td></tr><tr><td><strong>TOTAL CUANTIFICABLE</strong></td><td><strong>€4.877.400</strong></td></tr></tbody></table>
+<p><em>Sin contar el daño psicológico en el equipo, el estrés de los fundadores, y los clientes que jamás recuperarán.</em></p>
+<h2 id="la-autopsia-qué-falló">La autopsia: ¿Qué falló?</h2>
+<p>El análisis forense reveló que el ataque pudo haberse evitado. Las vulnerabilidades eran predecibles:</p>
+<ol>
+<li><strong>WordPress sin actualizar</strong> desde hacía 8 meses</li>
+<li><strong>Plugins obsoletos</strong> con vulnerabilidades conocidas</li>
+<li><strong>Contraseñas débiles</strong> en panel de administración</li>
+<li><strong>Sin backups automáticos</strong> diarios</li>
+<li><strong>Certificado SSL caducado</strong> en un subdominio que nadie monitoreaba</li>
+<li><strong>Sin firewall de aplicaciones web (WAF)</strong></li>
+<li><strong>Sin monitoreo de intrusiones</strong></li>
+</ol>
+<p>Todo por querer “ahorrar” en mantenimiento preventivo.</p>
+<h2 id="lo-que-realmente-cuesta-la-prevención">Lo que realmente cuesta la prevención</h2>
+<p>Un plan de mantenimiento preventivo profesional habría costado:</p>
+<p><strong>€450/mes = €5.400/año</strong></p>
+<p>Incluía:</p>
+<ul>
+<li>Actualizaciones de seguridad semanales</li>
+<li>Monitoreo 24/7 de amenazas</li>
+<li>Backups diarios automatizados</li>
+<li>Firewall de aplicaciones web</li>
+<li>Auditorías mensuales</li>
+<li>Escaneo de vulnerabilidades</li>
+<li>Respuesta ante incidentes</li>
+<li>Certificados SSL gestionados</li>
+</ul>
+<p><strong>Relación costo-beneficio:</strong></p>
+<ul>
+<li><strong>Prevención:</strong> €5.400/año</li>
+<li><strong>Hackeo:</strong> €4.877.400 en total</li>
+<li><strong>Ratio:</strong> 903:1</li>
+</ul>
+<p>Por cada euro no invertido en prevención, pagaron 903 euros en consecuencias.</p>
+<h2 id="las-señales-que-ignoraron">Las señales que ignoraron</h2>
+<p>Tres meses antes del ataque, su desarrollador freelance les advirtió:</p>
+<blockquote>
+<p>“Necesitamos actualizar los sistemas y revisar la seguridad. Estamos viendo intentos de acceso sospechosos en los logs.”</p>
+</blockquote>
+<p>La respuesta del CEO fue: <em>“No tenemos presupuesto ahora, lo vemos el próximo trimestre.”</em></p>
+<p>Ese trimestre nunca llegó.</p>
+<h2 id="tres-años-después-se-recuperaron">Tres años después: ¿Se recuperaron?</h2>
+<p>TechStyle sigue operando, pero nunca volvió a ser la misma:</p>
+<ul>
+<li>Facturación recuperada al 71% de niveles pre-hackeo</li>
+<li>Equipo reducido a 52 personas</li>
+<li>Perdieron su ventaja competitiva ante competidores más ágiles</li>
+<li>Los fundadores siguen pagando un préstamo de €800.000</li>
+<li>Su puntuación en reputación online cayó de 4.7 a 3.2 estrellas</li>
+</ul>
+<h2 id="la-pregunta-incómoda">La pregunta incómoda</h2>
+<p>¿Cuánto crees que vale tu base de datos de clientes? ¿Y tu reputación? ¿Y tu tranquilidad?</p>
+<p>Porque en el momento en que te hackeen, descubrirás que valía mucho más de lo que pensabas.</p>
+<hr/>
+<h2 id="no-esperes-a-ser-una-estadística">No esperes a ser una estadística</h2>
+<p>El 60% de las pequeñas y medianas empresas que sufren un ciberataque cierran en los siguientes 6 meses. TechStyle tuvo suerte, si es que a eso se le puede llamar suerte.</p>
+<p><strong>El mantenimiento preventivo no es un gasto, es el seguro más rentable que puedes contratar.</strong></p>
+<p>La pregunta no es si puedes permitirte invertir en seguridad.</p>
+<p><strong>La pregunta es: ¿Puedes permitirte NO hacerlo?</strong></p>
+<hr/>
+<h3 id="sobre-este-caso">Sobre este caso</h3>
+<p><em>Este artículo se basa en el caso documentado de una empresa real del sector e-commerce. Los nombres y detalles específicos han sido modificados para proteger su identidad, pero los números y consecuencias son reales. El caso fue analizado por expertos en ciberseguridad como ejemplo educativo de las consecuencias de negligencia en mantenimiento preventivo.</em></p>
+<p><strong>¿Quieres una auditoría gratuita de seguridad de tu web?</strong> Contacta con nosotros y te diremos exactamente dónde están tus vulnerabilidades, antes de que alguien más las encuentre.</p> </article>  <!-- Botón flotante para abrir TOC --><button id="toc-button" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group" aria-label="Tabla de contenidos" data-astro-cid-xvrfupwn> <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" data-astro-cid-xvrfupwn></path> </svg> <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center font-bold" data-astro-cid-xvrfupwn> 21 </span> </button> <!-- Modal TOC --> <div id="toc-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="toc-title" role="dialog" aria-modal="true" data-astro-cid-xvrfupwn> <!-- Backdrop --> <div id="toc-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" data-astro-cid-xvrfupwn></div> <!-- Panel del TOC --> <div class="fixed inset-y-0 right-0 flex max-w-full pl-10" data-astro-cid-xvrfupwn> <div id="toc-panel" class="w-screen max-w-md transform transition-transform duration-300 ease-out translate-x-full" data-astro-cid-xvrfupwn> <div class="flex h-full flex-col bg-white dark:bg-gray-900 shadow-2xl" data-astro-cid-xvrfupwn> <!-- Header --> <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <div class="flex items-center justify-between" data-astro-cid-xvrfupwn> <h2 id="toc-title" class="text-lg font-semibold text-gray-900 dark:text-white" data-astro-cid-xvrfupwn>
+Tabla de Contenidos
+</h2> <button id="toc-close" class="rounded-md p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Cerrar" data-astro-cid-xvrfupwn> <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-xvrfupwn></path> </svg> </button> </div> </div> <!-- Lista de contenidos --> <nav class="flex-1 overflow-y-auto px-6 py-4" data-astro-cid-xvrfupwn> <ul class="space-y-1" data-astro-cid-xvrfupwn> <li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-día-que-todo-se-detuvo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El día que todo se detuvo </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-factura-inmediata-los-primeros-30-días" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La factura inmediata: Los primeros 30 días </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#costos-técnicos-directos-87400" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Costos técnicos directos: €87.400 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#costos-legales-y-de-cumplimiento-124000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Costos legales y de cumplimiento: €124.000 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#costos-operativos-156000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Costos operativos: €156.000 </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-costo-invisible-meses-2-6" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El costo invisible: Meses 2-6 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#pérdida-de-clientes-890000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Pérdida de clientes: €890.000 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#crisis-de-reputación-245000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Crisis de reputación: €245.000 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#reestructuración-de-seguridad-178000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Reestructuración de seguridad: €178.000 </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#costos-de-personal-67000" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Costos de personal: €67.000 </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-año-después-el-costo-que-nunca-termina" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El año después: El costo que nunca termina </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#costos-permanentes-adicionales" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Costos permanentes adicionales: </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#impacto-en-valoración-empresarial" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Impacto en valoración empresarial: </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#factura-total-del-hackeo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Factura total del hackeo </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-autopsia-qué-falló" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La autopsia: ¿Qué falló? </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#lo-que-realmente-cuesta-la-prevención" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Lo que realmente cuesta la prevención </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#las-señales-que-ignoraron" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Las señales que ignoraron </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#tres-años-después-se-recuperaron" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Tres años después: ¿Se recuperaron? </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-pregunta-incómoda" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La pregunta incómoda </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#no-esperes-a-ser-una-estadística" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> No esperes a ser una estadística </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#sobre-este-caso" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Sobre este caso </span> </a> </li> </ul> </nav> <!-- Footer con info adicional --> <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <p class="text-xs text-gray-500 dark:text-gray-400 text-center" data-astro-cid-xvrfupwn> 21 secciones en este
+                        artículo
+</p> </div> </div> </div> </div> </div> <script type="module">function b(){const l=document.getElementById("toc-button"),o=document.getElementById("toc-modal"),d=document.getElementById("toc-panel"),r=document.getElementById("toc-backdrop"),a=document.getElementById("toc-close"),i=document.querySelectorAll("[data-toc-link]");if(!l||!o||!d||!r||!a)return;function u(){o.classList.remove("hidden"),setTimeout(()=>{d.classList.remove("translate-x-full")},10),document.body.style.overflow="hidden"}function n(){d.classList.add("translate-x-full"),setTimeout(()=>{o.classList.add("hidden"),document.body.style.overflow=""},300)}l.addEventListener("click",u),a.addEventListener("click",n),r.addEventListener("click",n),document.addEventListener("keydown",e=>{e.key==="Escape"&&!o.classList.contains("hidden")&&n()}),i.forEach(e=>{e.addEventListener("click",c=>{c.preventDefault();const s=e.getAttribute("href");if(s){const t=document.querySelector(s);t&&(n(),setTimeout(()=>{t.scrollIntoView({behavior:"smooth",block:"start"}),window.scrollBy(0,-80)},300))}})});const m=new IntersectionObserver(e=>{e.forEach(c=>{if(c.isIntersecting){const s=c.target.getAttribute("id");i.forEach(t=>{t.getAttribute("href")===`#${s}`?t.classList.add("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20"):t.classList.remove("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20")})}})},{rootMargin:"-80px 0px -80% 0px"});document.querySelectorAll("h2[id], h3[id], h4[id]").forEach(e=>{m.observe(e)})}document.addEventListener("astro:page-load",b);</script>  </main> <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto"> <div class="container mx-auto px-4 py-8"> <div class="flex flex-col md:flex-row justify-between items-center"> <div class="mb-4 md:mb-0"> <p class="text-sm text-gray-600 dark:text-gray-400">
+&copy; 2025 MiSitio. Todos los derechos reservados.
+</p> </div> <div class="flex space-x-6"> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">Twitter</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path> </svg> </a> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">GitHub</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> </div> </div> </div> </footer> <script>
+			// Este script se asegura de que no haya un "destello" del tema incorrecto.
+			const theme = (() => {
+				if (
+					typeof localStorage !== "undefined" &&
+					localStorage.getItem("theme")
+				) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return "light";
+			})();
+
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+			} else {
+				document.documentElement.classList.add("dark");
+			}
+			// Sincronizar en todas las pestañas
+			window.addEventListener("storage", () => {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			});
+		</script> </body> </html>

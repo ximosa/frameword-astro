@@ -1,0 +1,668 @@
+<!DOCTYPE html><html lang="es"> <head><!-- 2. Usar el componente SEO y quitar las etiquetas anteriores --><!-- Título y metadatos básicos --><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada | Mi Sitio Web</title><meta name="description" content="Un sitio web moderno construido con Astro"><!-- Open Graph --><meta property="og:title" content="Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada | Mi Sitio Web"><meta property="og:description" content="Un sitio web moderno construido con Astro"><meta property="og:type" content="website"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada | Mi Sitio Web"><meta name="twitter:description" content="Un sitio web moderno construido con Astro"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate icon" type="image/x-icon" href="/favicon.ico"><meta name="generator" content="Astro v5.16.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><link rel="stylesheet" href="/_astro/nuevo-post.em1xKnkt.css">
+<style>#toc-button[data-astro-cid-xvrfupwn]{animation:fadeInUp .5s ease-out}@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}html{scroll-behavior:smooth}
+</style>
+<link rel="stylesheet" href="/_astro/nuevo-post.BKJcTx8t.css"></head> <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans flex flex-col min-h-screen"> <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50"> <div class="container mx-auto px-4"> <nav class="flex items-center justify-between h-16"> <div class="flex items-center"> <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">Mi Sitio Web</a> </div> <!-- Menú para escritorio --> <div class="hidden md:flex items-center space-x-4"> <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">function l(){document.querySelectorAll(".theme-toggle").forEach(e=>{e.addEventListener("click",t=>{t.stopPropagation();const o=document.documentElement.classList.toggle("dark");localStorage.setItem("theme",o?"dark":"light")})})}document.addEventListener("astro:page-load",l);</script> </div> <!-- Botón de menú para móvil --> <div class="md:hidden flex items-center"> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  <button id="mobile-menu-button" class="ml-2 p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"> <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"> <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </nav> </div> <!-- Menú desplegable para móvil --> <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95"> <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> </div> </header> <script type="module">document.addEventListener("astro:page-load",()=>{const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu"),t=document.getElementById("menu-open-icon"),o=document.getElementById("menu-close-icon");e&&n&&e.addEventListener("click",()=>{n.classList.toggle("hidden"),t.classList.toggle("hidden"),o.classList.toggle("hidden")})});</script> <main class="container mx-auto px-4 py-8 flex-grow">  <article class="prose prose-lg dark:prose-invert mx-auto py-12 px-4"> <div class="text-center mb-8"> <div class="mb-4"> <span class="bg-gray-600 text-white text-sm font-bold px-3 py-1 rounded-full"> Limpiando el Admin </span> </div> <h1 class="text-4xl font-bold mb-4">Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada</h1> <time datetime="2025-11-26T00:00:00.000Z" class="text-gray-500 dark:text-gray-400">
+Publicado el 26 de noviembre de 2025 por ximo </time> </div> <img src="https://res.cloudinary.com/djjiagkho/image/upload/v1764116778/Limpiando_el_Admin_dvhjxg.jpg" alt="Imagen para Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada" class="w-full h-auto rounded-lg shadow-lg mb-8"> <h2 id="la-llamada-que-recibimos-cada-semana">La llamada que recibimos cada semana</h2>
+<p><strong>Cliente (pánico):</strong> “¡Ayuda! He tocado algo en WordPress y ahora la web no se ve bien. Creo que he borrado algo importante.”</p>
+<p><strong>Nosotros:</strong> “¿Qué has intentado hacer?”</p>
+<p><strong>Cliente:</strong> “Solo quería cambiar el texto de la página de inicio… pero había tantas opciones que no sabía cuál era. He tocado ‘Apariencia’ &gt; ‘Personalizar’ &gt; ‘CSS adicional’ y… no sé qué he hecho.”</p>
+<p><strong>Nosotros:</strong> (suspiro interno) “Tranquilo, lo arreglamos. Dame 10 minutos.”</p>
+<hr/>
+<p>Esta escena se repite constantemente. No es culpa del cliente. <strong>Es culpa nuestra por entregarles un panel de control de avión cuando solo necesitan un volante.</strong></p>
+<p>WordPress, por defecto, muestra absolutamente TODO a todos los usuarios. El resultado: clientes abrumados, llamadas de emergencia, y webs rotas.</p>
+<h2 id="el-problema-wordpress-admin-por-defecto">El problema: WordPress admin por defecto</h2>
+<h3 id="lo-que-ve-tu-cliente-cuando-entra-al-admin">Lo que ve tu cliente cuando entra al admin</h3>
+<p>Imagina que le das las llaves de un coche a alguien que solo necesita conducir al supermercado, pero el coche tiene:</p>
+<ul>
+<li>47 botones en el salpicadero</li>
+<li>12 palancas que no sabe para qué sirven</li>
+<li>3 volantes (por si acaso)</li>
+<li>Indicadores técnicos del motor</li>
+<li>Botón de autodestrucción (exagerando… o no)</li>
+</ul>
+<p>Eso es WordPress admin por defecto:</p>
+<p><strong>Menú lateral:</strong></p>
+<ul>
+<li>Dashboard</li>
+<li>Entradas</li>
+<li>Medios</li>
+<li>Páginas</li>
+<li>Comentarios</li>
+<li>Apariencia (¡peligro!)
+<ul>
+<li>Temas</li>
+<li>Personalizar</li>
+<li>Widgets</li>
+<li>Menús</li>
+<li>Editor de temas (¡PELIGRO MÁXIMO!)</li>
+</ul>
+</li>
+<li>Plugins (¡peligro!)</li>
+<li>Usuarios</li>
+<li>Herramientas</li>
+<li>Ajustes (¡peligro!)
+<ul>
+<li>Generales</li>
+<li>Escritura</li>
+<li>Lectura</li>
+<li>Comentarios</li>
+<li>Medios</li>
+<li>Enlaces permanentes (cambiar esto = desastre)</li>
+<li>Privacidad</li>
+</ul>
+</li>
+</ul>
+<p><strong>Barra superior:</strong></p>
+<ul>
+<li>Logo WordPress</li>
+<li>Nombre del sitio</li>
+<li>Comentarios</li>
+<li>Nuevo (entrada, media, página, usuario)</li>
+<li>Tu perfil</li>
+</ul>
+<p><strong>Dashboard widgets:</strong></p>
+<ul>
+<li>Actividad</li>
+<li>Borrador rápido</li>
+<li>Eventos y noticias de WordPress</li>
+<li>Salud del sitio (que alarma sin motivo)</li>
+</ul>
+<h3 id="lo-que-realmente-necesita-tu-cliente">Lo que realmente necesita tu cliente</h3>
+<p><strong>Para un cliente que gestiona un blog corporativo:</strong></p>
+<ul>
+<li>Añadir/editar entradas</li>
+<li>Subir imágenes</li>
+<li>Ver comentarios</li>
+</ul>
+<p><strong>Eso es todo. Tres cosas.</strong></p>
+<p>¿Por qué le mostramos 47?</p>
+<h2 id="la-solución-admin-limpio-y-seguro">La solución: Admin limpio y seguro</h2>
+<h3 id="principio-fundamental-lo-que-no-ven-no-pueden-romper">Principio fundamental: “Lo que no ven, no pueden romper”</h3>
+<p>No se trata de menospreciar a los clientes. Se trata de:</p>
+<ol>
+<li><strong>Reducir fricción:</strong> Menos opciones = menos confusión = más productividad</li>
+<li><strong>Prevenir errores:</strong> No pueden desactivar plugins críticos si no ven la sección</li>
+<li><strong>Proteger tu trabajo:</strong> No pueden cambiar el CSS que te costó horas perfeccionar</li>
+<li><strong>Mejorar su experiencia:</strong> Se sienten competentes y seguros</li>
+</ol>
+<h2 id="caso-real-antes-y-después">Caso real: Antes y después</h2>
+<h3 id="cliente-bufete-de-abogados-4-personas-gestionando-contenido">Cliente: Bufete de abogados (4 personas gestionando contenido)</h3>
+<p><strong>Antes de personalizar admin:</strong></p>
+<p><strong>Problemas en 6 meses:</strong></p>
+<ul>
+<li>12 llamadas de “he roto algo”</li>
+<li>3 veces cambiaron los enlaces permanentes (404s masivos)</li>
+<li>2 veces desactivaron plugins esenciales</li>
+<li>1 vez cambiaron el tema (pánico total)</li>
+<li>5 veces modificaron CSS sin querer</li>
+<li>Infinitas frustraciones por “no encuentro dónde cambiar X”</li>
+</ul>
+<p><strong>Tiempo perdido:</strong> ~40 horas de soporte</p>
+<p><strong>Después de personalizar admin:</strong></p>
+<p>Lo que ven ahora:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>MENÚ LATERAL:</span></span>
+<span class="line"><span>├── Dashboard (simplificado)</span></span>
+<span class="line"><span>├── Artículos del Blog</span></span>
+<span class="line"><span>├── Miembros del Equipo</span></span>
+<span class="line"><span>├── Casos de Éxito</span></span>
+<span class="line"><span>├── Galería de Imágenes</span></span>
+<span class="line"><span>└── Mi Perfil</span></span></code></pre>
+<p><strong>Problemas en 12 meses posteriores:</strong></p>
+<ul>
+<li>1 llamada (pregunta legítima de funcionalidad)</li>
+<li>0 emergencias</li>
+<li>0 webs rotas</li>
+</ul>
+<p><strong>Tiempo ahorrado:</strong> ~38 horas/año × €80/hora = <strong>€3,040/año ahorrados</strong></p>
+<h2 id="las-técnicas-de-personalización-del-admin">Las técnicas de personalización del admin</h2>
+<h3 id="1-ocultar-elementos-del-menú-según-rol">1. Ocultar elementos del menú según rol</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6A737D">// functions.php o mu-plugin</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> limpiar_menu_admin</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Solo para editores y autores (no administradores)</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#B392F0">current_user_can</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;manage_options&#39;</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#6A737D">        // Ocultar elementos peligrosos</span></span>
+<span class="line"><span style="color:#B392F0">        remove_menu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;themes.php&#39;</span><span style="color:#E1E4E8">);              </span><span style="color:#6A737D">// Apariencia</span></span>
+<span class="line"><span style="color:#B392F0">        remove_menu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;plugins.php&#39;</span><span style="color:#E1E4E8">);             </span><span style="color:#6A737D">// Plugins</span></span>
+<span class="line"><span style="color:#B392F0">        remove_menu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;tools.php&#39;</span><span style="color:#E1E4E8">);               </span><span style="color:#6A737D">// Herramientas</span></span>
+<span class="line"><span style="color:#B392F0">        remove_menu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;options-general.php&#39;</span><span style="color:#E1E4E8">);     </span><span style="color:#6A737D">// Ajustes</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#6A737D">        // Ocultar submenús específicos de Apariencia (si decides dejarlo visible)</span></span>
+<span class="line"><span style="color:#B392F0">        remove_submenu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;themes.php&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;themes.php&#39;</span><span style="color:#E1E4E8">);        </span><span style="color:#6A737D">// Temas</span></span>
+<span class="line"><span style="color:#B392F0">        remove_submenu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;themes.php&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;theme-editor.php&#39;</span><span style="color:#E1E4E8">);  </span><span style="color:#6A737D">// Editor de temas (MUY peligroso)</span></span>
+<span class="line"><span style="color:#B392F0">        remove_submenu_page</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;themes.php&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;customize.php&#39;</span><span style="color:#E1E4E8">);     </span><span style="color:#6A737D">// Personalizador</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_menu&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;limpiar_menu_admin&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">999</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p><strong>Resultado:</strong> El cliente ve solo Entradas, Páginas, Medios, Comentarios. Nada más.</p>
+<h3 id="2-renombrar-elementos-del-menú-más-claro">2. Renombrar elementos del menú (más claro)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> renombrar_menu_items</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    global</span><span style="color:#E1E4E8"> $menu, $submenu;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Cambiar &quot;Entradas&quot; por &quot;Artículos del Blog&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    $menu[</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">][</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#39;Artículos del Blog&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Cambiar &quot;Medios&quot; por &quot;Imágenes y Archivos&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    $menu[</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">][</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#39;Imágenes y Archivos&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Si tienes Custom Post Types, hazlos más descriptivos</span></span>
+<span class="line"><span style="color:#6A737D">    // &quot;portfolio&quot; → &quot;Proyectos Realizados&quot;</span></span>
+<span class="line"><span style="color:#6A737D">    // &quot;team&quot; → &quot;Nuestro Equipo&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_menu&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;renombrar_menu_items&#39;</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p><strong>Resultado:</strong> Lenguaje que el cliente entiende, no jerga técnica.</p>
+<h3 id="3-simplificar-el-dashboard">3. Simplificar el dashboard</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> limpiar_dashboard_widgets</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Remover widgets innecesarios</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_primary&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;side&#39;</span><span style="color:#E1E4E8">);          </span><span style="color:#6A737D">// Blog WordPress</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_secondary&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;side&#39;</span><span style="color:#E1E4E8">);        </span><span style="color:#6A737D">// Noticias WordPress</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_quick_press&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;side&#39;</span><span style="color:#E1E4E8">);      </span><span style="color:#6A737D">// Borrador rápido</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_recent_drafts&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;side&#39;</span><span style="color:#E1E4E8">);    </span><span style="color:#6A737D">// Borradores recientes</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_activity&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);       </span><span style="color:#6A737D">// Actividad</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_right_now&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);      </span><span style="color:#6A737D">// De un vistazo</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;dashboard_site_health&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;dashboard&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);    </span><span style="color:#6A737D">// Salud del sitio</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp_dashboard_setup&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;limpiar_dashboard_widgets&#39;</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="4-añadir-widget-personalizado-de-bienvenida">4. Añadir widget personalizado de bienvenida</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> widget_bienvenida_personalizado</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#B392F0">    wp_add_dashboard_widget</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">        &#39;bienvenida_cliente&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        &#39;Bienvenido a tu Panel de Gestión&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        &#39;contenido_widget_bienvenida&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp_dashboard_setup&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;widget_bienvenida_personalizado&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> contenido_widget_bienvenida</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    $user </span><span style="color:#F97583">=</span><span style="color:#B392F0"> wp_get_current_user</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    ?&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;</span><span style="color:#79B8FF">div</span><span style="color:#79B8FF"> style</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;padding: 20px;&quot;</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">h2</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Hola</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">&lt;?</span><span style="color:#79B8FF">php</span><span style="color:#79B8FF"> echo</span><span style="color:#E1E4E8"> $user</span><span style="color:#F97583">-&gt;</span><span style="color:#E1E4E8">first_name; </span><span style="color:#F97583">?&gt;!&lt;/</span><span style="color:#79B8FF">h2</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Accesos</span><span style="color:#79B8FF"> rápidos</span><span style="color:#F97583">:&lt;/</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">ul</span><span style="color:#79B8FF"> style</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;font-size: 16px; line-height: 2;&quot;</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📝</span><span style="color:#F97583"> &lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;&lt;?php echo admin_url(&#39;post-new.php&#39;); ?&gt;&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Escribir</span><span style="color:#79B8FF"> nuevo</span><span style="color:#79B8FF"> artículo</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📄</span><span style="color:#F97583"> &lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;&lt;?php echo admin_url(&#39;edit.php&#39;); ?&gt;&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Ver</span><span style="color:#79B8FF"> todos</span><span style="color:#79B8FF"> los</span><span style="color:#79B8FF"> artículos</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">🖼️</span><span style="color:#F97583"> &lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;&lt;?php echo admin_url(&#39;upload.php&#39;); ?&gt;&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Subir</span><span style="color:#79B8FF"> imágenes</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;/</span><span style="color:#79B8FF">ul</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">¿Necesitas</span><span style="color:#79B8FF"> ayuda</span><span style="color:#F97583">?&lt;/</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">p</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📞</span><span style="color:#79B8FF"> Llámanos</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> 900</span><span style="color:#79B8FF"> 123</span><span style="color:#79B8FF"> 456</span><span style="color:#F97583">&lt;</span><span style="color:#79B8FF">br</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#79B8FF">        📧</span><span style="color:#79B8FF"> Email</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> soporte</span><span style="color:#F97583">@</span><span style="color:#79B8FF">tuagencia</span><span style="color:#F97583">.</span><span style="color:#79B8FF">com</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">p</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">Tutoriales</span><span style="color:#F97583">:&lt;/</span><span style="color:#79B8FF">h3</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;</span><span style="color:#79B8FF">ul</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;&lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;URL_TUTORIAL_1&quot;</span><span style="color:#79B8FF"> target</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;_blank&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📹</span><span style="color:#79B8FF"> Cómo</span><span style="color:#79B8FF"> añadir</span><span style="color:#79B8FF"> un</span><span style="color:#79B8FF"> artículo</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;&lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;URL_TUTORIAL_2&quot;</span><span style="color:#79B8FF"> target</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;_blank&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📹</span><span style="color:#79B8FF"> Cómo</span><span style="color:#79B8FF"> subir</span><span style="color:#79B8FF"> imágenes</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">            &lt;</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;&lt;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;URL_MANUAL_PDF&quot;</span><span style="color:#79B8FF"> target</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;_blank&quot;</span><span style="color:#F97583">&gt;</span><span style="color:#79B8FF">📄</span><span style="color:#79B8FF"> Manual</span><span style="color:#B392F0"> completo</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">PDF</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">&gt;&lt;/</span><span style="color:#79B8FF">li</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">        &lt;/</span><span style="color:#79B8FF">ul</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;/</span><span style="color:#79B8FF">div</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><strong>Resultado:</strong> Dashboard útil con información relevante, no ruido.</p>
+<h3 id="5-ocultar-elementos-de-la-barra-superior">5. Ocultar elementos de la barra superior</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> limpiar_admin_bar</span><span style="color:#E1E4E8">($wp_admin_bar) {</span></span>
+<span class="line"><span style="color:#6A737D">    // Ocultar logo WordPress y menú asociado</span></span>
+<span class="line"><span style="color:#E1E4E8">    $wp_admin_bar</span><span style="color:#F97583">-&gt;</span><span style="color:#B392F0">remove_node</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp-logo&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Ocultar comentarios (si no se usan)</span></span>
+<span class="line"><span style="color:#E1E4E8">    $wp_admin_bar</span><span style="color:#F97583">-&gt;</span><span style="color:#B392F0">remove_node</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;comments&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Ocultar &quot;Nuevo&quot; (evita crear usuarios, etc.)</span></span>
+<span class="line"><span style="color:#E1E4E8">    $wp_admin_bar</span><span style="color:#F97583">-&gt;</span><span style="color:#B392F0">remove_node</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;new-content&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Ocultar &quot;Personalizar&quot; (peligroso)</span></span>
+<span class="line"><span style="color:#E1E4E8">    $wp_admin_bar</span><span style="color:#F97583">-&gt;</span><span style="color:#B392F0">remove_node</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;customize&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Ocultar actualizaciones (que alarman al cliente)</span></span>
+<span class="line"><span style="color:#E1E4E8">    $wp_admin_bar</span><span style="color:#F97583">-&gt;</span><span style="color:#B392F0">remove_node</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;updates&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_bar_menu&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;limpiar_admin_bar&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">999</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="6-simplificar-el-editor-de-entradaspáginas">6. Simplificar el editor de entradas/páginas</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> limpiar_editor_pantalla</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Remover metaboxes innecesarias o confusas</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;postcustom&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;post&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);        </span><span style="color:#6A737D">// Campos personalizados (avanzado)</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;trackbacksdiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;post&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);     </span><span style="color:#6A737D">// Trackbacks</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;commentstatusdiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;post&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);  </span><span style="color:#6A737D">// Comentarios (si no los usas)</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;slugdiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;post&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);           </span><span style="color:#6A737D">// Slug (confuso para clientes)</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;authordiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;post&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);         </span><span style="color:#6A737D">// Autor (si solo hay uno)</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Lo mismo para páginas</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;postcustom&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;page&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;commentstatusdiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;page&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    remove_meta_box</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;slugdiv&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;page&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;normal&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_menu&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;limpiar_editor_pantalla&#39;</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="7-deshabilitar-editor-de-temas-y-plugins">7. Deshabilitar editor de temas y plugins</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6A737D">// wp-config.php (nivel más seguro, no se puede deshacer desde admin)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Deshabilitar editor de archivos (temas y plugins)</span></span>
+<span class="line"><span style="color:#79B8FF">define</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;DISALLOW_FILE_EDIT&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Opcional: Deshabilitar instalación/actualización de plugins y temas</span></span>
+<span class="line"><span style="color:#79B8FF">define</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;DISALLOW_FILE_MODS&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p><strong>Resultado crítico:</strong> Cliente no puede:</p>
+<ul>
+<li>Editar theme.php y romper toda la web</li>
+<li>Modificar código de plugins</li>
+<li>Instalar plugins/themes sospechosos</li>
+</ul>
+<h3 id="8-personalizar-mensajes-del-footer">8. Personalizar mensajes del footer</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> footer_admin_personalizado</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#79B8FF">    echo</span><span style="color:#9ECBFF"> &#39;&lt;span id=&quot;footer-thankyou&quot;&gt;Panel gestionado por &lt;a href=&quot;https://tuagencia.com&quot; target=&quot;_blank&quot;&gt;Tu Agencia&lt;/a&gt; | ¿Necesitas ayuda? &lt;a href=&quot;mailto:soporte@tuagencia.com&quot;&gt;Contáctanos&lt;/a&gt;&lt;/span&gt;&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_filter</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_footer_text&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;footer_admin_personalizado&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> version_admin_personalizada</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#9ECBFF"> &#39;Versión 2.1 | &lt;a href=&quot;URL_MANUAL&quot;&gt;Manual de usuario&lt;/a&gt;&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_filter</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;update_footer&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;version_admin_personalizada&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">999</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p><strong>Resultado:</strong> Branding de agencia + recordatorio de que estás disponible.</p>
+<h3 id="9-ocultar-notificaciones-y-avisos-innecesarios">9. Ocultar notificaciones y avisos innecesarios</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> ocultar_notificaciones_admin</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Solo para no-administradores</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#B392F0">current_user_can</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;manage_options&#39;</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line"><span style="color:#6A737D">        // Ocultar avisos de actualización (alarman sin motivo)</span></span>
+<span class="line"><span style="color:#B392F0">        remove_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_notices&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;update_nag&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">        </span></span>
+<span class="line"><span style="color:#6A737D">        // Ocultar avisos de plugins (tú te encargas)</span></span>
+<span class="line"><span style="color:#B392F0">        remove_all_actions</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_notices&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">        remove_all_actions</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;network_admin_notices&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">        remove_all_actions</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;all_admin_notices&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_head&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;ocultar_notificaciones_admin&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="10-forzar-editor-clásico-gutenberg-puede-ser-confuso">10. Forzar editor clásico (Gutenberg puede ser confuso)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6A737D">// Si Gutenberg es demasiado para tu cliente, vuelve al clásico</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> deshabilitar_gutenberg</span><span style="color:#E1E4E8">($use_block_editor, $post_type) {</span></span>
+<span class="line"><span style="color:#6A737D">    // Deshabilitar para todos los tipos de contenido</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // O solo para algunos:</span></span>
+<span class="line"><span style="color:#6A737D">    // if ($post_type === &#39;page&#39;) return false;</span></span>
+<span class="line"><span style="color:#6A737D">    // return $use_block_editor;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_filter</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;use_block_editor_for_post_type&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;deshabilitar_gutenberg&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Remover CSS de Gutenberg del frontend</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> remover_gutenberg_css</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#B392F0">    wp_dequeue_style</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp-block-library&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    wp_dequeue_style</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp-block-library-theme&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;wp_enqueue_scripts&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;remover_gutenberg_css&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p><strong>Nota:</strong> Solo si tu cliente se siente más cómodo con el editor clásico. Gutenberg puede ser mejor si se simplifica correctamente.</p>
+<h2 id="configuración-por-roles-diferentes-clientes-diferentes-necesidades">Configuración por roles: Diferentes clientes, diferentes necesidades</h2>
+<h3 id="estrategia-de-roles">Estrategia de roles</h3>
+<p><strong>Administrador (tú o tu equipo):</strong></p>
+<ul>
+<li>Ve TODO</li>
+<li>Puede hacer TODO</li>
+</ul>
+<p><strong>Editor (cliente principal):</strong></p>
+<ul>
+<li>Gestiona todo el contenido</li>
+<li>NO puede cambiar apariencia, plugins, ajustes</li>
+</ul>
+<p><strong>Autor (colaboradores del cliente):</strong></p>
+<ul>
+<li>Crea y edita solo SUS propias entradas</li>
+<li>NO puede publicar sin revisión (si decides workflow con aprobación)</li>
+</ul>
+<p><strong>Colaborador (prácticas, becarios):</strong></p>
+<ul>
+<li>Crea borradores</li>
+<li>NO puede publicar</li>
+<li>NO puede subir medios</li>
+</ul>
+<h3 id="plugin-recomendado-para-gestión-de-roles-avanzada">Plugin recomendado para gestión de roles avanzada</h3>
+<p><strong>User Role Editor</strong> (gratuito)</p>
+<p>Permite control granular:</p>
+<ul>
+<li>Activar/desactivar capacidades específicas por rol</li>
+<li>Crear roles personalizados (“Gestor de Productos”, “Gestor de Blog”)</li>
+<li>Clonar roles existentes y modificar</li>
+</ul>
+<p><strong>Ejemplo de uso:</strong></p>
+<p>Crear rol “Gestor de Productos” que:</p>
+<ul>
+<li>✅ Puede gestionar CPT “Productos”</li>
+<li>✅ Puede subir imágenes</li>
+<li>❌ NO puede tocar entradas del blog</li>
+<li>❌ NO puede gestionar usuarios</li>
+<li>❌ NO ve nada de Apariencia ni Plugins</li>
+</ul>
+<h2 id="admin-personalizado-plantillas-listas-por-tipo-de-cliente">Admin personalizado: Plantillas listas por tipo de cliente</h2>
+<h3 id="plantilla-1-blog-corporativo-simple">Plantilla 1: Blog corporativo simple</h3>
+<p><strong>Cliente necesita:</strong></p>
+<ul>
+<li>Escribir artículos</li>
+<li>Subir imágenes</li>
+<li>Nada más</li>
+</ul>
+<p><strong>Configuración:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Menú visible:</span></span>
+<span class="line"><span>├── Dashboard (widget bienvenida personalizado)</span></span>
+<span class="line"><span>├── Artículos</span></span>
+<span class="line"><span>│   ├── Todos los artículos</span></span>
+<span class="line"><span>│   ├── Añadir nuevo</span></span>
+<span class="line"><span>│   └── Categorías</span></span>
+<span class="line"><span>├── Imágenes</span></span>
+<span class="line"><span>└── Mi perfil</span></span></code></pre>
+<p><strong>Oculto:</strong> Todo lo demás</p>
+<p><strong>Tiempo configuración:</strong> 30 minutos</p>
+<h3 id="plantilla-2-e-commerce-woocommerce">Plantilla 2: E-commerce (WooCommerce)</h3>
+<p><strong>Cliente necesita:</strong></p>
+<ul>
+<li>Gestionar productos</li>
+<li>Ver pedidos</li>
+<li>Gestionar cupones</li>
+<li>Ver estadísticas básicas</li>
+</ul>
+<p><strong>Configuración:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Menú visible:</span></span>
+<span class="line"><span>├── Dashboard (widget pedidos recientes)</span></span>
+<span class="line"><span>├── Productos</span></span>
+<span class="line"><span>│   ├── Todos los productos</span></span>
+<span class="line"><span>│   ├── Añadir producto</span></span>
+<span class="line"><span>│   ├── Categorías</span></span>
+<span class="line"><span>│   └── Etiquetas</span></span>
+<span class="line"><span>├── Pedidos</span></span>
+<span class="line"><span>├── Cupones</span></span>
+<span class="line"><span>├── Informes (solo ventas básicas)</span></span>
+<span class="line"><span>└── Mi perfil</span></span></code></pre>
+<p><strong>Oculto:</strong></p>
+<ul>
+<li>Ajustes de WooCommerce (peligrosos)</li>
+<li>Extensiones</li>
+<li>Estado del sistema (técnico)</li>
+<li>Todo lo de WordPress core que no necesitan</li>
+</ul>
+<p><strong>Tiempo configuración:</strong> 1 hora</p>
+<h3 id="plantilla-3-directoriocatálogo-con-cpt">Plantilla 3: Directorio/Catálogo con CPT</h3>
+<p><strong>Cliente necesita:</strong></p>
+<ul>
+<li>Gestionar empresas/productos/servicios (CPT)</li>
+<li>Gestionar categorías</li>
+<li>Ver estadísticas de uso</li>
+</ul>
+<p><strong>Configuración:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Menú visible:</span></span>
+<span class="line"><span>├── Dashboard (stats personalizadas)</span></span>
+<span class="line"><span>├── Empresas del Directorio</span></span>
+<span class="line"><span>│   ├── Todas las empresas</span></span>
+<span class="line"><span>│   ├── Añadir nueva</span></span>
+<span class="line"><span>│   ├── Categorías</span></span>
+<span class="line"><span>│   └── Ubicaciones</span></span>
+<span class="line"><span>├── Solicitudes Pendientes (aprobar/rechazar)</span></span>
+<span class="line"><span>├── Imágenes y Documentos</span></span>
+<span class="line"><span>└── Mi perfil</span></span></code></pre>
+<p><strong>Funcionalidad especial:</strong></p>
+<ul>
+<li>Workflow de aprobación</li>
+<li>Estadísticas de visitas por empresa</li>
+<li>Exportación a CSV</li>
+</ul>
+<p><strong>Tiempo configuración:</strong> 2 horas</p>
+<h3 id="plantilla-4-sitio-multiautor-revista-blog-colectivo">Plantilla 4: Sitio multiautor (revista, blog colectivo)</h3>
+<p><strong>Cliente necesita:</strong></p>
+<ul>
+<li>Múltiples autores</li>
+<li>Editor jefe aprueba contenido</li>
+<li>Secciones diferenciadas</li>
+</ul>
+<p><strong>Configuración:</strong></p>
+<p><strong>Roles personalizados:</strong></p>
+<p><strong>Editor Jefe:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>├── Dashboard (métricas de contenido)</span></span>
+<span class="line"><span>├── Todos los Artículos (de todos los autores)</span></span>
+<span class="line"><span>├── Artículos Pendientes Revisión</span></span>
+<span class="line"><span>├── Gestionar Autores</span></span>
+<span class="line"><span>├── Categorías y Etiquetas</span></span>
+<span class="line"><span>└── Estadísticas</span></span></code></pre>
+<p><strong>Autor:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>├── Dashboard (solo sus métricas)</span></span>
+<span class="line"><span>├── Mis Artículos</span></span>
+<span class="line"><span>├── Escribir Nuevo Artículo</span></span>
+<span class="line"><span>└── Mi Perfil</span></span></code></pre>
+<p><strong>Colaborador:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>├── Dashboard</span></span>
+<span class="line"><span>├── Mis Borradores</span></span>
+<span class="line"><span>├── Enviar Borrador a Revisión</span></span>
+<span class="line"><span>└── Mi Perfil</span></span></code></pre>
+<p><strong>Tiempo configuración:</strong> 2.5 horas</p>
+<h2 id="el-flujo-de-onboarding-perfecto">El flujo de onboarding perfecto</h2>
+<h3 id="1-entrega-inicial-antes-de-dar-acceso">1. Entrega inicial (antes de dar acceso)</h3>
+<p><strong>Documento preparado:</strong></p>
+<ul>
+<li>Capturas de pantalla del admin limpio</li>
+<li>Explicación de cada sección visible</li>
+<li>Lo que pueden hacer / no pueden hacer</li>
+<li>Datos de acceso</li>
+</ul>
+<p><strong>Sesión de training (30-45 min):</strong></p>
+<ul>
+<li>Tour guiado del admin personalizado</li>
+<li>Práctica supervisada de tareas comunes</li>
+<li>Resolución de dudas</li>
+<li>Grabación de la sesión para referencia</li>
+</ul>
+<h3 id="2-primeros-días-soporte-activo">2. Primeros días (soporte activo)</h3>
+<p><strong>Check-in a las 48 horas:</strong>
+“¿Has podido hacer lo que necesitabas? ¿Algo te resulta confuso?”</p>
+<p><strong>Ajustes basados en feedback:</strong>
+Si dice “no encuentro cómo cambiar X”, añades acceso rápido a X.</p>
+<h3 id="3-material-de-referencia">3. Material de referencia</h3>
+<p><strong>Manual PDF personalizado:</strong></p>
+<ul>
+<li>Capturas de SU admin (no genéricas)</li>
+<li>Paso a paso de tareas comunes</li>
+<li>FAQs específicas</li>
+<li>Datos de contacto destacados</li>
+</ul>
+<p><strong>Vídeos cortos (2-3 min c/u):</strong></p>
+<ul>
+<li>“Cómo añadir un artículo”</li>
+<li>“Cómo subir imágenes correctamente”</li>
+<li>“Cómo editar una página existente”</li>
+</ul>
+<p><strong>Página de ayuda interna:</strong>
+Widget en dashboard con enlaces a estos recursos.</p>
+<h2 id="los-errores-comunes-al-personalizar-admin">Los errores comunes al personalizar admin</h2>
+<h3 id="-error-1-ocultar-demasiado">❌ Error 1: Ocultar demasiado</h3>
+<p><strong>Problema:</strong> Cliente no puede hacer tareas legítimas sin llamarte.</p>
+<p><strong>Ejemplo real:</strong> Ocultamos “Medios” pensando que subirían imágenes desde el editor. No sabían cómo gestionar imágenes ya subidas.</p>
+<p><strong>Solución:</strong> Deja acceso pero simplifica. Medios es necesario.</p>
+<h3 id="-error-2-no-comunicar-los-cambios">❌ Error 2: No comunicar los cambios</h3>
+<p><strong>Problema:</strong> Cliente se asusta al ver un admin “diferente”.</p>
+<p><strong>Ejemplo real:</strong> Cliente comparó con tutoriales de YouTube y llamó diciendo “mi WordPress está roto, falta todo”.</p>
+<p><strong>Solución:</strong> Explicación previa: “Hemos personalizado tu panel para que sea más simple y seguro. Solo ves lo que necesitas.”</p>
+<h3 id="-error-3-usar-lenguaje-técnico-en-renombrados">❌ Error 3: Usar lenguaje técnico en renombrados</h3>
+<p><strong>Problema:</strong> Cambias “Posts” por “CPT Noticias” en lugar de “Noticias”.</p>
+<p><strong>Mantén lenguaje humano:</strong> “Artículos del Blog”, “Imágenes”, “Nuestro Equipo”.</p>
+<h3 id="-error-4-no-dar-vía-de-escape">❌ Error 4: No dar vía de escape</h3>
+<p><strong>Problema:</strong> Algo urgente necesita cambiar y el cliente te necesita (estás de vacaciones).</p>
+<p><strong>Solución:</strong> Deja un “Usuario Administrador de Emergencia” con todos los permisos, credenciales en sobre sellado que solo abre si hay emergencia real. Instrúyeles: “Solo en caso de que no podamos atender y sea urgente de verdad”.</p>
+<h3 id="-error-5-personalizar-demasiado-pronto">❌ Error 5: Personalizar demasiado pronto</h3>
+<p><strong>Problema:</strong> Personalizas el admin antes de entender flujo real del cliente.</p>
+<p><strong>Solución:</strong> Deja 2 semanas con admin estándar (supervisado), observa qué usan y qué no. LUEGO personaliza basado en uso real.</p>
+<h2 id="plugins-que-ayudan-con-precaución">Plugins que ayudan (con precaución)</h2>
+<h3 id="white-label-cms-gratuito">White Label CMS (gratuito)</h3>
+<ul>
+<li>Cambiar logo de login</li>
+<li>Personalizar admin completamente</li>
+<li>Ocultar elementos</li>
+<li>Branding de agencia</li>
+</ul>
+<p><strong>Cuándo usarlo:</strong> Clientes que valoran ver su marca, no la de WordPress.</p>
+<h3 id="admin-menu-editor-gratuito">Admin Menu Editor (gratuito)</h3>
+<ul>
+<li>Reordenar menú</li>
+<li>Ocultar elementos</li>
+<li>Renombrar fácilmente</li>
+<li>Añadir separadores</li>
+</ul>
+<p><strong>Cuándo usarlo:</strong> Si no te sientes cómodo editando PHP directamente.</p>
+<h3 id="adminimize-gratuito">Adminimize (gratuito)</h3>
+<ul>
+<li>Control granular de visibilidad</li>
+<li>Por rol</li>
+<li>Por capacidad</li>
+<li>Muy potente</li>
+</ul>
+<p><strong>Cuándo usarlo:</strong> Casos complejos con muchos roles diferentes.</p>
+<h3 id="️-advertencia-sobre-plugins-de-personalización">⚠️ Advertencia sobre plugins de personalización</h3>
+<p><strong>Problema:</strong> Añades dependencia de plugin. Si se descontinúa o tiene bug, pierdes configuración.</p>
+<p><strong>Recomendación:</strong> Código personalizado en mu-plugin (must-use) es más sólido a largo plazo.</p>
+<h2 id="el-código-en-producción-cómo-implementarlo">El código en producción: Cómo implementarlo</h2>
+<h3 id="opción-1-must-use-plugin-recomendado">Opción 1: Must-Use Plugin (recomendado)</h3>
+<p><strong>Crear archivo:</strong>
+<code>/wp-content/mu-plugins/admin-personalizado.php</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">&lt;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"><span style="color:#6A737D">/*</span></span>
+<span class="line"><span style="color:#6A737D">Plugin Name: Admin Personalizado - [Nombre Cliente]</span></span>
+<span class="line"><span style="color:#6A737D">Description: Personalización del admin para simplificar gestión</span></span>
+<span class="line"><span style="color:#6A737D">Version: 1.0</span></span>
+<span class="line"><span style="color:#6A737D">Author: Tu Agencia</span></span>
+<span class="line"><span style="color:#6A737D">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Incluye aquí todas las funciones de personalización</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> limpiar_menu_admin</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Código aquí...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">add_action</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;admin_menu&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;limpiar_menu_admin&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">999</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// ... resto de funciones</span></span></code></pre>
+<p><strong>Ventajas:</strong></p>
+<ul>
+<li>Se carga automáticamente</li>
+<li>NO puede desactivarse desde admin</li>
+<li>Perfecto para configuración crítica</li>
+</ul>
+<h3 id="opción-2-plugin-personalizado-regular">Opción 2: Plugin personalizado regular</h3>
+<p><strong>Solo si:</strong> Cliente podría necesitar desactivarlo temporalmente para troubleshooting.</p>
+<h3 id="opción-3-functionsphp-del-child-theme">Opción 3: Functions.php del child theme</h3>
+<p><strong>NO recomendado para esto:</strong> Si cambias de theme, pierdes toda la personalización.</p>
+<h2 id="el-coste-vs-beneficio-real">El coste vs beneficio real</h2>
+<h3 id="inversión-inicial">Inversión inicial</h3>
+<p><strong>Tiempo desarrollo (por proyecto):</strong></p>
+<ul>
+<li>Admin simple (blog): 1-2 horas</li>
+<li>Admin medio (e-commerce): 3-4 horas</li>
+<li>Admin complejo (múltiples roles): 6-8 horas</li>
+</ul>
+<p><strong>Coste desarrollo:</strong></p>
+<ul>
+<li>Simple: €80-160</li>
+<li>Medio: €240-320</li>
+<li>Complejo: €480-640</li>
+</ul>
+<h3 id="retorno-de-inversión">Retorno de inversión</h3>
+<p><strong>Escenario conservador:</strong></p>
+<p>Cliente llama 1 vez/mes por “he roto algo” = 30 min/llamada</p>
+<ul>
+<li>12 llamadas/año × 0.5h = 6 horas/año</li>
+<li>A €80/hora = €480/año</li>
+<li>Inversión se recupera en: ~1 año (admin medio)</li>
+</ul>
+<p><strong>Escenario realista (sin admin personalizado):</strong></p>
+<p>Cliente con problemas frecuentes:</p>
+<ul>
+<li>2-3 llamadas/mes × 0.5h = 12-18 horas/año</li>
+<li>A €80/hora = €960-1,440/año</li>
+<li><strong>ROI:</strong> Recuperas inversión en 2-4 meses</li>
+</ul>
+<p><strong>Beneficio intangible:</strong></p>
+<ul>
+<li>Cliente feliz y confiado</li>
+<li>Menos estrés en tu equipo</li>
+<li>Mejor reputación (cliente recomienda)</li>
+<li>Menos interrupciones = más productividad</li>
+</ul>
+<h2 id="checklist-de-entrega-admin-listo-para-cliente">Checklist de entrega: Admin listo para cliente</h2>
+<p>Antes de dar acceso, verifica:</p>
+<p><strong>Funcional:</strong>
+☐ Cliente puede hacer todas las tareas necesarias
+☐ Cliente NO puede acceder a áreas peligrosas
+☐ Widget de bienvenida personalizado visible
+☐ Enlaces de ayuda funcionan
+☐ Branding de agencia en footer
+☐ Notificaciones innecesarias ocultas
+☐ Editor configurado (Gutenberg o Clásico según caso)</p>
+<p><strong>Seguridad:</strong>
+☐ Editor de archivos deshabilitado
+☐ Roles configurados correctamente
+☐ Usuario admin de emergencia creado (credenciales seguras)
+☐ Permisos de archivos correctos</p>
+<p><strong>Documentación:</strong>
+☐ Manual PDF personalizado entregado
+☐ Vídeos tutoriales grabados (si aplica)
+☐ Credenciales de acceso enviadas de forma segura
+☐ Sesión de training agendada</p>
+<p><strong>Soporte:</strong>
+☐ Cliente sabe cómo contactarte
+☐ Horario de soporte comunicado
+☐ Expectativas claras de tiempos de respuesta</p>
+<h2 id="conclusión-admin-personalizado--clientes-felices">Conclusión: Admin personalizado = Clientes felices</h2>
+<p>Personalizar el admin de WordPress no es “un extra bonito”. Es parte fundamental de entregar un proyecto profesional.</p>
+<p><strong>La diferencia entre:</strong></p>
+<p>❌ “Aquí tienes WordPress, aprende a usarlo” (lo que hacen muchos)</p>
+<p>✅ “Aquí tienes TU panel de gestión, diseñado para que hagas tu trabajo sin complicaciones” (lo que deberías hacer)</p>
+<p><strong>Esa diferencia se traduce en:</strong></p>
+<ul>
+<li>Menos llamadas de soporte</li>
+<li>Clientes más satisfechos</li>
+<li>Mejores testimonios</li>
+<li>Más recomendaciones</li>
+<li>Menos estrés para ti</li>
+</ul>
+<p><strong>Invierte 2-6 horas en personalizar el admin.</strong></p>
+<p><strong>Ahorra 10-20 horas al año en soporte reactivo.</strong></p>
+<p>Haz los cálculos.</p>
+<hr/>
+<h3 id="entregas-proyectos-wordpress-a-clientes">¿Entregas proyectos WordPress a clientes?</h3>
+<p>Te ofrecemos nuestro <strong>“Kit de Admin Personalizado”</strong> que incluye:</p>
+<p>✓ Código base listo para copiar/pegar (mu-plugin)
+✓ Plantillas para 5 tipos de proyectos comunes
+✓ Widget de bienvenida personalizable
+✓ Checklist de entrega en PDF
+✓ Templates de manual de usuario editable</p>
+<p><strong>Gratis. Solo regístrate.</strong></p>
+<p>Porque entregar un admin limpio debería ser el estándar, no la excepción.</p>
+<p><em>Un cliente que no puede romper tu web es un cliente feliz. Un cliente feliz es un cliente que vuelve.</em></p> </article>  <!-- Botón flotante para abrir TOC --><button id="toc-button" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group" aria-label="Tabla de contenidos" data-astro-cid-xvrfupwn> <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" data-astro-cid-xvrfupwn></path> </svg> <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center font-bold" data-astro-cid-xvrfupwn> 52 </span> </button> <!-- Modal TOC --> <div id="toc-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="toc-title" role="dialog" aria-modal="true" data-astro-cid-xvrfupwn> <!-- Backdrop --> <div id="toc-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" data-astro-cid-xvrfupwn></div> <!-- Panel del TOC --> <div class="fixed inset-y-0 right-0 flex max-w-full pl-10" data-astro-cid-xvrfupwn> <div id="toc-panel" class="w-screen max-w-md transform transition-transform duration-300 ease-out translate-x-full" data-astro-cid-xvrfupwn> <div class="flex h-full flex-col bg-white dark:bg-gray-900 shadow-2xl" data-astro-cid-xvrfupwn> <!-- Header --> <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <div class="flex items-center justify-between" data-astro-cid-xvrfupwn> <h2 id="toc-title" class="text-lg font-semibold text-gray-900 dark:text-white" data-astro-cid-xvrfupwn>
+Tabla de Contenidos
+</h2> <button id="toc-close" class="rounded-md p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Cerrar" data-astro-cid-xvrfupwn> <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-xvrfupwn></path> </svg> </button> </div> </div> <!-- Lista de contenidos --> <nav class="flex-1 overflow-y-auto px-6 py-4" data-astro-cid-xvrfupwn> <ul class="space-y-1" data-astro-cid-xvrfupwn> <li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-llamada-que-recibimos-cada-semana" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La llamada que recibimos cada semana </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-problema-wordpress-admin-por-defecto" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El problema: WordPress admin por defecto </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#lo-que-ve-tu-cliente-cuando-entra-al-admin" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Lo que ve tu cliente cuando entra al admin </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#lo-que-realmente-necesita-tu-cliente" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Lo que realmente necesita tu cliente </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-solución-admin-limpio-y-seguro" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La solución: Admin limpio y seguro </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#principio-fundamental-lo-que-no-ven-no-pueden-romper" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Principio fundamental: “Lo que no ven, no pueden romper” </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#caso-real-antes-y-después" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Caso real: Antes y después </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#cliente-bufete-de-abogados-4-personas-gestionando-contenido" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Cliente: Bufete de abogados (4 personas gestionando contenido) </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#las-técnicas-de-personalización-del-admin" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Las técnicas de personalización del admin </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#1-ocultar-elementos-del-menú-según-rol" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 1. Ocultar elementos del menú según rol </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#2-renombrar-elementos-del-menú-más-claro" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 2. Renombrar elementos del menú (más claro) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#3-simplificar-el-dashboard" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 3. Simplificar el dashboard </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#4-añadir-widget-personalizado-de-bienvenida" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 4. Añadir widget personalizado de bienvenida </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#5-ocultar-elementos-de-la-barra-superior" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 5. Ocultar elementos de la barra superior </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#6-simplificar-el-editor-de-entradaspáginas" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 6. Simplificar el editor de entradas/páginas </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#7-deshabilitar-editor-de-temas-y-plugins" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 7. Deshabilitar editor de temas y plugins </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#8-personalizar-mensajes-del-footer" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 8. Personalizar mensajes del footer </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#9-ocultar-notificaciones-y-avisos-innecesarios" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 9. Ocultar notificaciones y avisos innecesarios </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#10-forzar-editor-clásico-gutenberg-puede-ser-confuso" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 10. Forzar editor clásico (Gutenberg puede ser confuso) </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#configuración-por-roles-diferentes-clientes-diferentes-necesidades" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Configuración por roles: Diferentes clientes, diferentes necesidades </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#estrategia-de-roles" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Estrategia de roles </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#plugin-recomendado-para-gestión-de-roles-avanzada" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plugin recomendado para gestión de roles avanzada </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#admin-personalizado-plantillas-listas-por-tipo-de-cliente" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Admin personalizado: Plantillas listas por tipo de cliente </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#plantilla-1-blog-corporativo-simple" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plantilla 1: Blog corporativo simple </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#plantilla-2-e-commerce-woocommerce" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plantilla 2: E-commerce (WooCommerce) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#plantilla-3-directoriocatálogo-con-cpt" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plantilla 3: Directorio/Catálogo con CPT </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#plantilla-4-sitio-multiautor-revista-blog-colectivo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plantilla 4: Sitio multiautor (revista, blog colectivo) </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-flujo-de-onboarding-perfecto" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El flujo de onboarding perfecto </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#1-entrega-inicial-antes-de-dar-acceso" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 1. Entrega inicial (antes de dar acceso) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#2-primeros-días-soporte-activo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 2. Primeros días (soporte activo) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#3-material-de-referencia" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 3. Material de referencia </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#los-errores-comunes-al-personalizar-admin" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Los errores comunes al personalizar admin </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-error-1-ocultar-demasiado" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ Error 1: Ocultar demasiado </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-error-2-no-comunicar-los-cambios" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ Error 2: No comunicar los cambios </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-error-3-usar-lenguaje-técnico-en-renombrados" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ Error 3: Usar lenguaje técnico en renombrados </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-error-4-no-dar-vía-de-escape" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ Error 4: No dar vía de escape </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-error-5-personalizar-demasiado-pronto" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ Error 5: Personalizar demasiado pronto </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#plugins-que-ayudan-con-precaución" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Plugins que ayudan (con precaución) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#white-label-cms-gratuito" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> White Label CMS (gratuito) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#admin-menu-editor-gratuito" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Admin Menu Editor (gratuito) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#adminimize-gratuito" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Adminimize (gratuito) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#️-advertencia-sobre-plugins-de-personalización" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ⚠️ Advertencia sobre plugins de personalización </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-código-en-producción-cómo-implementarlo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El código en producción: Cómo implementarlo </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#opción-1-must-use-plugin-recomendado" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Opción 1: Must-Use Plugin (recomendado) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#opción-2-plugin-personalizado-regular" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Opción 2: Plugin personalizado regular </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#opción-3-functionsphp-del-child-theme" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Opción 3: Functions.php del child theme </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-coste-vs-beneficio-real" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El coste vs beneficio real </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#inversión-inicial" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Inversión inicial </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#retorno-de-inversión" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Retorno de inversión </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#checklist-de-entrega-admin-listo-para-cliente" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Checklist de entrega: Admin listo para cliente </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#conclusión-admin-personalizado--clientes-felices" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Conclusión: Admin personalizado = Clientes felices </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#entregas-proyectos-wordpress-a-clientes" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ¿Entregas proyectos WordPress a clientes? </span> </a> </li> </ul> </nav> <!-- Footer con info adicional --> <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <p class="text-xs text-gray-500 dark:text-gray-400 text-center" data-astro-cid-xvrfupwn> 52 secciones en este
+                        artículo
+</p> </div> </div> </div> </div> </div> <script type="module">function b(){const l=document.getElementById("toc-button"),o=document.getElementById("toc-modal"),d=document.getElementById("toc-panel"),r=document.getElementById("toc-backdrop"),a=document.getElementById("toc-close"),i=document.querySelectorAll("[data-toc-link]");if(!l||!o||!d||!r||!a)return;function u(){o.classList.remove("hidden"),setTimeout(()=>{d.classList.remove("translate-x-full")},10),document.body.style.overflow="hidden"}function n(){d.classList.add("translate-x-full"),setTimeout(()=>{o.classList.add("hidden"),document.body.style.overflow=""},300)}l.addEventListener("click",u),a.addEventListener("click",n),r.addEventListener("click",n),document.addEventListener("keydown",e=>{e.key==="Escape"&&!o.classList.contains("hidden")&&n()}),i.forEach(e=>{e.addEventListener("click",c=>{c.preventDefault();const s=e.getAttribute("href");if(s){const t=document.querySelector(s);t&&(n(),setTimeout(()=>{t.scrollIntoView({behavior:"smooth",block:"start"}),window.scrollBy(0,-80)},300))}})});const m=new IntersectionObserver(e=>{e.forEach(c=>{if(c.isIntersecting){const s=c.target.getAttribute("id");i.forEach(t=>{t.getAttribute("href")===`#${s}`?t.classList.add("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20"):t.classList.remove("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20")})}})},{rootMargin:"-80px 0px -80% 0px"});document.querySelectorAll("h2[id], h3[id], h4[id]").forEach(e=>{m.observe(e)})}document.addEventListener("astro:page-load",b);</script>  </main> <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto"> <div class="container mx-auto px-4 py-8"> <div class="flex flex-col md:flex-row justify-between items-center"> <div class="mb-4 md:mb-0"> <p class="text-sm text-gray-600 dark:text-gray-400">
+&copy; 2025 MiSitio. Todos los derechos reservados.
+</p> </div> <div class="flex space-x-6"> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">Twitter</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path> </svg> </a> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">GitHub</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> </div> </div> </div> </footer> <script>
+			// Este script se asegura de que no haya un "destello" del tema incorrecto.
+			const theme = (() => {
+				if (
+					typeof localStorage !== "undefined" &&
+					localStorage.getItem("theme")
+				) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return "light";
+			})();
+
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+			} else {
+				document.documentElement.classList.add("dark");
+			}
+			// Sincronizar en todas las pestañas
+			window.addEventListener("storage", () => {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			});
+		</script> </body> </html>

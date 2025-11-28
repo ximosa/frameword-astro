@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="es"> <head><!-- 2. Usar el componente SEO y quitar las etiquetas anteriores --><!-- Título y metadatos básicos --><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF) | Mi Sitio Web</title><meta name="description" content="Un sitio web moderno construido con Astro"><!-- Open Graph --><meta property="og:title" content="Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF) | Mi Sitio Web"><meta property="og:description" content="Un sitio web moderno construido con Astro"><meta property="og:type" content="website"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF) | Mi Sitio Web"><meta name="twitter:description" content="Un sitio web moderno construido con Astro"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate icon" type="image/x-icon" href="/favicon.ico"><meta name="generator" content="Astro v5.16.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><link rel="stylesheet" href="/_astro/nuevo-post.em1xKnkt.css">
+<style>#toc-button[data-astro-cid-xvrfupwn]{animation:fadeInUp .5s ease-out}@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}html{scroll-behavior:smooth}
+</style>
+<link rel="stylesheet" href="/_astro/nuevo-post.BKJcTx8t.css"></head> <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans flex flex-col min-h-screen"> <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50"> <div class="container mx-auto px-4"> <nav class="flex items-center justify-between h-16"> <div class="flex items-center"> <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">Mi Sitio Web</a> </div> <!-- Menú para escritorio --> <div class="hidden md:flex items-center space-x-4"> <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">function l(){document.querySelectorAll(".theme-toggle").forEach(e=>{e.addEventListener("click",t=>{t.stopPropagation();const o=document.documentElement.classList.toggle("dark");localStorage.setItem("theme",o?"dark":"light")})})}document.addEventListener("astro:page-load",l);</script> </div> <!-- Botón de menú para móvil --> <div class="md:hidden flex items-center"> <button class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out" aria-label="Cambiar tema"> <span class="sr-only">Cambiar tema</span> <svg class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <svg class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  <button id="mobile-menu-button" class="ml-2 p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"> <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"> <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </nav> </div> <!-- Menú desplegable para móvil --> <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95"> <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Inicio </a><a href="/servicios" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Servicios </a><a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Blog </a><a href="/contacto" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 "> Contacto </a> </div> </header> <script type="module">document.addEventListener("astro:page-load",()=>{const e=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu"),t=document.getElementById("menu-open-icon"),o=document.getElementById("menu-close-icon");e&&n&&e.addEventListener("click",()=>{n.classList.toggle("hidden"),t.classList.toggle("hidden"),o.classList.toggle("hidden")})});</script> <main class="container mx-auto px-4 py-8 flex-grow">  <article class="prose prose-lg dark:prose-invert mx-auto py-12 px-4"> <div class="text-center mb-8"> <div class="mb-4"> <span class="bg-gray-600 text-white text-sm font-bold px-3 py-1 rounded-full"> Custom Post Types </span> </div> <h1 class="text-4xl font-bold mb-4">Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF)</h1> <time datetime="2025-11-26T00:00:00.000Z" class="text-gray-500 dark:text-gray-400">
+Publicado el 26 de noviembre de 2025 por ximo </time> </div> <img src="https://res.cloudinary.com/djjiagkho/image/upload/v1764116468/Custom_Post_Types_wukfcg.png" alt="Imagen para Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF)" class="w-full h-auto rounded-lg shadow-lg mb-8"> <h2 id="el-problema-que-no-sabías-que-tenías">El problema que no sabías que tenías</h2>
+<p><strong>Cliente:</strong> “Tenemos 400 productos en nuestra web. Cada uno tiene especificaciones técnicas, certificaciones, archivos PDF de fichas técnicas, galerías de aplicaciones… pero todo está en el editor de WordPress como si fueran entradas de blog. Es un desastre gestionar esto.”</p>
+<p><strong>Nosotros:</strong> “Básicamente estás usando una herramienta de blogs para gestionar un catálogo industrial complejo.”</p>
+<p><strong>Cliente:</strong> “¿Hay otra forma?”</p>
+<p><strong>Nosotros:</strong> “Sí. Se llaman Custom Post Types y Advanced Custom Fields. Déjame mostrarte.”</p>
+<p>Tres meses después, su equipo gestiona el catálogo en 1/5 del tiempo, cero errores de formato, y pueden encontrar cualquier producto en segundos.</p>
+<p>Esta es la historia que se repite cuando las empresas intentan forzar WordPress a comportarse como algo que no es, sin saber que WordPress puede ser exactamente lo que necesitan… con la configuración correcta.</p>
+<h2 id="wordpress-por-defecto-diseñado-para-blogs-y-solo-blogs">WordPress por defecto: Diseñado para blogs (y solo blogs)</h2>
+<h3 id="lo-que-wordpress-incluye-de-fábrica">Lo que WordPress incluye de fábrica:</h3>
+<p><strong>Entradas (Posts):</strong></p>
+<ul>
+<li>Diseñadas para contenido cronológico</li>
+<li>Organizadas por categorías y etiquetas</li>
+<li>Ordenadas por fecha de publicación</li>
+<li>Perfectas para: Noticias, artículos, blogs</li>
+</ul>
+<p><strong>Páginas (Pages):</strong></p>
+<ul>
+<li>Diseñadas para contenido estático</li>
+<li>Jerárquicas (páginas padre/hijo)</li>
+<li>Sin fecha, sin categorías</li>
+<li>Perfectas para: Sobre nosotros, Contacto, Servicios</li>
+</ul>
+<p><strong>Medios (Media):</strong></p>
+<ul>
+<li>Biblioteca de archivos</li>
+<li>Básicamente: imágenes, PDFs, vídeos</li>
+</ul>
+<p><strong>Eso es todo.</strong> Tres tipos de contenido para todos los casos de uso imaginables.</p>
+<h3 id="el-problema-real">El problema real</h3>
+<p>¿Qué pasa cuando tu negocio necesita gestionar:</p>
+<ul>
+<li><strong>Productos</strong> con especificaciones técnicas complejas</li>
+<li><strong>Propiedades inmobiliarias</strong> con precio, ubicación, características</li>
+<li><strong>Miembros del equipo</strong> con cargo, biografía, especialidades</li>
+<li><strong>Proyectos</strong> con cliente, fecha, tecnologías, galería</li>
+<li><strong>Eventos</strong> con fecha, ubicación, precio, capacidad</li>
+<li><strong>Recetas</strong> con ingredientes, tiempo de cocción, dificultad</li>
+<li><strong>Testimonios</strong> con cliente, rating, proyecto asociado</li>
+<li><strong>Directorio de empresas</strong> con ubicación, categoría, horarios</li>
+</ul>
+<p><strong>Respuesta habitual:</strong> “Bueno, lo ponemos todo en ‘Entradas’ y ya está.”</p>
+<p><strong>Resultado:</strong> Caos organizado que funciona hasta que creces. Luego es solo caos.</p>
+<h2 id="la-solución-custom-post-types-cpt">La solución: Custom Post Types (CPT)</h2>
+<h3 id="qué-es-un-custom-post-type">¿Qué es un Custom Post Type?</h3>
+<p>Un CPT es un tipo de contenido personalizado que funciona como “Entradas” o “Páginas”, pero diseñado específicamente para tu necesidad.</p>
+<p><strong>Analogía:</strong> WordPress por defecto es como una casa con dos habitaciones (entradas y páginas). Los CPT son como construir habitaciones adicionales diseñadas para propósitos específicos (biblioteca, gimnasio, oficina).</p>
+<h3 id="ejemplo-real-empresa-de-construcción">Ejemplo real: Empresa de construcción</h3>
+<p><strong>Antes (usando Entradas para proyectos):</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Título: Reforma integral Calle Mayor 45</span></span>
+<span class="line"><span>Contenido: [Mezcla de descripción, cliente, presupuesto, fotos...]</span></span>
+<span class="line"><span>Categorías: Reformas, Madrid, 2023, Residencial</span></span></code></pre>
+<p>Problemas:</p>
+<ul>
+<li>Información desestructurada</li>
+<li>Imposible filtrar por presupuesto</li>
+<li>No hay campos para datos clave (m², duración, equipo)</li>
+<li>Las galerías se mezclan con el texto</li>
+<li>Buscar proyectos similares es pesadilla</li>
+</ul>
+<p><strong>Después (con CPT “Proyectos”):</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Post Type: Proyecto</span></span>
+<span class="line"><span>Título: Reforma integral Calle Mayor 45</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Campos estructurados:</span></span>
+<span class="line"><span>- Cliente: [Campo texto]</span></span>
+<span class="line"><span>- Ubicación: [Campo mapa]</span></span>
+<span class="line"><span>- Superficie: 180 m² [Campo numérico]</span></span>
+<span class="line"><span>- Presupuesto: €85,000 [Campo numérico]</span></span>
+<span class="line"><span>- Duración: 4 meses [Campo numérico]</span></span>
+<span class="line"><span>- Fecha inicio/fin: [Campo fecha]</span></span>
+<span class="line"><span>- Tipo de obra: [Desplegable: Reforma/Construcción/Restauración]</span></span>
+<span class="line"><span>- Categoría: [Desplegable: Residencial/Comercial/Industrial]</span></span>
+<span class="line"><span>- Equipo asignado: [Relación con CPT &quot;Equipo&quot;]</span></span>
+<span class="line"><span>- Estado: [Desplegable: Planificación/En curso/Finalizado]</span></span>
+<span class="line"><span>- Galería antes: [Campo galería]</span></span>
+<span class="line"><span>- Galería después: [Campo galería]</span></span>
+<span class="line"><span>- Planos: [Campo archivo PDF]</span></span>
+<span class="line"><span>- Testimonial cliente: [Campo texto largo]</span></span>
+<span class="line"><span>- Proyectos relacionados: [Relación con otros Proyectos]</span></span></code></pre>
+<p>Ahora pueden:</p>
+<ul>
+<li>Filtrar proyectos por presupuesto (€50k-100k)</li>
+<li>Ver todos los proyectos del equipo de Juan</li>
+<li>Mostrar solo proyectos residenciales en Madrid</li>
+<li>Generar reportes automáticos de duración media</li>
+<li>Crear páginas de “Proyectos similares” automáticamente</li>
+</ul>
+<p><strong>Tiempo de gestión:</strong> De 25 min/proyecto a 8 min/proyecto.</p>
+<h2 id="advanced-custom-fields-acf-el-superpoder">Advanced Custom Fields (ACF): El superpoder</h2>
+<h3 id="qué-es-acf">¿Qué es ACF?</h3>
+<p>ACF es el plugin que convierte WordPress en una plataforma de gestión de contenido verdaderamente flexible. Te permite crear campos personalizados de cualquier tipo.</p>
+<h3 id="los-tipos-de-campos-que-cambian-todo">Los tipos de campos que cambian todo</h3>
+<p><strong>1. Campos de texto y número:</strong></p>
+<ul>
+<li>Texto simple (nombre, SKU)</li>
+<li>Texto enriquecido (descripciones con formato)</li>
+<li>Números (precio, cantidad, medidas)</li>
+<li>Email, URL, contraseña</li>
+</ul>
+<p><strong>2. Campos de selección:</strong></p>
+<ul>
+<li>Desplegables (categorías predefinidas)</li>
+<li>Checkboxes (múltiples opciones)</li>
+<li>Radio buttons (una única opción)</li>
+<li>Botones (on/off, sí/no)</li>
+</ul>
+<p><strong>3. Campos de contenido:</strong></p>
+<ul>
+<li>Editor WYSIWYG (con formato completo)</li>
+<li>Textarea (texto plano largo)</li>
+<li>Código (para HTML, CSS, JS)</li>
+</ul>
+<p><strong>4. Campos de relaciones:</strong></p>
+<ul>
+<li>Selector de posts (relacionar contenidos)</li>
+<li>Selector de taxonomías</li>
+<li>Selector de usuarios</li>
+<li>Relaciones bidireccionales</li>
+</ul>
+<p><strong>5. Campos de medios:</strong></p>
+<ul>
+<li>Imagen (con preview)</li>
+<li>Galería de imágenes</li>
+<li>Archivo (PDF, documentos)</li>
+<li>oEmbed (YouTube, Vimeo)</li>
+</ul>
+<p><strong>6. Campos avanzados:</strong></p>
+<ul>
+<li>Google Maps (ubicación con mapa)</li>
+<li>Fecha y hora (con calendario)</li>
+<li>Color picker</li>
+<li>Rango (slider numérico)</li>
+<li>Grupo de campos (campos anidados)</li>
+<li>Repetidor (campos duplicables)</li>
+<li>Flexible content (layouts personalizables)</li>
+</ul>
+<h3 id="ejemplo-práctico-catálogo-de-maquinaria-industrial">Ejemplo práctico: Catálogo de maquinaria industrial</h3>
+<p><strong>Necesidad:</strong> Empresa que alquila maquinaria pesada. 250+ máquinas, cada una con especificaciones técnicas, disponibilidad, precios por día/semana/mes.</p>
+<p><strong>CPT:</strong> “Maquinaria”</p>
+<p><strong>Grupos de campos ACF:</strong></p>
+<p><strong>Información básica:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Nombre comercial: [Texto]</span></span>
+<span class="line"><span>- Fabricante: [Desplegable]</span></span>
+<span class="line"><span>- Modelo: [Texto]</span></span>
+<span class="line"><span>- Año fabricación: [Número]</span></span>
+<span class="line"><span>- Número de serie: [Texto]</span></span>
+<span class="line"><span>- Estado: [Radio: Disponible/Alquilada/Mantenimiento/Fuera de servicio]</span></span></code></pre>
+<p><strong>Especificaciones técnicas:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Categoría: [Desplegable: Excavadoras/Grúas/Bulldozers/etc.]</span></span>
+<span class="line"><span>- Peso: [Número] kg</span></span>
+<span class="line"><span>- Potencia: [Número] CV</span></span>
+<span class="line"><span>- Altura máxima: [Número] m</span></span>
+<span class="line"><span>- Capacidad de carga: [Número] kg</span></span>
+<span class="line"><span>- Consumo combustible: [Número] L/h</span></span>
+<span class="line"><span>- Certificaciones: [Checkbox múltiple: CE, ISO 9001, etc.]</span></span>
+<span class="line"><span>- Ficha técnica: [Archivo PDF]</span></span></code></pre>
+<p><strong>Tarifas:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Tarifa día: [Número] €</span></span>
+<span class="line"><span>- Tarifa semana: [Número] €</span></span>
+<span class="line"><span>- Tarifa mes: [Número] €</span></span>
+<span class="line"><span>- Fianza: [Número] €</span></span>
+<span class="line"><span>- Seguro incluido: [Sí/No]</span></span>
+<span class="line"><span>- Transporte: [Número] € (o incluido)</span></span></code></pre>
+<p><strong>Disponibilidad:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Ubicación actual: [Google Maps]</span></span>
+<span class="line"><span>- Calendario disponibilidad: [Campo personalizado con calendario]</span></span>
+<span class="line"><span>- Próxima revisión: [Fecha]</span></span>
+<span class="line"><span>- Reservas actuales: [Relación con CPT &quot;Reservas&quot;]</span></span></code></pre>
+<p><strong>Multimedia:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Galería exterior: [Galería imágenes]</span></span>
+<span class="line"><span>- Galería interior cabina: [Galería imágenes]</span></span>
+<span class="line"><span>- Vídeo demostración: [oEmbed YouTube]</span></span>
+<span class="line"><span>- Manual de uso: [Archivo PDF]</span></span></code></pre>
+<p><strong>Mantenimiento:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>- Historial mantenimiento: [Repetidor con campos: Fecha, Tipo, Coste, Notas]</span></span>
+<span class="line"><span>- Horas de uso totales: [Número]</span></span>
+<span class="line"><span>- Última inspección: [Fecha]</span></span>
+<span class="line"><span>- Técnico asignado: [Relación con usuarios]</span></span></code></pre>
+<h3 id="el-resultado">El resultado</h3>
+<p><strong>Panel de administración personalizado:</strong></p>
+<p>En lugar de ver un editor de blog estándar, el equipo ve un formulario estructurado con secciones colapsables, validación de campos, y una interfaz diseñada específicamente para gestionar maquinaria.</p>
+<p><strong>Frontend automatizado:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6A737D">// Mostrar precio según duración</span></span>
+<span class="line"><span style="color:#F97583">&lt;?</span><span style="color:#79B8FF">php</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#E1E4E8">$dias </span><span style="color:#F97583">=</span><span style="color:#B392F0"> get_field</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;tarifa_dia&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">$semana </span><span style="color:#F97583">=</span><span style="color:#B392F0"> get_field</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;tarifa_semana&#39;</span><span style="color:#E1E4E8">); </span></span>
+<span class="line"><span style="color:#E1E4E8">$mes </span><span style="color:#F97583">=</span><span style="color:#B392F0"> get_field</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;tarifa_mes&#39;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">?&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">&lt;</span><span style="color:#79B8FF">div</span><span style="color:#F97583"> class=</span><span style="color:#9ECBFF">&quot;pricing&quot;</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;&lt;?</span><span style="color:#79B8FF">php</span><span style="color:#79B8FF"> echo</span><span style="color:#E1E4E8"> $dias; </span><span style="color:#F97583">?&gt;</span><span style="color:#79B8FF">€</span><span style="color:#F97583">/</span><span style="color:#79B8FF">día</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;&lt;?</span><span style="color:#79B8FF">php</span><span style="color:#79B8FF"> echo</span><span style="color:#E1E4E8"> $semana; </span><span style="color:#F97583">?&gt;</span><span style="color:#79B8FF">€</span><span style="color:#F97583">/</span><span style="color:#79B8FF">semana</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">    &lt;</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;&lt;?</span><span style="color:#79B8FF">php</span><span style="color:#79B8FF"> echo</span><span style="color:#E1E4E8"> $mes; </span><span style="color:#F97583">?&gt;</span><span style="color:#79B8FF">€</span><span style="color:#F97583">/</span><span style="color:#79B8FF">mes</span><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">span</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"><span style="color:#F97583">&lt;/</span><span style="color:#79B8FF">div</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Mostrar solo máquinas disponibles en Madrid</span></span>
+<span class="line"><span style="color:#F97583">&lt;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"><span style="color:#E1E4E8">$args </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">    &#39;post_type&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#9ECBFF"> &#39;maquinaria&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &#39;meta_query&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#79B8FF">        array</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">            &#39;key&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#9ECBFF"> &#39;estado&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            &#39;value&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#9ECBFF"> &#39;disponible&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8">        ),</span></span>
+<span class="line"><span style="color:#79B8FF">        array</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">            &#39;key&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#9ECBFF"> &#39;ubicacion_ciudad&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            &#39;value&#39;</span><span style="color:#F97583"> =&gt;</span><span style="color:#9ECBFF"> &#39;Madrid&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8">        )</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">$maquinas </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> WP_Query</span><span style="color:#E1E4E8">($args);</span></span>
+<span class="line"><span style="color:#F97583">?&gt;</span></span></code></pre>
+<p><strong>Filtros avanzados automáticos:</strong></p>
+<p>Los usuarios pueden filtrar por:</p>
+<ul>
+<li>Tipo de maquinaria</li>
+<li>Rango de precio (€100-500/día)</li>
+<li>Capacidad de carga (5-20 toneladas)</li>
+<li>Ubicación (radio de 50km)</li>
+<li>Disponibilidad (fechas específicas)</li>
+</ul>
+<p>Todo sin escribir código SQL manualmente.</p>
+<h2 id="casos-de-uso-reales-cuando-cptacf-son-la-respuesta">Casos de uso reales: Cuando CPT+ACF son la respuesta</h2>
+<h3 id="1-inmobiliaria-catálogo-de-propiedades">1. Inmobiliaria: Catálogo de propiedades</h3>
+<p><strong>CPT:</strong> “Propiedades”</p>
+<p><strong>Problema anterior:</strong> 200 propiedades en “Entradas”. Buscar pisos de 3 habitaciones en Salamanca era una pesadilla.</p>
+<p><strong>Solución CPT+ACF:</strong></p>
+<ul>
+<li>Tipo: Piso/Casa/Local/Oficina</li>
+<li>Operación: Venta/Alquiler/Traspaso</li>
+<li>Precio: €250,000 (ordenable y filtrable)</li>
+<li>Superficie: 95 m²</li>
+<li>Habitaciones: 3</li>
+<li>Baños: 2</li>
+<li>Ubicación: [Google Maps + dirección]</li>
+<li>Características: [Checkboxes: Garaje, Ascensor, Terraza, etc.]</li>
+<li>Eficiencia energética: [Desplegable: A-G]</li>
+<li>Estado: [Nuevo, Reformado, Original, etc.]</li>
+<li>Galería: 25 fotos</li>
+<li>Tour virtual: [Enlace 360]</li>
+<li>Plano: [PDF]</li>
+<li>Agente: [Relación con usuarios]</li>
+</ul>
+<p><strong>ROI:</strong></p>
+<ul>
+<li>Tiempo gestión: -65% (de 30 min a 10 min/propiedad)</li>
+<li>Filtros web: De 3 opciones a 15 filtros combinables</li>
+<li>Conversión formularios: +34% (información más clara)</li>
+</ul>
+<h3 id="2-bufete-de-abogados-áreas-de-práctica-y-equipo">2. Bufete de abogados: Áreas de práctica y equipo</h3>
+<p><strong>CPT 1:</strong> “Áreas de práctica”</p>
+<ul>
+<li>Nombre del área</li>
+<li>Descripción</li>
+<li>Casos de éxito: [Relación con CPT “Casos”]</li>
+<li>Abogados especializados: [Relación con CPT “Equipo”]</li>
+<li>Documentos tipo: [Repetidor de PDFs]</li>
+<li>Honorarios orientativos</li>
+<li>Preguntas frecuentes: [Repetidor]</li>
+</ul>
+<p><strong>CPT 2:</strong> “Miembros del equipo”</p>
+<ul>
+<li>Nombre y apellidos</li>
+<li>Cargo</li>
+<li>Especialidades: [Relación con Áreas práctica]</li>
+<li>Biografía</li>
+<li>Formación académica: [Repetidor]</li>
+<li>Colegios profesionales</li>
+<li>Idiomas: [Checkboxes]</li>
+<li>Casos destacados: [Relación con CPT “Casos”]</li>
+<li>Email/Teléfono directo</li>
+<li>Horario disponibilidad</li>
+</ul>
+<p><strong>CPT 3:</strong> “Casos de éxito”</p>
+<ul>
+<li>Título anonimizado</li>
+<li>Área: [Relación con Áreas]</li>
+<li>Abogados: [Relación con Equipo]</li>
+<li>Año</li>
+<li>Tipo de caso</li>
+<li>Resultado</li>
+<li>Descripción</li>
+<li>Documentación: [Archivos]</li>
+</ul>
+<p><strong>Beneficio:</strong> Todo está interrelacionado. Ver un área muestra automáticamente los abogados especializados y sus casos ganados. Ver un abogado muestra sus áreas y casos. Gestión centralizada, presentación profesional.</p>
+<h3 id="3-restaurantecadena-restaurantes-menú-dinámico">3. Restaurante/Cadena restaurantes: Menú dinámico</h3>
+<p><strong>CPT:</strong> “Platos”</p>
+<p><strong>Campos ACF:</strong></p>
+<ul>
+<li>Nombre plato</li>
+<li>Categoría: [Desplegable: Entrantes, Principales, Postres, etc.]</li>
+<li>Descripción</li>
+<li>Precio</li>
+<li>Alérgenos: [Checkboxes con iconos]</li>
+<li>Opciones dietéticas: [Vegetariano, Vegano, Sin gluten, etc.]</li>
+<li>Disponibilidad: [Días de la semana]</li>
+<li>Temporada: [Primavera/Verano/Otoño/Invierno/Todo año]</li>
+<li>Restaurantes donde se sirve: [Si es cadena]</li>
+<li>Ingredientes principales: [Repetidor]</li>
+<li>Valor nutricional: [Grupo: Calorías, Proteínas, etc.]</li>
+<li>Foto del plato: [Imagen]</li>
+<li>Chef que lo creó: [Relación con CPT “Equipo”]</li>
+<li>Maridaje sugerido: [Relación con CPT “Vinos”]</li>
+<li>Platos relacionados</li>
+<li>Tiempo preparación: [Número] min</li>
+</ul>
+<p><strong>Magia del frontend:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6A737D">// Menú del día automático (platos de temporada actual)</span></span>
+<span class="line"><span style="color:#6A737D">// Filtro alérgenos en tiempo real</span></span>
+<span class="line"><span style="color:#6A737D">// Calculadora nutricional automática</span></span>
+<span class="line"><span style="color:#6A737D">// Sugerencias de maridaje</span></span>
+<span class="line"><span style="color:#6A737D">// Menús personalizados (vegetariano, sin gluten)</span></span></code></pre>
+<p><strong>ROI:</strong></p>
+<ul>
+<li>Cambios de menú: De 4 horas (diseñador + web) a 15 minutos (camarero)</li>
+<li>Errores de alérgenos: De 2-3/mes a 0 (campos estructurados)</li>
+<li>Tiempo creación menú degustación: De 2 horas a 10 minutos</li>
+</ul>
+<h3 id="4-consultoría-portfolio-de-proyectos">4. Consultoría: Portfolio de proyectos</h3>
+<p><strong>CPT:</strong> “Proyectos”</p>
+<p><strong>Campos ACF:</strong></p>
+<ul>
+<li>Cliente: [Texto o relación con CPT “Clientes”]</li>
+<li>Sector: [Desplegable: Finanzas, Salud, Educación, etc.]</li>
+<li>Tipo proyecto: [Estrategia, Transformación digital, etc.]</li>
+<li>Duración: [Fecha inicio/fin]</li>
+<li>Equipo: [Relación con usuarios]</li>
+<li>Presupuesto: [Rango, no exacto]</li>
+<li>Desafío: [Texto enriquecido]</li>
+<li>Solución: [Texto enriquecido]</li>
+<li>Resultados: [Repetidor: Métrica, Valor antes, Valor después, Mejora %]</li>
+<li>Testimonial: [Texto + nombre + cargo cliente]</li>
+<li>Industrias relacionadas: [Taxonomía]</li>
+<li>Servicios aplicados: [Relación con CPT “Servicios”]</li>
+<li>Caso público: [Sí/No, algunos clientes no quieren exposición]</li>
+<li>Galería: [Capturas, fotos equipo, infografías]</li>
+<li>PDF caso de estudio: [Archivo descargable]</li>
+</ul>
+<p><strong>Funcionalidad resultante:</strong></p>
+<ul>
+<li>Filtrar proyectos por sector/servicio/duración</li>
+<li>Mostrar automáticamente proyectos similares</li>
+<li>Generar PDFs de casos de estudio con template</li>
+<li>Portfolio dinámico que se actualiza solo</li>
+<li>Landing pages de servicios con casos relevantes</li>
+</ul>
+<h3 id="5-centro-de-formación-cursos-y-eventos">5. Centro de formación: Cursos y eventos</h3>
+<p><strong>CPT 1:</strong> “Cursos”</p>
+<ul>
+<li>Título curso</li>
+<li>Categoría: [Taxonomía personalizada]</li>
+<li>Nivel: [Iniciación, Intermedio, Avanzado]</li>
+<li>Modalidad: [Presencial, Online, Híbrido]</li>
+<li>Duración: [Número] horas</li>
+<li>Precio: [Número]</li>
+<li>Próximas fechas: [Repetidor: Fecha, Plazas disponibles, Ubicación]</li>
+<li>Temario: [Repetidor: Módulo, Contenido, Duración]</li>
+<li>Instructor: [Relación con CPT “Instructores”]</li>
+<li>Requisitos previos: [Texto]</li>
+<li>Incluye: [Checkboxes: Certificado, Material, Coffee breaks, etc.]</li>
+<li>Software necesario: [Repetidor]</li>
+<li>Empresas que lo han hecho: [Logos]</li>
+<li>Valoración media: [Calculado de reviews]</li>
+</ul>
+<p><strong>CPT 2:</strong> “Instructores”</p>
+<ul>
+<li>Nombre</li>
+<li>Especialidades</li>
+<li>Biografía</li>
+<li>Cursos que imparte: [Relación automática]</li>
+<li>Valoración media: [Calculada]</li>
+<li>LinkedIn, Twitter</li>
+<li>Foto profesional</li>
+</ul>
+<p><strong>CPT 3:</strong> “Testimonios”</p>
+<ul>
+<li>Alumno: [Texto]</li>
+<li>Curso: [Relación con Cursos]</li>
+<li>Valoración: [1-5 estrellas]</li>
+<li>Comentario</li>
+<li>Empresa</li>
+<li>Verificado: [Sí/No]</li>
+<li>Fecha</li>
+</ul>
+<p><strong>Integración potente:</strong></p>
+<ul>
+<li>Ver curso → Muestra instructor → Ver otros cursos del instructor</li>
+<li>Sistema de reservas integrado</li>
+<li>Calculadora de precios (descuentos por grupos, empresa, etc.)</li>
+<li>Generación automática de certificados al completar</li>
+<li>Email marketing segmentado por intereses</li>
+</ul>
+<h3 id="6-agencia-de-viajes-paquetes-turísticos">6. Agencia de viajes: Paquetes turísticos</h3>
+<p><strong>CPT:</strong> “Paquetes”</p>
+<p><strong>Grupos de campos:</strong></p>
+<p><strong>Información general:</strong></p>
+<ul>
+<li>Nombre del paquete</li>
+<li>Destino principal</li>
+<li>Destinos incluidos: [Repetidor de ubicaciones]</li>
+<li>Duración: [Número] días / [Número] noches</li>
+<li>Tipo viaje: [Aventura, Relax, Cultural, etc.]</li>
+<li>Temporadas disponibles</li>
+<li>Desde precio: [Número] €/persona</li>
+</ul>
+<p><strong>Itinerario:</strong></p>
+<ul>
+<li>Días del viaje: [Repetidor con:
+<ul>
+<li>Día número</li>
+<li>Título día (“Explorando Barcelona”)</li>
+<li>Actividades: [Repetidor]</li>
+<li>Comidas incluidas: [Desayuno/Almuerzo/Cena]</li>
+<li>Hotel: [Texto]</li>
+<li>Mapa ubicaciones día
+]</li>
+</ul>
+</li>
+</ul>
+<p><strong>Incluido en precio:</strong></p>
+<ul>
+<li>Vuelos: [Sí/No + Detalles]</li>
+<li>Alojamiento: [Tipo, Categoría]</li>
+<li>Traslados: [Detalles]</li>
+<li>Actividades: [Lista]</li>
+<li>Comidas: [Qué incluye]</li>
+<li>Seguro: [Tipo]</li>
+<li>Guía: [Sí/No + Idiomas]</li>
+</ul>
+<p><strong>Requisitos:</strong></p>
+<ul>
+<li>Visado necesario: [Sí/No + Info]</li>
+<li>Vacunas: [Lista]</li>
+<li>Nivel físico requerido: [Bajo/Medio/Alto]</li>
+<li>Edad mínima/máxima</li>
+</ul>
+<p><strong>Multimedia:</strong></p>
+<ul>
+<li>Galería destinos: [Galería]</li>
+<li>Vídeo promocional: [YouTube]</li>
+<li>Mapa interactivo ruta: [Google Maps con waypoints]</li>
+</ul>
+<p><strong>Disponibilidad:</strong></p>
+<ul>
+<li>Calendario salidas: [Repetidor: Fecha, Plazas disponibles, Precio]</li>
+<li>Descuentos: [Repetidor: Tipo, Porcentaje, Condiciones]</li>
+</ul>
+<p><strong>Resultado:</strong></p>
+<ul>
+<li>Comparador de paquetes automatizado</li>
+<li>Sistema de reservas con disponibilidad en tiempo real</li>
+<li>Generación automática de PDFs personalizados</li>
+<li>Emails con itinerario detallado</li>
+<li>Filtros: destino, presupuesto, duración, tipo, fechas</li>
+</ul>
+<h2 id="el-roi-real-números-de-proyectos-ejecutados">El ROI real: Números de proyectos ejecutados</h2>
+<h3 id="proyecto-1-directorio-de-empresas-300-empresas">Proyecto 1: Directorio de empresas (300 empresas)</h3>
+<p><strong>Antes (todo en Entradas):</strong></p>
+<ul>
+<li>Tiempo añadir empresa: 35 minutos</li>
+<li>Tiempo actualizar info: 20 minutos</li>
+<li>Errores de formato: 15-20/mes</li>
+<li>Búsquedas funcionales: 0 (Google search del sitio)</li>
+</ul>
+<p><strong>Después (CPT + ACF):</strong></p>
+<ul>
+<li>Tiempo añadir empresa: 8 minutos (-77%)</li>
+<li>Tiempo actualizar info: 3 minutos (-85%)</li>
+<li>Errores de formato: 0 (campos validados)</li>
+<li>Filtros disponibles: 12 (sector, ubicación, tamaño, servicios…)</li>
+<li>Búsqueda avanzada: Funcional con filtros combinados</li>
+</ul>
+<p><strong>ROI mensual:</strong></p>
+<ul>
+<li>Gestión de 20 empresas/mes: 540 minutos ahorrados = 9 horas</li>
+<li>A €40/hora = €360/mes ahorrado</li>
+<li>Inversión desarrollo: €3,200</li>
+<li>ROI en: 8.8 meses</li>
+</ul>
+<h3 id="proyecto-2-catálogo-productos-técnicos-1200-skus">Proyecto 2: Catálogo productos técnicos (1,200 SKUs)</h3>
+<p><strong>Antes:</strong></p>
+<ul>
+<li>Base de datos Excel separada de la web</li>
+<li>Actualizar web: copiar/pegar manual</li>
+<li>Inconsistencias frecuentes</li>
+<li>Sin filtros técnicos</li>
+</ul>
+<p><strong>Después:</strong></p>
+<ul>
+<li>Todo integrado en WordPress</li>
+<li>Importación masiva desde CSV</li>
+<li>Actualización sincronizada</li>
+<li>15 filtros técnicos funcionales</li>
+<li>Comparador de productos</li>
+<li>Exportación a PDF por producto</li>
+</ul>
+<p><strong>ROI:</strong></p>
+<ul>
+<li>Tiempo gestión catálogo: -72%</li>
+<li>Errores de especificaciones: -95%</li>
+<li>Consultas a comerciales: -40% (info más completa)</li>
+<li>Conversión: +28% (usuarios encuentran lo que buscan)</li>
+</ul>
+<p><strong>Impacto económico año 1:</strong></p>
+<ul>
+<li>Ahorro gestión: €8,400</li>
+<li>Ingresos adicionales (conversión): €34,000</li>
+<li>Inversión: €8,500</li>
+<li>ROI: 398%</li>
+</ul>
+<h2 id="cuándo-no-necesitas-cpt-y-acf">Cuándo NO necesitas CPT y ACF</h2>
+<p>Seamos honestos. No todo proyecto necesita esta complejidad.</p>
+<h3 id="-no-necesitas-cptacf-si">❌ No necesitas CPT+ACF si:</h3>
+<p><strong>1. Tu sitio es principalmente informativo estático</strong></p>
+<ul>
+<li>5-10 páginas de empresa</li>
+<li>Blog ocasional</li>
+<li>Formulario de contacto</li>
+</ul>
+<p><strong>Usa:</strong> WordPress estándar con buen theme</p>
+<p><strong>2. Tu contenido es simple y cronológico</strong></p>
+<ul>
+<li>Blog personal</li>
+<li>Noticias corporativas simples</li>
+<li>Anuncios</li>
+</ul>
+<p><strong>Usa:</strong> Entradas estándar con categorías</p>
+<p><strong>3. Tu presupuesto es muy limitado (&lt;€2,000)</strong></p>
+<p>Los CPT+ACF requieren:</p>
+<ul>
+<li>Planificación de estructura</li>
+<li>Desarrollo personalizado</li>
+<li>Training del equipo</li>
+<li>Mantenimiento específico</li>
+</ul>
+<p>Para presupuestos bajos, un theme premium con opciones incluidas puede ser suficiente.</p>
+<p><strong>4. No tienes contenido estructurado repetitivo</strong></p>
+<p>Si cada página es única y diferente, no necesitas la estructura de CPT.</p>
+<p><strong>5. Tu equipo no actualizará el contenido</strong></p>
+<p>Si contratas a alguien para cada cambio, la facilidad de gestión de ACF no aporta valor.</p>
+<h2 id="el-proceso-de-implementación-qué-esperar">El proceso de implementación: Qué esperar</h2>
+<h3 id="fase-1-discovery-y-estructura-1-2-semanas">Fase 1: Discovery y estructura (1-2 semanas)</h3>
+<p><strong>Workshop con cliente:</strong></p>
+<ul>
+<li>Qué tipos de contenido gestionas</li>
+<li>Qué información incluye cada tipo</li>
+<li>Cómo se relacionan entre sí</li>
+<li>Qué filtros necesitas</li>
+<li>Quién gestionará qué</li>
+</ul>
+<p><strong>Entregable:</strong> Documento de estructura</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>CPT: Proyectos</span></span>
+<span class="line"><span>Campos:</span></span>
+<span class="line"><span>- Cliente (texto)</span></span>
+<span class="line"><span>- Fecha (date picker)</span></span>
+<span class="line"><span>- Presupuesto (número)</span></span>
+<span class="line"><span>- Estado (select)</span></span>
+<span class="line"><span>- Galería (gallery)</span></span>
+<span class="line"><span>- Equipo (relationship a Usuarios)</span></span>
+<span class="line"><span>...</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Taxonomías:</span></span>
+<span class="line"><span>- Tipo de proyecto</span></span>
+<span class="line"><span>- Sector</span></span>
+<span class="line"><span>- Servicios aplicados</span></span>
+<span class="line"><span>...</span></span></code></pre>
+<h3 id="fase-2-desarrollo-2-4-semanas">Fase 2: Desarrollo (2-4 semanas)</h3>
+<p><strong>Implementación técnica:</strong></p>
+<ul>
+<li>Registro de CPT</li>
+<li>Creación grupos de campos ACF</li>
+<li>Templates personalizados frontend</li>
+<li>Páginas de archivo (listados)</li>
+<li>Filtros y búsqueda</li>
+<li>Importación de datos existentes</li>
+</ul>
+<p><strong>Testing:</strong></p>
+<ul>
+<li>Validación de campos</li>
+<li>Pruebas de relaciones</li>
+<li>Testing responsive</li>
+<li>Performance</li>
+<li>Training interno</li>
+</ul>
+<h3 id="fase-3-migración-de-contenido-1-2-semanas">Fase 3: Migración de contenido (1-2 semanas)</h3>
+<p><strong>Migración:</strong></p>
+<ul>
+<li>Exportar contenido actual</li>
+<li>Mapear a nueva estructura</li>
+<li>Importación masiva</li>
+<li>Revisión y ajustes</li>
+<li>Limpieza de datos legacy</li>
+</ul>
+<h3 id="fase-4-training-y-documentación-1-semana">Fase 4: Training y documentación (1 semana)</h3>
+<p><strong>Capacitación:</strong></p>
+<ul>
+<li>Cómo añadir contenido nuevo</li>
+<li>Cómo editar existente</li>
+<li>Gestión de relaciones</li>
+<li>Uso de filtros en admin</li>
+<li>Mejores prácticas</li>
+</ul>
+<p><strong>Documentación:</strong></p>
+<ul>
+<li>Manual de usuario</li>
+<li>Vídeos tutoriales</li>
+<li>Guía de campos (qué va en cada uno)</li>
+</ul>
+<p><strong>Tiempo total típico:</strong> 5-9 semanas
+<strong>Inversión típica:</strong> €3,500 - €12,000 (según complejidad)</p>
+<h2 id="la-pregunta-que-debes-hacer">La pregunta que debes hacer</h2>
+<p>No es “¿Puedo permitirme CPT+ACF?”</p>
+<p>Es “¿Puedo permitirme NO tenerlos?”</p>
+<p><strong>Calcula tu coste actual:</strong></p>
+<ul>
+<li>¿Cuántas horas/mes gastas gestionando contenido desestructurado?</li>
+<li>¿Cuántos errores se cometen por falta de estructura?</li>
+<li>¿Cuántas oportunidades de negocio pierdes por filtros inexistentes?</li>
+<li>¿Cuánto pagas a diseñador/desarrollador para cada actualización?</li>
+</ul>
+<p><strong>Ejemplo real:</strong></p>
+<p>Cliente con 400 productos gestionados en Entradas:</p>
+<ul>
+<li>3 personas, 6 horas/semana cada una = 18 horas/semana</li>
+<li>72 horas/mes a €30/hora = €2,160/mes desperdiciado</li>
+<li>Año: €25,920</li>
+</ul>
+<p>Inversión en CPT+ACF: €6,500
+ROI: 3 meses</p>
+<p><strong>Después de 3 meses habían recuperado la inversión.</strong>
+<strong>Después de 1 año habían ahorrado €19,420.</strong></p>
+<h2 id="checklist-tu-proyecto-necesita-cptacf">Checklist: ¿Tu proyecto necesita CPT+ACF?</h2>
+<p>Responde sí/no:</p>
+<p>☐ Gestiono más de 50 elementos del mismo tipo (productos, propiedades, proyectos…)
+☐ Cada elemento tiene información estructurada repetitiva
+☐ Necesito filtrar/buscar por características específicas
+☐ Mi contenido no es cronológico (no es un blog estándar)
+☐ Diferentes roles gestionan diferentes tipos de contenido
+☐ Cometo errores frecuentes por falta de estructura
+☐ Necesito relaciones entre contenidos (este proyecto usa estos servicios)
+☐ Exporto/importo datos desde otras fuentes
+☐ Quiero automatizar la presentación del contenido
+☐ Mi team no es técnico pero debe gestionar contenido complejo</p>
+<p><strong>5+ síes:</strong> Definitivamente necesitas CPT+ACF
+<strong>3-4 síes:</strong> Probablemente te beneficiarías
+<strong>1-2 síes:</strong> Evalúa alternativas más simples primero
+<strong>0 síes:</strong> WordPress estándar es suficiente</p>
+<h2 id="conclusión-wordpress-es-mucho-más-que-un-blog">Conclusión: WordPress es mucho más que un blog</h2>
+<p>WordPress gestiona el 43% de todas las webs de internet.</p>
+<p>No porque sea “el mejor CMS para blogs”.</p>
+<p>Sino porque es una plataforma infinitamente flexible que puede convertirse en exactamente lo que tu negocio necesita.</p>
+<p>La diferencia está en saber cuándo y cómo usar esa flexibilidad.</p>
+<p><strong>Custom Post Types y Advanced Custom Fields son esa diferencia.</strong></p>
+<p>Entre gestionar contenido como puedas… y gestionarlo como deberías.</p>
+<hr/>
+<h3 id="tienes-un-catálogo-directorio-o-portafolio-complejo">¿Tienes un catálogo, directorio o portafolio complejo?</h3>
+<p>Te ofrecemos un análisis gratuito de 45 minutos donde:</p>
+<p>✓ Auditamos tu estructura de contenido actual
+✓ Identificamos qué CPT y campos necesitarías
+✓ Calculamos el tiempo que ahorrarías
+✓ Te damos un presupuesto exacto
+✓ Te mostramos mockups de cómo quedaría</p>
+<p><strong>Sin compromiso. Solo queremos que veas el potencial.</strong></p>
+<p>Porque la mejor tecnología es la que se adapta a tu negocio, no al revés.</p> </article>  <!-- Botón flotante para abrir TOC --><button id="toc-button" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group" aria-label="Tabla de contenidos" data-astro-cid-xvrfupwn> <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" data-astro-cid-xvrfupwn></path> </svg> <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center font-bold" data-astro-cid-xvrfupwn> 33 </span> </button> <!-- Modal TOC --> <div id="toc-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="toc-title" role="dialog" aria-modal="true" data-astro-cid-xvrfupwn> <!-- Backdrop --> <div id="toc-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" data-astro-cid-xvrfupwn></div> <!-- Panel del TOC --> <div class="fixed inset-y-0 right-0 flex max-w-full pl-10" data-astro-cid-xvrfupwn> <div id="toc-panel" class="w-screen max-w-md transform transition-transform duration-300 ease-out translate-x-full" data-astro-cid-xvrfupwn> <div class="flex h-full flex-col bg-white dark:bg-gray-900 shadow-2xl" data-astro-cid-xvrfupwn> <!-- Header --> <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <div class="flex items-center justify-between" data-astro-cid-xvrfupwn> <h2 id="toc-title" class="text-lg font-semibold text-gray-900 dark:text-white" data-astro-cid-xvrfupwn>
+Tabla de Contenidos
+</h2> <button id="toc-close" class="rounded-md p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Cerrar" data-astro-cid-xvrfupwn> <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-astro-cid-xvrfupwn> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-xvrfupwn></path> </svg> </button> </div> </div> <!-- Lista de contenidos --> <nav class="flex-1 overflow-y-auto px-6 py-4" data-astro-cid-xvrfupwn> <ul class="space-y-1" data-astro-cid-xvrfupwn> <li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-problema-que-no-sabías-que-tenías" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El problema que no sabías que tenías </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#wordpress-por-defecto-diseñado-para-blogs-y-solo-blogs" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> WordPress por defecto: Diseñado para blogs (y solo blogs) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#lo-que-wordpress-incluye-de-fábrica" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Lo que WordPress incluye de fábrica: </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-problema-real" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El problema real </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-solución-custom-post-types-cpt" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La solución: Custom Post Types (CPT) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#qué-es-un-custom-post-type" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ¿Qué es un Custom Post Type? </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#ejemplo-real-empresa-de-construcción" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Ejemplo real: Empresa de construcción </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#advanced-custom-fields-acf-el-superpoder" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Advanced Custom Fields (ACF): El superpoder </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#qué-es-acf" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ¿Qué es ACF? </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#los-tipos-de-campos-que-cambian-todo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Los tipos de campos que cambian todo </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#ejemplo-práctico-catálogo-de-maquinaria-industrial" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Ejemplo práctico: Catálogo de maquinaria industrial </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-resultado" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El resultado </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#casos-de-uso-reales-cuando-cptacf-son-la-respuesta" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Casos de uso reales: Cuando CPT+ACF son la respuesta </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#1-inmobiliaria-catálogo-de-propiedades" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 1. Inmobiliaria: Catálogo de propiedades </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#2-bufete-de-abogados-áreas-de-práctica-y-equipo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 2. Bufete de abogados: Áreas de práctica y equipo </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#3-restaurantecadena-restaurantes-menú-dinámico" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 3. Restaurante/Cadena restaurantes: Menú dinámico </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#4-consultoría-portfolio-de-proyectos" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 4. Consultoría: Portfolio de proyectos </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#5-centro-de-formación-cursos-y-eventos" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 5. Centro de formación: Cursos y eventos </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#6-agencia-de-viajes-paquetes-turísticos" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> 6. Agencia de viajes: Paquetes turísticos </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-roi-real-números-de-proyectos-ejecutados" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El ROI real: Números de proyectos ejecutados </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#proyecto-1-directorio-de-empresas-300-empresas" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Proyecto 1: Directorio de empresas (300 empresas) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#proyecto-2-catálogo-productos-técnicos-1200-skus" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Proyecto 2: Catálogo productos técnicos (1,200 SKUs) </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#cuándo-no-necesitas-cpt-y-acf" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Cuándo NO necesitas CPT y ACF </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#-no-necesitas-cptacf-si" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ❌ No necesitas CPT+ACF si: </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#el-proceso-de-implementación-qué-esperar" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> El proceso de implementación: Qué esperar </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#fase-1-discovery-y-estructura-1-2-semanas" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Fase 1: Discovery y estructura (1-2 semanas) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#fase-2-desarrollo-2-4-semanas" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Fase 2: Desarrollo (2-4 semanas) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#fase-3-migración-de-contenido-1-2-semanas" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Fase 3: Migración de contenido (1-2 semanas) </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#fase-4-training-y-documentación-1-semana" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Fase 4: Training y documentación (1 semana) </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#la-pregunta-que-debes-hacer" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> La pregunta que debes hacer </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#checklist-tu-proyecto-necesita-cptacf" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Checklist: ¿Tu proyecto necesita CPT+ACF? </span> </a> </li><li style="margin-left: 0rem" class="group" data-astro-cid-xvrfupwn> <a href="#conclusión-wordpress-es-mucho-más-que-un-blog" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> Conclusión: WordPress es mucho más que un blog </span> </a> </li><li style="margin-left: 1rem" class="group" data-astro-cid-xvrfupwn> <a href="#tienes-un-catálogo-directorio-o-portafolio-complejo" data-toc-link class="block py-2 px-3 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" data-astro-cid-xvrfupwn> <span class="flex items-center gap-2" data-astro-cid-xvrfupwn> <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-colors" data-astro-cid-xvrfupwn></span> ¿Tienes un catálogo, directorio o portafolio complejo? </span> </a> </li> </ul> </nav> <!-- Footer con info adicional --> <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700" data-astro-cid-xvrfupwn> <p class="text-xs text-gray-500 dark:text-gray-400 text-center" data-astro-cid-xvrfupwn> 33 secciones en este
+                        artículo
+</p> </div> </div> </div> </div> </div> <script type="module">function b(){const l=document.getElementById("toc-button"),o=document.getElementById("toc-modal"),d=document.getElementById("toc-panel"),r=document.getElementById("toc-backdrop"),a=document.getElementById("toc-close"),i=document.querySelectorAll("[data-toc-link]");if(!l||!o||!d||!r||!a)return;function u(){o.classList.remove("hidden"),setTimeout(()=>{d.classList.remove("translate-x-full")},10),document.body.style.overflow="hidden"}function n(){d.classList.add("translate-x-full"),setTimeout(()=>{o.classList.add("hidden"),document.body.style.overflow=""},300)}l.addEventListener("click",u),a.addEventListener("click",n),r.addEventListener("click",n),document.addEventListener("keydown",e=>{e.key==="Escape"&&!o.classList.contains("hidden")&&n()}),i.forEach(e=>{e.addEventListener("click",c=>{c.preventDefault();const s=e.getAttribute("href");if(s){const t=document.querySelector(s);t&&(n(),setTimeout(()=>{t.scrollIntoView({behavior:"smooth",block:"start"}),window.scrollBy(0,-80)},300))}})});const m=new IntersectionObserver(e=>{e.forEach(c=>{if(c.isIntersecting){const s=c.target.getAttribute("id");i.forEach(t=>{t.getAttribute("href")===`#${s}`?t.classList.add("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20"):t.classList.remove("!text-blue-600","dark:!text-blue-400","!bg-blue-50","dark:!bg-blue-900/20")})}})},{rootMargin:"-80px 0px -80% 0px"});document.querySelectorAll("h2[id], h3[id], h4[id]").forEach(e=>{m.observe(e)})}document.addEventListener("astro:page-load",b);</script>  </main> <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto"> <div class="container mx-auto px-4 py-8"> <div class="flex flex-col md:flex-row justify-between items-center"> <div class="mb-4 md:mb-0"> <p class="text-sm text-gray-600 dark:text-gray-400">
+&copy; 2025 MiSitio. Todos los derechos reservados.
+</p> </div> <div class="flex space-x-6"> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">Twitter</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path> </svg> </a> <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"> <span class="sr-only">GitHub</span> <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> </div> </div> </div> </footer> <script>
+			// Este script se asegura de que no haya un "destello" del tema incorrecto.
+			const theme = (() => {
+				if (
+					typeof localStorage !== "undefined" &&
+					localStorage.getItem("theme")
+				) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return "light";
+			})();
+
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+			} else {
+				document.documentElement.classList.add("dark");
+			}
+			// Sincronizar en todas las pestañas
+			window.addEventListener("storage", () => {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			});
+		</script> </body> </html>
