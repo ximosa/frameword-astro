@@ -1,0 +1,90 @@
+---
+title: "Optimización de imágenes en la web: Guía completa 2025"
+description: "Las imágenes representan la mayor parte del peso de una página web. Aprende las mejores técnicas para optimizarlas sin sacrificar calidad visual."
+date: "2025-01-05"
+author: "ximo"
+image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop"
+category: "Optimización"
+---
+
+# Optimización de imágenes en la web: Guía completa 2025
+
+Las imágenes son esenciales para crear experiencias web atractivas, pero también son responsables de la mayor parte del peso de las páginas. En esta guía veremos cómo optimizarlas correctamente.
+
+## Formatos de imagen modernos
+
+### WebP
+
+WebP ofrece compresión superior tanto con pérdida como sin pérdida:
+
+- 25-35% más pequeño que JPEG
+- Soporte de transparencia (como PNG)
+- Amplio soporte en navegadores modernos
+
+### AVIF
+
+El formato más nuevo y eficiente:
+
+- Hasta 50% más pequeño que JPEG
+- Excelente calidad a bajos bitrates
+- Soporte creciente en navegadores
+
+## Técnicas de carga
+
+### Lazy Loading
+
+Carga imágenes solo cuando están a punto de entrar en el viewport:
+
+```html
+<img src="imagen.jpg" loading="lazy" alt="Descripción" />
+```
+
+### Responsive Images
+
+Sirve diferentes tamaños según el dispositivo:
+
+```html
+<img
+  srcset="
+    imagen-small.jpg 400w,
+    imagen-medium.jpg 800w,
+    imagen-large.jpg 1200w
+  "
+  sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+  src="imagen-medium.jpg"
+  alt="Descripción"
+/>
+```
+
+## Herramientas de optimización
+
+### Automáticas
+
+- **Sharp**: Procesamiento de imágenes en Node.js
+- **ImageOptim**: Aplicación de escritorio para Mac
+- **Squoosh**: Herramienta web de Google
+
+### CDNs de imágenes
+
+Servicios como Cloudinary o Imgix ofrecen:
+
+- Transformación on-the-fly
+- Optimización automática
+- CDN global
+
+## Dimensiones explícitas
+
+Siempre define width y height para evitar CLS:
+
+```html
+<img 
+  src="imagen.jpg" 
+  width="800" 
+  height="600"
+  alt="Descripción"
+/>
+```
+
+## Conclusión
+
+La optimización de imágenes es crucial para el rendimiento web. Implementa estas técnicas y verás mejoras significativas en tus Core Web Vitals y en la experiencia de usuario.

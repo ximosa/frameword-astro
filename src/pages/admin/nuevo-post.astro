@@ -1,0 +1,488 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Admin - Nuevo Post" description="Crear nuevo post del blog">
+    <div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-4 px-4">
+        <div
+            class="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow p-4"
+        >
+            <form id="post-form" class="space-y-3">
+                <!-- Título y Categoría -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                    <div class="lg:col-span-2">
+                        <label
+                            for="title"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Título *</label
+                        >
+                        <input
+                            type="text"
+                            id="title"
+                            required
+                            placeholder="Título del artículo"
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="category"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Categoría *</label
+                        >
+                        <select
+                            id="category"
+                            required
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Seleccionar</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Desarrollo Web"
+                                >Desarrollo Web</option
+                            >
+                            <option value="WordPress">WordPress</option>
+                            <option value="Frameworks">Frameworks</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Seguridad">Seguridad</option>
+                            <option value="Rendimiento">Rendimiento</option>
+                            <option value="Diseño">Diseño</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <div>
+                    <label
+                        for="description"
+                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                        >Descripción * <span class="text-xs text-gray-500"
+                            >(<span id="char-count">0</span>/160)</span
+                        ></label
+                    >
+                    <textarea
+                        id="description"
+                        required
+                        rows="2"
+                        maxlength="160"
+                        placeholder="Descripción breve"
+                        class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 resize-none"
+                    ></textarea>
+                </div>
+
+                <!-- Fecha, Autor e Imagen -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div>
+                        <label
+                            for="date"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Fecha *</label
+                        >
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="author"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Autor *</label
+                        >
+                        <input
+                            type="text"
+                            id="author"
+                            required
+                            value="ximo"
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="image"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >URL Imagen</label
+                        >
+                        <input
+                            type="url"
+                            id="image"
+                            placeholder="https://..."
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                </div>
+
+                <!-- Editor -->
+                <div>
+                    <label
+                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                        >Contenido * <span class="text-xs text-gray-500"
+                            >(Markdown)</span
+                        ></label
+                    >
+                    <div
+                        class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-t p-1.5 flex flex-wrap gap-0.5"
+                    >
+                        <button
+                            type="button"
+                            data-action="bold"
+                            class="toolbar-btn"
+                            title="Negrita"><strong>B</strong></button
+                        >
+                        <button
+                            type="button"
+                            data-action="italic"
+                            class="toolbar-btn"
+                            title="Cursiva"><em>I</em></button
+                        >
+                        <div
+                            class="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-0.5"
+                        >
+                        </div>
+                        <button
+                            type="button"
+                            data-action="h2"
+                            class="toolbar-btn"
+                            title="H2">H2</button
+                        >
+                        <button
+                            type="button"
+                            data-action="h3"
+                            class="toolbar-btn"
+                            title="H3">H3</button
+                        >
+                        <div
+                            class="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-0.5"
+                        >
+                        </div>
+                        <button
+                            type="button"
+                            data-action="link"
+                            class="toolbar-btn"
+                            title="Enlace">🔗</button
+                        >
+                        <button
+                            type="button"
+                            data-action="image"
+                            class="toolbar-btn"
+                            title="Imagen">🖼️</button
+                        >
+                        <button
+                            type="button"
+                            data-action="youtube"
+                            class="toolbar-btn"
+                            title="YouTube">▶️</button
+                        >
+                        <div
+                            class="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-0.5"
+                        >
+                        </div>
+                        <button
+                            type="button"
+                            data-action="list"
+                            class="toolbar-btn"
+                            title="Lista">≡</button
+                        >
+                        <button
+                            type="button"
+                            data-action="code"
+                            class="toolbar-btn"
+                            title="Código">&lt;/&gt;</button
+                        >
+                        <button
+                            type="button"
+                            data-action="quote"
+                            class="toolbar-btn"
+                            title="Cita">"</button
+                        >
+                    </div>
+                    <textarea
+                        id="content"
+                        required
+                        rows="12"
+                        placeholder="Escribe tu contenido aquí..."
+                        class="w-full px-3 py-2 text-sm rounded-b border border-t-0 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 font-mono resize-y"
+                    ></textarea>
+                </div>
+
+                <!-- Botones -->
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        type="button"
+                        id="preview-btn"
+                        class="px-4 py-2 text-sm bg-gray-600 hover:bg-gray-700 text-white font-medium rounded"
+                        >👁️ Vista Previa</button
+                    >
+                    <button
+                        type="button"
+                        id="copy-btn"
+                        class="px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded"
+                        >📋 Copiar</button
+                    >
+                    <button
+                        type="submit"
+                        class="px-4 py-2 text-sm bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium rounded"
+                        >💾 Descargar MDX</button
+                    >
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+        id="preview-modal"
+        class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+    >
+        <div
+            class="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+        >
+            <div
+                class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between"
+            >
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+                    Vista Previa
+                </h2>
+                <button
+                    id="close-preview"
+                    class="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path></svg
+                    >
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto flex-1">
+                <pre
+                    id="preview-content"
+                    class="bg-gray-50 dark:bg-gray-900 p-3 rounded text-xs overflow-x-auto"><code /></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificación -->
+    <div
+        id="notification"
+        class="hidden fixed bottom-4 right-4 bg-green-600 text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-2 z-50"
+    >
+        <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path></svg
+        >
+        <span id="notification-text" class="text-sm">¡Copiado!</span>
+    </div>
+</Layout>
+
+<style>
+    .toolbar-btn {
+        @apply px-2 py-1 text-sm rounded hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors min-w-[28px] text-center;
+    }
+</style>
+
+<script>
+    const contentTextarea = document.getElementById(
+        "content",
+    ) as HTMLTextAreaElement;
+
+    function insertAtCursor(
+        before: string,
+        after: string = "",
+        placeholder: string = "",
+    ) {
+        const start = contentTextarea.selectionStart;
+        const end = contentTextarea.selectionEnd;
+        const selectedText = contentTextarea.value.substring(start, end);
+        const textToInsert = selectedText || placeholder;
+
+        const newText = before + textToInsert + after;
+        const currentValue = contentTextarea.value;
+
+        contentTextarea.value =
+            currentValue.substring(0, start) +
+            newText +
+            currentValue.substring(end);
+
+        const newCursorPos =
+            start + before.length + (selectedText ? selectedText.length : 0);
+        contentTextarea.focus();
+        contentTextarea.setSelectionRange(
+            newCursorPos,
+            newCursorPos + (selectedText ? 0 : placeholder.length),
+        );
+    }
+
+    document.querySelectorAll("[data-action]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const action = (e.currentTarget as HTMLElement).dataset.action;
+
+            switch (action) {
+                case "bold":
+                    insertAtCursor("**", "**", "negrita");
+                    break;
+                case "italic":
+                    insertAtCursor("*", "*", "cursiva");
+                    break;
+                case "h2":
+                    insertAtCursor("\n## ", "", "Título");
+                    break;
+                case "h3":
+                    insertAtCursor("\n### ", "", "Subtítulo");
+                    break;
+                case "link":
+                    const url = prompt("URL del enlace:", "https://");
+                    if (url)
+                        insertAtCursor("[", `](${url})`, "texto del enlace");
+                    break;
+                case "image":
+                    const imgUrl = prompt("URL de la imagen:", "https://");
+                    if (imgUrl) {
+                        const altText = prompt(
+                            "Texto alternativo:",
+                            "Descripción",
+                        );
+                        insertAtCursor(`\n![${altText}](${imgUrl})\n`, "");
+                    }
+                    break;
+                case "youtube":
+                    const videoId = prompt("ID del video de YouTube:", "");
+                    if (videoId)
+                        insertAtCursor(`\n<YouTube id="${videoId}" />\n`, "");
+                    break;
+                case "list":
+                    insertAtCursor("\n- ", "", "Item");
+                    break;
+                case "code":
+                    insertAtCursor("\n```javascript\n", "\n```\n", "código");
+                    break;
+                case "quote":
+                    insertAtCursor("\n> ", "", "Cita");
+                    break;
+            }
+        });
+    });
+
+    contentTextarea.addEventListener("keydown", (e) => {
+        if (e.ctrlKey || e.metaKey) {
+            if (e.key === "b") {
+                e.preventDefault();
+                insertAtCursor("**", "**", "negrita");
+            } else if (e.key === "i") {
+                e.preventDefault();
+                insertAtCursor("*", "*", "cursiva");
+            }
+        }
+    });
+
+    function generateSlug(title: string): string {
+        return title
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+    }
+
+    function generateMDX(): string {
+        const title = (document.getElementById("title") as HTMLInputElement)
+            .value;
+        const description = (
+            document.getElementById("description") as HTMLTextAreaElement
+        ).value;
+        const date = (document.getElementById("date") as HTMLInputElement)
+            .value;
+        const author = (document.getElementById("author") as HTMLInputElement)
+            .value;
+        const image = (document.getElementById("image") as HTMLInputElement)
+            .value;
+        const category = (
+            document.getElementById("category") as HTMLSelectElement
+        ).value;
+        const content = (
+            document.getElementById("content") as HTMLTextAreaElement
+        ).value;
+
+        let mdx = `---\ntitle: "${title}"\ndescription: "${description}"\ndate: "${date}"\nauthor: "${author}"`;
+        if (image) mdx += `\nimage: "${image}"`;
+        mdx += `\ncategory: "${category}"\n---\n\n${content}\n`;
+        return mdx;
+    }
+
+    function showNotification(message: string) {
+        const notification = document.getElementById("notification")!;
+        const notificationText = document.getElementById("notification-text")!;
+        notificationText.textContent = message;
+        notification.classList.remove("hidden");
+        setTimeout(() => notification.classList.add("hidden"), 2500);
+    }
+
+    const descriptionInput = document.getElementById(
+        "description",
+    ) as HTMLTextAreaElement;
+    const charCount = document.getElementById("char-count")!;
+    descriptionInput.addEventListener(
+        "input",
+        () =>
+            (charCount.textContent = descriptionInput.value.length.toString()),
+    );
+
+    const dateInput = document.getElementById("date") as HTMLInputElement;
+    dateInput.valueAsDate = new Date();
+
+    document.getElementById("preview-btn")!.addEventListener("click", () => {
+        const mdx = generateMDX();
+        const previewContent = document.querySelector("#preview-content code")!;
+        previewContent.textContent = mdx;
+        document.getElementById("preview-modal")!.classList.remove("hidden");
+    });
+
+    document.getElementById("close-preview")!.addEventListener("click", () => {
+        document.getElementById("preview-modal")!.classList.add("hidden");
+    });
+
+    document.getElementById("copy-btn")!.addEventListener("click", async () => {
+        const mdx = generateMDX();
+        try {
+            await navigator.clipboard.writeText(mdx);
+            showNotification("¡Copiado!");
+        } catch (err) {
+            showNotification("Error al copiar");
+        }
+    });
+
+    document.getElementById("post-form")!.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = (document.getElementById("title") as HTMLInputElement)
+            .value;
+        const mdx = generateMDX();
+        const slug = generateSlug(title);
+        const filename = `${slug}.mdx`;
+
+        const blob = new Blob([mdx], { type: "text/markdown" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        showNotification(`¡Descargado: ${filename}!`);
+    });
+</script>

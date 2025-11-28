@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="Inicio | MiSitio Web" 
+	description="Bienvenido a mi sitio web personal y profesional."
+>
+	<section class="text-center">
+		<h1 class="text-5xl font-bold mb-4">Construyendo el Futuro, Hoy.</h1>
+		<p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+			Soluciones web innovadoras para llevar tu negocio al siguiente nivel.
+		</p>
+		<a href="/servicios" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+			Explora mis servicios
+		</a>
+	</section>
+
+	<section class="mt-16">
+		<h2 class="text-3xl font-bold text-center mb-8">¿Por qué elegirme?</h2>
+		<div class="grid md:grid-cols-3 gap-8 text-center">
+			<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+				<h3 class="text-xl font-bold mb-2">Diseño Moderno</h3>
+				<p>Interfaces de usuario limpias, atractivas y totalmente responsivas.</p>
+			</div>
+			<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+				<h3 class="text-xl font-bold mb-2">Optimización SEO</h3>
+				<p>Tu sitio será visible para los motores de búsqueda desde el primer día.</p>
+			</div>
+			<div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+				<h3 class="text-xl font-bold mb-2">Alto Rendimiento</h3>
+				<p>Websites ultrarrápidos gracias a la arquitectura de Astro.</p>
+			</div>
+		</div>
+	</section>
+</Layout>

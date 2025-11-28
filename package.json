@@ -1,0 +1,22 @@
+{
+  "name": "prueba-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.0.0",
+    "tailwindcss": "^3.4.0",
+    "vue": "^3.4.0"
+  }
+}

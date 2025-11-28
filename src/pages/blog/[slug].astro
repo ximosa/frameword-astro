@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+import YouTube from "../../components/YouTube.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+
+const post = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.excerpt}>
+  <article class="prose prose-lg dark:prose-invert mx-auto py-12 px-4">
+    <div class="text-center mb-8">
+      <div class="mb-4">
+        <span
+          class="bg-gray-600 text-white text-sm font-bold px-3 py-1 rounded-full"
+        >
+          {post.data.category}
+        </span>
+      </div>
+      <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
+      <time
+        datetime={post.data.date.toISOString()}
+        class="text-gray-500 dark:text-gray-400"
+      >
+        Publicado el {
+          new Date(post.data.date).toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        } por {post.data.author}
+      </time>
+    </div>
+
+    {
+      post.data.image && (
+        <img
+          src={post.data.image}
+          alt={`Imagen para ${post.data.title}`}
+          class="w-full h-auto rounded-lg shadow-lg mb-8"
+        />
+      )
+    }
+
+    <Content components={{ YouTube }} />
+  </article>
+
+  <!-- Tabla de Contenidos -->
+  {headings.length > 0 && <TableOfContents headings={headings} />}
+</Layout>

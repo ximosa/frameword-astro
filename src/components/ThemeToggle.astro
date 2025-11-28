@@ -1,0 +1,68 @@
+---
+// ThemeToggle.astro
+---
+
+<button
+  class="theme-toggle relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 ease-in-out"
+  aria-label="Cambiar tema"
+>
+  <span class="sr-only">Cambiar tema</span>
+  <svg
+    class="sun-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-0 scale-100 dark:rotate-90 dark:scale-0 absolute"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+  <svg
+    class="moon-icon w-5 h-5 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] transform rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<script>
+  function setupThemeToggles() {
+    const themeToggles = document.querySelectorAll(".theme-toggle");
+
+    // Función para actualizar el estado visual sin animación inicial (opcional)
+    // En este caso, las clases de Tailwind dark: manejan el estado inicial correctamente
+    // si el HTML ya tiene la clase 'dark'.
+
+    themeToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        // No necesitamos manipular clases de iconos manualmente porque
+        // usamos selectores CSS 'dark:' en los elementos SVG directamente.
+        // dark:scale-0 vs scale-100 se encarga de la magia.
+      });
+    });
+  }
+
+  // Ejecutar en navegación inicial y subsiguiente (View Transitions)
+  document.addEventListener("astro:page-load", setupThemeToggles);
+</script>

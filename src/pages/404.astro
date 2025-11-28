@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    title="404 - Página No Encontrada | Mi Sitio Web"
+    description="La página que buscas no existe. Explora nuestro blog o vuelve al inicio para encontrar contenido interesante."
+>
+    <div class="min-h-[80vh] flex items-center justify-center px-4 py-16">
+        <div class="max-w-2xl mx-auto text-center">
+            <!-- Ilustración 404 -->
+            <div class="relative mb-8">
+                <div
+                    class="text-[150px] md:text-[200px] font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 leading-none select-none"
+                >
+                    404
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div
+                        class="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 dark:from-blue-400/20 dark:to-indigo-400/20 rounded-full blur-3xl animate-pulse"
+                    >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensaje -->
+            <h1
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+            >
+                ¡Ups! Página no encontrada
+            </h1>
+            <p
+                class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto"
+            >
+                Parece que esta página decidió tomarse unas vacaciones. Mientras
+                tanto, aquí tienes algunas opciones:
+            </p>
+
+            <!-- Botones de acción -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a
+                    href="/"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                    <svg
+                        class="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                        ></path>
+                    </svg>
+                    Volver al Inicio
+                </a>
+
+                <a
+                    href="/blog"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-200 transform hover:-translate-y-0.5"
+                >
+                    <svg
+                        class="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                        ></path>
+                    </svg>
+                    Explorar el Blog
+                </a>
+            </div>
+
+            <!-- Enlaces útiles -->
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    O visita alguna de estas páginas:
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="/servicios"
+                        class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                    >
+                        Servicios
+                    </a>
+                    <span class="text-gray-300 dark:text-gray-600">•</span>
+                    <a
+                        href="/contacto"
+                        class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                    >
+                        Contacto
+                    </a>
+                    <span class="text-gray-300 dark:text-gray-600">•</span>
+                    <a
+                        href="/blog"
+                        class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                    >
+                        Blog
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mensaje adicional -->
+            <div
+                class="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800"
+            >
+                <div class="flex items-start gap-3">
+                    <svg
+                        class="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                    </svg>
+                    <div class="text-left">
+                        <h3
+                            class="font-semibold text-gray-900 dark:text-white mb-1"
+                        >
+                            ¿Crees que esto es un error?
+                        </h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Si llegaste aquí desde un enlace interno, por favor <a
+                                href="/contacto"
+                                class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                                >contáctanos</a
+                            > para que podamos arreglarlo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animación de fondo -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-3xl animate-blob"
+        >
+        </div>
+        <div
+            class="absolute top-1/3 right-1/4 w-96 h-96 bg-indigo-500/5 dark:bg-indigo-400/5 rounded-full blur-3xl animate-blob animation-delay-2000"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/5 dark:bg-purple-400/5 rounded-full blur-3xl animate-blob animation-delay-4000"
+        >
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes blob {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+    }
+
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+</style>
+
+<script>
+    // Registrar el error 404 en analytics (si tienes configurado)
+    if (typeof window !== "undefined") {
+        console.log("404 - Página no encontrada:", window.location.pathname);
+
+        // Aquí podrías enviar a Google Analytics o tu servicio de analytics
+        // gtag('event', 'page_not_found', {
+        //   page_path: window.location.pathname
+        // });
+    }
+</script>

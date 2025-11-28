@@ -1,0 +1,58 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">MiSitio</a>
+      </div>
+
+      <!-- Menú para escritorio -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Inicio</a>
+        <a href="/servicios" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Servicios</a>
+        <a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Blog</a>
+        <a href="/contacto" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Contacto</a>
+        <ThemeToggle />
+      </div>
+
+      <!-- Botón de menú para móvil -->
+      <div class="md:hidden flex items-center">
+        <ThemeToggle />
+        <button id="mobile-menu-button" class="ml-2 p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Menú desplegable para móvil -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95">
+    <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Inicio</a>
+    <a href="/servicios" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hoverbg-gray-700">Servicios</a>
+    <a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Blog</a>
+    <a href="/contacto" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">Contacto</a>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        openIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

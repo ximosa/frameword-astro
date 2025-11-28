@@ -1,0 +1,744 @@
+---
+title: "Más allá del Blog: Cuándo y por qué tu negocio necesita Custom Post Types (CPT) y Campos Personalizados (ACF)"
+description: "Tenemos 400 productos en nuestra web. Cada uno tiene especificaciones técnicas, certificaciones, archivos PDF de fichas técnicas, galerías de aplicaciones.."
+date: "2025-11-26"
+author: "ximo"
+image: "https://res.cloudinary.com/djjiagkho/image/upload/v1764116468/Custom_Post_Types_wukfcg.png"
+category: "Custom Post Types"
+---
+
+## El problema que no sabías que tenías
+
+**Cliente:** "Tenemos 400 productos en nuestra web. Cada uno tiene especificaciones técnicas, certificaciones, archivos PDF de fichas técnicas, galerías de aplicaciones... pero todo está en el editor de WordPress como si fueran entradas de blog. Es un desastre gestionar esto."
+
+**Nosotros:** "Básicamente estás usando una herramienta de blogs para gestionar un catálogo industrial complejo."
+
+**Cliente:** "¿Hay otra forma?"
+
+**Nosotros:** "Sí. Se llaman Custom Post Types y Advanced Custom Fields. Déjame mostrarte."
+
+Tres meses después, su equipo gestiona el catálogo en 1/5 del tiempo, cero errores de formato, y pueden encontrar cualquier producto en segundos.
+
+Esta es la historia que se repite cuando las empresas intentan forzar WordPress a comportarse como algo que no es, sin saber que WordPress puede ser exactamente lo que necesitan... con la configuración correcta.
+
+## WordPress por defecto: Diseñado para blogs (y solo blogs)
+
+### Lo que WordPress incluye de fábrica:
+
+**Entradas (Posts):**
+- Diseñadas para contenido cronológico
+- Organizadas por categorías y etiquetas
+- Ordenadas por fecha de publicación
+- Perfectas para: Noticias, artículos, blogs
+
+**Páginas (Pages):**
+- Diseñadas para contenido estático
+- Jerárquicas (páginas padre/hijo)
+- Sin fecha, sin categorías
+- Perfectas para: Sobre nosotros, Contacto, Servicios
+
+**Medios (Media):**
+- Biblioteca de archivos
+- Básicamente: imágenes, PDFs, vídeos
+
+**Eso es todo.** Tres tipos de contenido para todos los casos de uso imaginables.
+
+### El problema real
+
+¿Qué pasa cuando tu negocio necesita gestionar:
+- **Productos** con especificaciones técnicas complejas
+- **Propiedades inmobiliarias** con precio, ubicación, características
+- **Miembros del equipo** con cargo, biografía, especialidades
+- **Proyectos** con cliente, fecha, tecnologías, galería
+- **Eventos** con fecha, ubicación, precio, capacidad
+- **Recetas** con ingredientes, tiempo de cocción, dificultad
+- **Testimonios** con cliente, rating, proyecto asociado
+- **Directorio de empresas** con ubicación, categoría, horarios
+
+**Respuesta habitual:** "Bueno, lo ponemos todo en 'Entradas' y ya está."
+
+**Resultado:** Caos organizado que funciona hasta que creces. Luego es solo caos.
+
+## La solución: Custom Post Types (CPT)
+
+### ¿Qué es un Custom Post Type?
+
+Un CPT es un tipo de contenido personalizado que funciona como "Entradas" o "Páginas", pero diseñado específicamente para tu necesidad.
+
+**Analogía:** WordPress por defecto es como una casa con dos habitaciones (entradas y páginas). Los CPT son como construir habitaciones adicionales diseñadas para propósitos específicos (biblioteca, gimnasio, oficina).
+
+### Ejemplo real: Empresa de construcción
+
+**Antes (usando Entradas para proyectos):**
+
+```
+Título: Reforma integral Calle Mayor 45
+Contenido: [Mezcla de descripción, cliente, presupuesto, fotos...]
+Categorías: Reformas, Madrid, 2023, Residencial
+```
+
+Problemas:
+- Información desestructurada
+- Imposible filtrar por presupuesto
+- No hay campos para datos clave (m², duración, equipo)
+- Las galerías se mezclan con el texto
+- Buscar proyectos similares es pesadilla
+
+**Después (con CPT "Proyectos"):**
+
+```
+Post Type: Proyecto
+Título: Reforma integral Calle Mayor 45
+
+Campos estructurados:
+- Cliente: [Campo texto]
+- Ubicación: [Campo mapa]
+- Superficie: 180 m² [Campo numérico]
+- Presupuesto: €85,000 [Campo numérico]
+- Duración: 4 meses [Campo numérico]
+- Fecha inicio/fin: [Campo fecha]
+- Tipo de obra: [Desplegable: Reforma/Construcción/Restauración]
+- Categoría: [Desplegable: Residencial/Comercial/Industrial]
+- Equipo asignado: [Relación con CPT "Equipo"]
+- Estado: [Desplegable: Planificación/En curso/Finalizado]
+- Galería antes: [Campo galería]
+- Galería después: [Campo galería]
+- Planos: [Campo archivo PDF]
+- Testimonial cliente: [Campo texto largo]
+- Proyectos relacionados: [Relación con otros Proyectos]
+```
+
+Ahora pueden:
+- Filtrar proyectos por presupuesto (€50k-100k)
+- Ver todos los proyectos del equipo de Juan
+- Mostrar solo proyectos residenciales en Madrid
+- Generar reportes automáticos de duración media
+- Crear páginas de "Proyectos similares" automáticamente
+
+**Tiempo de gestión:** De 25 min/proyecto a 8 min/proyecto.
+
+## Advanced Custom Fields (ACF): El superpoder
+
+### ¿Qué es ACF?
+
+ACF es el plugin que convierte WordPress en una plataforma de gestión de contenido verdaderamente flexible. Te permite crear campos personalizados de cualquier tipo.
+
+### Los tipos de campos que cambian todo
+
+**1. Campos de texto y número:**
+- Texto simple (nombre, SKU)
+- Texto enriquecido (descripciones con formato)
+- Números (precio, cantidad, medidas)
+- Email, URL, contraseña
+
+**2. Campos de selección:**
+- Desplegables (categorías predefinidas)
+- Checkboxes (múltiples opciones)
+- Radio buttons (una única opción)
+- Botones (on/off, sí/no)
+
+**3. Campos de contenido:**
+- Editor WYSIWYG (con formato completo)
+- Textarea (texto plano largo)
+- Código (para HTML, CSS, JS)
+
+**4. Campos de relaciones:**
+- Selector de posts (relacionar contenidos)
+- Selector de taxonomías
+- Selector de usuarios
+- Relaciones bidireccionales
+
+**5. Campos de medios:**
+- Imagen (con preview)
+- Galería de imágenes
+- Archivo (PDF, documentos)
+- oEmbed (YouTube, Vimeo)
+
+**6. Campos avanzados:**
+- Google Maps (ubicación con mapa)
+- Fecha y hora (con calendario)
+- Color picker
+- Rango (slider numérico)
+- Grupo de campos (campos anidados)
+- Repetidor (campos duplicables)
+- Flexible content (layouts personalizables)
+
+### Ejemplo práctico: Catálogo de maquinaria industrial
+
+**Necesidad:** Empresa que alquila maquinaria pesada. 250+ máquinas, cada una con especificaciones técnicas, disponibilidad, precios por día/semana/mes.
+
+**CPT:** "Maquinaria"
+
+**Grupos de campos ACF:**
+
+**Información básica:**
+```
+- Nombre comercial: [Texto]
+- Fabricante: [Desplegable]
+- Modelo: [Texto]
+- Año fabricación: [Número]
+- Número de serie: [Texto]
+- Estado: [Radio: Disponible/Alquilada/Mantenimiento/Fuera de servicio]
+```
+
+**Especificaciones técnicas:**
+```
+- Categoría: [Desplegable: Excavadoras/Grúas/Bulldozers/etc.]
+- Peso: [Número] kg
+- Potencia: [Número] CV
+- Altura máxima: [Número] m
+- Capacidad de carga: [Número] kg
+- Consumo combustible: [Número] L/h
+- Certificaciones: [Checkbox múltiple: CE, ISO 9001, etc.]
+- Ficha técnica: [Archivo PDF]
+```
+
+**Tarifas:**
+```
+- Tarifa día: [Número] €
+- Tarifa semana: [Número] €
+- Tarifa mes: [Número] €
+- Fianza: [Número] €
+- Seguro incluido: [Sí/No]
+- Transporte: [Número] € (o incluido)
+```
+
+**Disponibilidad:**
+```
+- Ubicación actual: [Google Maps]
+- Calendario disponibilidad: [Campo personalizado con calendario]
+- Próxima revisión: [Fecha]
+- Reservas actuales: [Relación con CPT "Reservas"]
+```
+
+**Multimedia:**
+```
+- Galería exterior: [Galería imágenes]
+- Galería interior cabina: [Galería imágenes]
+- Vídeo demostración: [oEmbed YouTube]
+- Manual de uso: [Archivo PDF]
+```
+
+**Mantenimiento:**
+```
+- Historial mantenimiento: [Repetidor con campos: Fecha, Tipo, Coste, Notas]
+- Horas de uso totales: [Número]
+- Última inspección: [Fecha]
+- Técnico asignado: [Relación con usuarios]
+```
+
+### El resultado
+
+**Panel de administración personalizado:**
+
+En lugar de ver un editor de blog estándar, el equipo ve un formulario estructurado con secciones colapsables, validación de campos, y una interfaz diseñada específicamente para gestionar maquinaria.
+
+**Frontend automatizado:**
+
+```php
+// Mostrar precio según duración
+<?php 
+$dias = get_field('tarifa_dia');
+$semana = get_field('tarifa_semana'); 
+$mes = get_field('tarifa_mes');
+?>
+
+<div class="pricing">
+    <span><?php echo $dias; ?>€/día</span>
+    <span><?php echo $semana; ?>€/semana</span>
+    <span><?php echo $mes; ?>€/mes</span>
+</div>
+
+// Mostrar solo máquinas disponibles en Madrid
+<?php
+$args = array(
+    'post_type' => 'maquinaria',
+    'meta_query' => array(
+        array(
+            'key' => 'estado',
+            'value' => 'disponible'
+        ),
+        array(
+            'key' => 'ubicacion_ciudad',
+            'value' => 'Madrid'
+        )
+    )
+);
+$maquinas = new WP_Query($args);
+?>
+```
+
+**Filtros avanzados automáticos:**
+
+Los usuarios pueden filtrar por:
+- Tipo de maquinaria
+- Rango de precio (€100-500/día)
+- Capacidad de carga (5-20 toneladas)
+- Ubicación (radio de 50km)
+- Disponibilidad (fechas específicas)
+
+Todo sin escribir código SQL manualmente.
+
+## Casos de uso reales: Cuando CPT+ACF son la respuesta
+
+### 1. Inmobiliaria: Catálogo de propiedades
+
+**CPT:** "Propiedades"
+
+**Problema anterior:** 200 propiedades en "Entradas". Buscar pisos de 3 habitaciones en Salamanca era una pesadilla.
+
+**Solución CPT+ACF:**
+- Tipo: Piso/Casa/Local/Oficina
+- Operación: Venta/Alquiler/Traspaso
+- Precio: €250,000 (ordenable y filtrable)
+- Superficie: 95 m²
+- Habitaciones: 3
+- Baños: 2
+- Ubicación: [Google Maps + dirección]
+- Características: [Checkboxes: Garaje, Ascensor, Terraza, etc.]
+- Eficiencia energética: [Desplegable: A-G]
+- Estado: [Nuevo, Reformado, Original, etc.]
+- Galería: 25 fotos
+- Tour virtual: [Enlace 360]
+- Plano: [PDF]
+- Agente: [Relación con usuarios]
+
+**ROI:**
+- Tiempo gestión: -65% (de 30 min a 10 min/propiedad)
+- Filtros web: De 3 opciones a 15 filtros combinables
+- Conversión formularios: +34% (información más clara)
+
+### 2. Bufete de abogados: Áreas de práctica y equipo
+
+**CPT 1:** "Áreas de práctica"
+- Nombre del área
+- Descripción
+- Casos de éxito: [Relación con CPT "Casos"]
+- Abogados especializados: [Relación con CPT "Equipo"]
+- Documentos tipo: [Repetidor de PDFs]
+- Honorarios orientativos
+- Preguntas frecuentes: [Repetidor]
+
+**CPT 2:** "Miembros del equipo"
+- Nombre y apellidos
+- Cargo
+- Especialidades: [Relación con Áreas práctica]
+- Biografía
+- Formación académica: [Repetidor]
+- Colegios profesionales
+- Idiomas: [Checkboxes]
+- Casos destacados: [Relación con CPT "Casos"]
+- Email/Teléfono directo
+- Horario disponibilidad
+
+**CPT 3:** "Casos de éxito"
+- Título anonimizado
+- Área: [Relación con Áreas]
+- Abogados: [Relación con Equipo]
+- Año
+- Tipo de caso
+- Resultado
+- Descripción
+- Documentación: [Archivos]
+
+**Beneficio:** Todo está interrelacionado. Ver un área muestra automáticamente los abogados especializados y sus casos ganados. Ver un abogado muestra sus áreas y casos. Gestión centralizada, presentación profesional.
+
+### 3. Restaurante/Cadena restaurantes: Menú dinámico
+
+**CPT:** "Platos"
+
+**Campos ACF:**
+- Nombre plato
+- Categoría: [Desplegable: Entrantes, Principales, Postres, etc.]
+- Descripción
+- Precio
+- Alérgenos: [Checkboxes con iconos]
+- Opciones dietéticas: [Vegetariano, Vegano, Sin gluten, etc.]
+- Disponibilidad: [Días de la semana]
+- Temporada: [Primavera/Verano/Otoño/Invierno/Todo año]
+- Restaurantes donde se sirve: [Si es cadena]
+- Ingredientes principales: [Repetidor]
+- Valor nutricional: [Grupo: Calorías, Proteínas, etc.]
+- Foto del plato: [Imagen]
+- Chef que lo creó: [Relación con CPT "Equipo"]
+- Maridaje sugerido: [Relación con CPT "Vinos"]
+- Platos relacionados
+- Tiempo preparación: [Número] min
+
+**Magia del frontend:**
+```php
+// Menú del día automático (platos de temporada actual)
+// Filtro alérgenos en tiempo real
+// Calculadora nutricional automática
+// Sugerencias de maridaje
+// Menús personalizados (vegetariano, sin gluten)
+```
+
+**ROI:**
+- Cambios de menú: De 4 horas (diseñador + web) a 15 minutos (camarero)
+- Errores de alérgenos: De 2-3/mes a 0 (campos estructurados)
+- Tiempo creación menú degustación: De 2 horas a 10 minutos
+
+### 4. Consultoría: Portfolio de proyectos
+
+**CPT:** "Proyectos"
+
+**Campos ACF:**
+- Cliente: [Texto o relación con CPT "Clientes"]
+- Sector: [Desplegable: Finanzas, Salud, Educación, etc.]
+- Tipo proyecto: [Estrategia, Transformación digital, etc.]
+- Duración: [Fecha inicio/fin]
+- Equipo: [Relación con usuarios]
+- Presupuesto: [Rango, no exacto]
+- Desafío: [Texto enriquecido]
+- Solución: [Texto enriquecido]
+- Resultados: [Repetidor: Métrica, Valor antes, Valor después, Mejora %]
+- Testimonial: [Texto + nombre + cargo cliente]
+- Industrias relacionadas: [Taxonomía]
+- Servicios aplicados: [Relación con CPT "Servicios"]
+- Caso público: [Sí/No, algunos clientes no quieren exposición]
+- Galería: [Capturas, fotos equipo, infografías]
+- PDF caso de estudio: [Archivo descargable]
+
+**Funcionalidad resultante:**
+- Filtrar proyectos por sector/servicio/duración
+- Mostrar automáticamente proyectos similares
+- Generar PDFs de casos de estudio con template
+- Portfolio dinámico que se actualiza solo
+- Landing pages de servicios con casos relevantes
+
+### 5. Centro de formación: Cursos y eventos
+
+**CPT 1:** "Cursos"
+- Título curso
+- Categoría: [Taxonomía personalizada]
+- Nivel: [Iniciación, Intermedio, Avanzado]
+- Modalidad: [Presencial, Online, Híbrido]
+- Duración: [Número] horas
+- Precio: [Número]
+- Próximas fechas: [Repetidor: Fecha, Plazas disponibles, Ubicación]
+- Temario: [Repetidor: Módulo, Contenido, Duración]
+- Instructor: [Relación con CPT "Instructores"]
+- Requisitos previos: [Texto]
+- Incluye: [Checkboxes: Certificado, Material, Coffee breaks, etc.]
+- Software necesario: [Repetidor]
+- Empresas que lo han hecho: [Logos]
+- Valoración media: [Calculado de reviews]
+
+**CPT 2:** "Instructores"
+- Nombre
+- Especialidades
+- Biografía
+- Cursos que imparte: [Relación automática]
+- Valoración media: [Calculada]
+- LinkedIn, Twitter
+- Foto profesional
+
+**CPT 3:** "Testimonios"
+- Alumno: [Texto]
+- Curso: [Relación con Cursos]
+- Valoración: [1-5 estrellas]
+- Comentario
+- Empresa
+- Verificado: [Sí/No]
+- Fecha
+
+**Integración potente:**
+- Ver curso → Muestra instructor → Ver otros cursos del instructor
+- Sistema de reservas integrado
+- Calculadora de precios (descuentos por grupos, empresa, etc.)
+- Generación automática de certificados al completar
+- Email marketing segmentado por intereses
+
+### 6. Agencia de viajes: Paquetes turísticos
+
+**CPT:** "Paquetes"
+
+**Grupos de campos:**
+
+**Información general:**
+- Nombre del paquete
+- Destino principal
+- Destinos incluidos: [Repetidor de ubicaciones]
+- Duración: [Número] días / [Número] noches
+- Tipo viaje: [Aventura, Relax, Cultural, etc.]
+- Temporadas disponibles
+- Desde precio: [Número] €/persona
+
+**Itinerario:**
+- Días del viaje: [Repetidor con:
+  - Día número
+  - Título día ("Explorando Barcelona")
+  - Actividades: [Repetidor]
+  - Comidas incluidas: [Desayuno/Almuerzo/Cena]
+  - Hotel: [Texto]
+  - Mapa ubicaciones día
+]
+
+**Incluido en precio:**
+- Vuelos: [Sí/No + Detalles]
+- Alojamiento: [Tipo, Categoría]
+- Traslados: [Detalles]
+- Actividades: [Lista]
+- Comidas: [Qué incluye]
+- Seguro: [Tipo]
+- Guía: [Sí/No + Idiomas]
+
+**Requisitos:**
+- Visado necesario: [Sí/No + Info]
+- Vacunas: [Lista]
+- Nivel físico requerido: [Bajo/Medio/Alto]
+- Edad mínima/máxima
+
+**Multimedia:**
+- Galería destinos: [Galería]
+- Vídeo promocional: [YouTube]
+- Mapa interactivo ruta: [Google Maps con waypoints]
+
+**Disponibilidad:**
+- Calendario salidas: [Repetidor: Fecha, Plazas disponibles, Precio]
+- Descuentos: [Repetidor: Tipo, Porcentaje, Condiciones]
+
+**Resultado:**
+- Comparador de paquetes automatizado
+- Sistema de reservas con disponibilidad en tiempo real
+- Generación automática de PDFs personalizados
+- Emails con itinerario detallado
+- Filtros: destino, presupuesto, duración, tipo, fechas
+
+## El ROI real: Números de proyectos ejecutados
+
+### Proyecto 1: Directorio de empresas (300 empresas)
+
+**Antes (todo en Entradas):**
+- Tiempo añadir empresa: 35 minutos
+- Tiempo actualizar info: 20 minutos
+- Errores de formato: 15-20/mes
+- Búsquedas funcionales: 0 (Google search del sitio)
+
+**Después (CPT + ACF):**
+- Tiempo añadir empresa: 8 minutos (-77%)
+- Tiempo actualizar info: 3 minutos (-85%)
+- Errores de formato: 0 (campos validados)
+- Filtros disponibles: 12 (sector, ubicación, tamaño, servicios...)
+- Búsqueda avanzada: Funcional con filtros combinados
+
+**ROI mensual:**
+- Gestión de 20 empresas/mes: 540 minutos ahorrados = 9 horas
+- A €40/hora = €360/mes ahorrado
+- Inversión desarrollo: €3,200
+- ROI en: 8.8 meses
+
+### Proyecto 2: Catálogo productos técnicos (1,200 SKUs)
+
+**Antes:**
+- Base de datos Excel separada de la web
+- Actualizar web: copiar/pegar manual
+- Inconsistencias frecuentes
+- Sin filtros técnicos
+
+**Después:**
+- Todo integrado en WordPress
+- Importación masiva desde CSV
+- Actualización sincronizada
+- 15 filtros técnicos funcionales
+- Comparador de productos
+- Exportación a PDF por producto
+
+**ROI:**
+- Tiempo gestión catálogo: -72%
+- Errores de especificaciones: -95%
+- Consultas a comerciales: -40% (info más completa)
+- Conversión: +28% (usuarios encuentran lo que buscan)
+
+**Impacto económico año 1:**
+- Ahorro gestión: €8,400
+- Ingresos adicionales (conversión): €34,000
+- Inversión: €8,500
+- ROI: 398%
+
+## Cuándo NO necesitas CPT y ACF
+
+Seamos honestos. No todo proyecto necesita esta complejidad.
+
+### ❌ No necesitas CPT+ACF si:
+
+**1. Tu sitio es principalmente informativo estático**
+- 5-10 páginas de empresa
+- Blog ocasional
+- Formulario de contacto
+
+**Usa:** WordPress estándar con buen theme
+
+**2. Tu contenido es simple y cronológico**
+- Blog personal
+- Noticias corporativas simples
+- Anuncios
+
+**Usa:** Entradas estándar con categorías
+
+**3. Tu presupuesto es muy limitado (&lt;€2,000)**
+
+Los CPT+ACF requieren:
+- Planificación de estructura
+- Desarrollo personalizado
+- Training del equipo
+- Mantenimiento específico
+
+Para presupuestos bajos, un theme premium con opciones incluidas puede ser suficiente.
+
+**4. No tienes contenido estructurado repetitivo**
+
+Si cada página es única y diferente, no necesitas la estructura de CPT.
+
+**5. Tu equipo no actualizará el contenido**
+
+Si contratas a alguien para cada cambio, la facilidad de gestión de ACF no aporta valor.
+
+## El proceso de implementación: Qué esperar
+
+### Fase 1: Discovery y estructura (1-2 semanas)
+
+**Workshop con cliente:**
+- Qué tipos de contenido gestionas
+- Qué información incluye cada tipo
+- Cómo se relacionan entre sí
+- Qué filtros necesitas
+- Quién gestionará qué
+
+**Entregable:** Documento de estructura
+```
+CPT: Proyectos
+Campos:
+- Cliente (texto)
+- Fecha (date picker)
+- Presupuesto (número)
+- Estado (select)
+- Galería (gallery)
+- Equipo (relationship a Usuarios)
+...
+
+Taxonomías:
+- Tipo de proyecto
+- Sector
+- Servicios aplicados
+...
+```
+
+### Fase 2: Desarrollo (2-4 semanas)
+
+**Implementación técnica:**
+- Registro de CPT
+- Creación grupos de campos ACF
+- Templates personalizados frontend
+- Páginas de archivo (listados)
+- Filtros y búsqueda
+- Importación de datos existentes
+
+**Testing:**
+- Validación de campos
+- Pruebas de relaciones
+- Testing responsive
+- Performance
+- Training interno
+
+### Fase 3: Migración de contenido (1-2 semanas)
+
+**Migración:**
+- Exportar contenido actual
+- Mapear a nueva estructura
+- Importación masiva
+- Revisión y ajustes
+- Limpieza de datos legacy
+
+### Fase 4: Training y documentación (1 semana)
+
+**Capacitación:**
+- Cómo añadir contenido nuevo
+- Cómo editar existente
+- Gestión de relaciones
+- Uso de filtros en admin
+- Mejores prácticas
+
+**Documentación:**
+- Manual de usuario
+- Vídeos tutoriales
+- Guía de campos (qué va en cada uno)
+
+**Tiempo total típico:** 5-9 semanas
+**Inversión típica:** €3,500 - €12,000 (según complejidad)
+
+## La pregunta que debes hacer
+
+No es "¿Puedo permitirme CPT+ACF?"
+
+Es "¿Puedo permitirme NO tenerlos?"
+
+**Calcula tu coste actual:**
+- ¿Cuántas horas/mes gastas gestionando contenido desestructurado?
+- ¿Cuántos errores se cometen por falta de estructura?
+- ¿Cuántas oportunidades de negocio pierdes por filtros inexistentes?
+- ¿Cuánto pagas a diseñador/desarrollador para cada actualización?
+
+**Ejemplo real:**
+
+Cliente con 400 productos gestionados en Entradas:
+- 3 personas, 6 horas/semana cada una = 18 horas/semana
+- 72 horas/mes a €30/hora = €2,160/mes desperdiciado
+- Año: €25,920
+
+Inversión en CPT+ACF: €6,500
+ROI: 3 meses
+
+**Después de 3 meses habían recuperado la inversión.**
+**Después de 1 año habían ahorrado €19,420.**
+
+## Checklist: ¿Tu proyecto necesita CPT+ACF?
+
+Responde sí/no:
+
+☐ Gestiono más de 50 elementos del mismo tipo (productos, propiedades, proyectos...)
+☐ Cada elemento tiene información estructurada repetitiva
+☐ Necesito filtrar/buscar por características específicas
+☐ Mi contenido no es cronológico (no es un blog estándar)
+☐ Diferentes roles gestionan diferentes tipos de contenido
+☐ Cometo errores frecuentes por falta de estructura
+☐ Necesito relaciones entre contenidos (este proyecto usa estos servicios)
+☐ Exporto/importo datos desde otras fuentes
+☐ Quiero automatizar la presentación del contenido
+☐ Mi team no es técnico pero debe gestionar contenido complejo
+
+**5+ síes:** Definitivamente necesitas CPT+ACF
+**3-4 síes:** Probablemente te beneficiarías
+**1-2 síes:** Evalúa alternativas más simples primero
+**0 síes:** WordPress estándar es suficiente
+
+## Conclusión: WordPress es mucho más que un blog
+
+WordPress gestiona el 43% de todas las webs de internet.
+
+No porque sea "el mejor CMS para blogs".
+
+Sino porque es una plataforma infinitamente flexible que puede convertirse en exactamente lo que tu negocio necesita.
+
+La diferencia está en saber cuándo y cómo usar esa flexibilidad.
+
+**Custom Post Types y Advanced Custom Fields son esa diferencia.**
+
+Entre gestionar contenido como puedas... y gestionarlo como deberías.
+
+---
+
+### ¿Tienes un catálogo, directorio o portafolio complejo?
+
+Te ofrecemos un análisis gratuito de 45 minutos donde:
+
+✓ Auditamos tu estructura de contenido actual
+✓ Identificamos qué CPT y campos necesitarías
+✓ Calculamos el tiempo que ahorrarías
+✓ Te damos un presupuesto exacto
+✓ Te mostramos mockups de cómo quedaría
+
+**Sin compromiso. Solo queremos que veas el potencial.**
+
+Porque la mejor tecnología es la que se adapta a tu negocio, no al revés.

@@ -1,0 +1,49 @@
+---
+// src/components/SEO.astro
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  // Agregamos una URL canónica opcional
+  canonicalURL?: URL | string;
+}
+
+// Valores por defecto para no tener que definirlos siempre
+const defaultTitle = 'Blog de Desarrollo Web y WordPress';
+const defaultDescription = 'Artículos sobre desarrollo web moderno, optimización, seguridad y estrategias de negocio con WordPress y Astro.';
+const siteURL = Astro.site;
+
+const { 
+  title = defaultTitle, 
+  description = defaultDescription, 
+  image = '/default-social-image.png', // Una imagen genérica para redes sociales
+  canonicalURL = new URL(Astro.url.pathname, siteURL),
+} = Astro.props;
+
+const socialImageURL = new URL(image, siteURL);
+---
+
+<!-- Título y metadatos básicos -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph (para Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content={defaultTitle} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<!-- Favicon (ejemplo, deberías crear estos archivos) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />

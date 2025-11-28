@@ -1,0 +1,69 @@
+---
+title: "Astro 5.0: Novedades y mejoras en el framework más rápido"
+description: "Astro 5.0 trae consigo importantes mejoras en rendimiento, nuevas características y una mejor experiencia de desarrollo. Descubre todo lo nuevo en esta versión."
+date: "2025-01-10"
+author: "ximo"
+image: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=600&fit=crop"
+category: "Frameworks"
+---
+
+# Astro 5.0: Novedades y mejoras
+
+Astro 5.0 marca un hito importante en la evolución de este framework. Con mejoras significativas en rendimiento y nuevas características, se consolida como una de las mejores opciones para crear sitios web modernos.
+
+## Principales novedades
+
+### Content Collections mejoradas
+
+Las Content Collections ahora soportan validación de esquemas más robusta y mejor integración con TypeScript:
+
+```typescript
+import { defineCollection, z } from 'astro:content';
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    tags: z.array(z.string()),
+  }),
+});
+```
+
+### Server Islands
+
+Una de las características más esperadas: Server Islands permite renderizar componentes en el servidor de forma independiente, mejorando significativamente el tiempo de carga inicial.
+
+### Mejor soporte para View Transitions
+
+Las transiciones entre páginas son ahora más fluidas y personalizables:
+
+```astro
+---
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<head>
+  <ViewTransitions />
+</head>
+```
+
+## Rendimiento
+
+Astro 5.0 es hasta un 30% más rápido en build time comparado con la versión anterior. Esto se debe a:
+
+- Optimizaciones en el compilador
+- Mejor tree-shaking
+- Caché mejorado de dependencias
+
+## Migración desde Astro 4.x
+
+La migración es relativamente sencilla. Los cambios principales son:
+
+1. Actualizar dependencias
+2. Revisar configuración de integraciones
+3. Actualizar sintaxis de Content Collections si es necesario
+
+## Conclusión
+
+Astro 5.0 demuestra que el equipo sigue comprometido con ofrecer la mejor experiencia tanto para desarrolladores como para usuarios finales. Si aún no lo has probado, este es el momento perfecto.

@@ -1,0 +1,772 @@
+---
+title: "Limpiando el Admin: Cómo personalizo el panel de control de WordPress para que mis clientes no rompan nada"
+description: "Esta escena se repite constantemente. No es culpa del cliente. Es culpa nuestra por entregarles un panel de control de avión cuando solo necesitan un volante."
+date: "2025-11-26"
+author: "ximo"
+image: "https://res.cloudinary.com/djjiagkho/image/upload/v1764116778/Limpiando_el_Admin_dvhjxg.jpg"
+category: "Limpiando el Admin"
+---
+
+## La llamada que recibimos cada semana
+
+**Cliente (pánico):** "¡Ayuda! He tocado algo en WordPress y ahora la web no se ve bien. Creo que he borrado algo importante."
+
+**Nosotros:** "¿Qué has intentado hacer?"
+
+**Cliente:** "Solo quería cambiar el texto de la página de inicio... pero había tantas opciones que no sabía cuál era. He tocado 'Apariencia' > 'Personalizar' > 'CSS adicional' y... no sé qué he hecho."
+
+**Nosotros:** (suspiro interno) "Tranquilo, lo arreglamos. Dame 10 minutos."
+
+---
+
+Esta escena se repite constantemente. No es culpa del cliente. **Es culpa nuestra por entregarles un panel de control de avión cuando solo necesitan un volante.**
+
+WordPress, por defecto, muestra absolutamente TODO a todos los usuarios. El resultado: clientes abrumados, llamadas de emergencia, y webs rotas.
+
+## El problema: WordPress admin por defecto
+
+### Lo que ve tu cliente cuando entra al admin
+
+Imagina que le das las llaves de un coche a alguien que solo necesita conducir al supermercado, pero el coche tiene:
+- 47 botones en el salpicadero
+- 12 palancas que no sabe para qué sirven
+- 3 volantes (por si acaso)
+- Indicadores técnicos del motor
+- Botón de autodestrucción (exagerando... o no)
+
+Eso es WordPress admin por defecto:
+
+**Menú lateral:**
+- Dashboard
+- Entradas
+- Medios
+- Páginas
+- Comentarios
+- Apariencia (¡peligro!)
+  - Temas
+  - Personalizar
+  - Widgets
+  - Menús
+  - Editor de temas (¡PELIGRO MÁXIMO!)
+- Plugins (¡peligro!)
+- Usuarios
+- Herramientas
+- Ajustes (¡peligro!)
+  - Generales
+  - Escritura
+  - Lectura
+  - Comentarios
+  - Medios
+  - Enlaces permanentes (cambiar esto = desastre)
+  - Privacidad
+
+**Barra superior:**
+- Logo WordPress
+- Nombre del sitio
+- Comentarios
+- Nuevo (entrada, media, página, usuario)
+- Tu perfil
+
+**Dashboard widgets:**
+- Actividad
+- Borrador rápido
+- Eventos y noticias de WordPress
+- Salud del sitio (que alarma sin motivo)
+
+### Lo que realmente necesita tu cliente
+
+**Para un cliente que gestiona un blog corporativo:**
+- Añadir/editar entradas
+- Subir imágenes
+- Ver comentarios
+
+**Eso es todo. Tres cosas.**
+
+¿Por qué le mostramos 47?
+
+## La solución: Admin limpio y seguro
+
+### Principio fundamental: "Lo que no ven, no pueden romper"
+
+No se trata de menospreciar a los clientes. Se trata de:
+
+1. **Reducir fricción:** Menos opciones = menos confusión = más productividad
+2. **Prevenir errores:** No pueden desactivar plugins críticos si no ven la sección
+3. **Proteger tu trabajo:** No pueden cambiar el CSS que te costó horas perfeccionar
+4. **Mejorar su experiencia:** Se sienten competentes y seguros
+
+## Caso real: Antes y después
+
+### Cliente: Bufete de abogados (4 personas gestionando contenido)
+
+**Antes de personalizar admin:**
+
+**Problemas en 6 meses:**
+- 12 llamadas de "he roto algo"
+- 3 veces cambiaron los enlaces permanentes (404s masivos)
+- 2 veces desactivaron plugins esenciales
+- 1 vez cambiaron el tema (pánico total)
+- 5 veces modificaron CSS sin querer
+- Infinitas frustraciones por "no encuentro dónde cambiar X"
+
+**Tiempo perdido:** ~40 horas de soporte
+
+**Después de personalizar admin:**
+
+Lo que ven ahora:
+```
+MENÚ LATERAL:
+├── Dashboard (simplificado)
+├── Artículos del Blog
+├── Miembros del Equipo
+├── Casos de Éxito
+├── Galería de Imágenes
+└── Mi Perfil
+```
+
+**Problemas en 12 meses posteriores:**
+- 1 llamada (pregunta legítima de funcionalidad)
+- 0 emergencias
+- 0 webs rotas
+
+**Tiempo ahorrado:** ~38 horas/año × €80/hora = **€3,040/año ahorrados**
+
+## Las técnicas de personalización del admin
+
+### 1. Ocultar elementos del menú según rol
+
+```php
+// functions.php o mu-plugin
+
+function limpiar_menu_admin() {
+    // Solo para editores y autores (no administradores)
+    if (!current_user_can('manage_options')) {
+        
+        // Ocultar elementos peligrosos
+        remove_menu_page('themes.php');              // Apariencia
+        remove_menu_page('plugins.php');             // Plugins
+        remove_menu_page('tools.php');               // Herramientas
+        remove_menu_page('options-general.php');     // Ajustes
+        
+        // Ocultar submenús específicos de Apariencia (si decides dejarlo visible)
+        remove_submenu_page('themes.php', 'themes.php');        // Temas
+        remove_submenu_page('themes.php', 'theme-editor.php');  // Editor de temas (MUY peligroso)
+        remove_submenu_page('themes.php', 'customize.php');     // Personalizador
+    }
+}
+add_action('admin_menu', 'limpiar_menu_admin', 999);
+```
+
+**Resultado:** El cliente ve solo Entradas, Páginas, Medios, Comentarios. Nada más.
+
+### 2. Renombrar elementos del menú (más claro)
+
+```php
+function renombrar_menu_items() {
+    global $menu, $submenu;
+    
+    // Cambiar "Entradas" por "Artículos del Blog"
+    $menu[5][0] = 'Artículos del Blog';
+    
+    // Cambiar "Medios" por "Imágenes y Archivos"
+    $menu[10][0] = 'Imágenes y Archivos';
+    
+    // Si tienes Custom Post Types, hazlos más descriptivos
+    // "portfolio" → "Proyectos Realizados"
+    // "team" → "Nuestro Equipo"
+}
+add_action('admin_menu', 'renombrar_menu_items');
+```
+
+**Resultado:** Lenguaje que el cliente entiende, no jerga técnica.
+
+### 3. Simplificar el dashboard
+
+```php
+function limpiar_dashboard_widgets() {
+    // Remover widgets innecesarios
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');          // Blog WordPress
+    remove_meta_box('dashboard_secondary', 'dashboard', 'side');        // Noticias WordPress
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');      // Borrador rápido
+    remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side');    // Borradores recientes
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');       // Actividad
+    remove_meta_box('dashboard_right_now', 'dashboard', 'normal');      // De un vistazo
+    remove_meta_box('dashboard_site_health', 'dashboard', 'normal');    // Salud del sitio
+}
+add_action('wp_dashboard_setup', 'limpiar_dashboard_widgets');
+```
+
+### 4. Añadir widget personalizado de bienvenida
+
+```php
+function widget_bienvenida_personalizado() {
+    wp_add_dashboard_widget(
+        'bienvenida_cliente',
+        'Bienvenido a tu Panel de Gestión',
+        'contenido_widget_bienvenida'
+    );
+}
+add_action('wp_dashboard_setup', 'widget_bienvenida_personalizado');
+
+function contenido_widget_bienvenida() {
+    $user = wp_get_current_user();
+    ?>
+    <div style="padding: 20px;">
+        <h2>Hola, <?php echo $user->first_name; ?>!</h2>
+        
+        <h3>Accesos rápidos:</h3>
+        <ul style="font-size: 16px; line-height: 2;">
+            <li>📝 <a href="<?php echo admin_url('post-new.php'); ?>">Escribir nuevo artículo</a></li>
+            <li>📄 <a href="<?php echo admin_url('edit.php'); ?>">Ver todos los artículos</a></li>
+            <li>🖼️ <a href="<?php echo admin_url('upload.php'); ?>">Subir imágenes</a></li>
+        </ul>
+        
+        <h3>¿Necesitas ayuda?</h3>
+        <p>📞 Llámanos: 900 123 456<br>
+        📧 Email: soporte@tuagencia.com</p>
+        
+        <h3>Tutoriales:</h3>
+        <ul>
+            <li><a href="URL_TUTORIAL_1" target="_blank">📹 Cómo añadir un artículo</a></li>
+            <li><a href="URL_TUTORIAL_2" target="_blank">📹 Cómo subir imágenes</a></li>
+            <li><a href="URL_MANUAL_PDF" target="_blank">📄 Manual completo (PDF)</a></li>
+        </ul>
+    </div>
+    <?php
+}
+```
+
+**Resultado:** Dashboard útil con información relevante, no ruido.
+
+### 5. Ocultar elementos de la barra superior
+
+```php
+function limpiar_admin_bar($wp_admin_bar) {
+    // Ocultar logo WordPress y menú asociado
+    $wp_admin_bar->remove_node('wp-logo');
+    
+    // Ocultar comentarios (si no se usan)
+    $wp_admin_bar->remove_node('comments');
+    
+    // Ocultar "Nuevo" (evita crear usuarios, etc.)
+    $wp_admin_bar->remove_node('new-content');
+    
+    // Ocultar "Personalizar" (peligroso)
+    $wp_admin_bar->remove_node('customize');
+    
+    // Ocultar actualizaciones (que alarman al cliente)
+    $wp_admin_bar->remove_node('updates');
+}
+add_action('admin_bar_menu', 'limpiar_admin_bar', 999);
+```
+
+### 6. Simplificar el editor de entradas/páginas
+
+```php
+function limpiar_editor_pantalla() {
+    // Remover metaboxes innecesarias o confusas
+    remove_meta_box('postcustom', 'post', 'normal');        // Campos personalizados (avanzado)
+    remove_meta_box('trackbacksdiv', 'post', 'normal');     // Trackbacks
+    remove_meta_box('commentstatusdiv', 'post', 'normal');  // Comentarios (si no los usas)
+    remove_meta_box('slugdiv', 'post', 'normal');           // Slug (confuso para clientes)
+    remove_meta_box('authordiv', 'post', 'normal');         // Autor (si solo hay uno)
+    
+    // Lo mismo para páginas
+    remove_meta_box('postcustom', 'page', 'normal');
+    remove_meta_box('commentstatusdiv', 'page', 'normal');
+    remove_meta_box('slugdiv', 'page', 'normal');
+}
+add_action('admin_menu', 'limpiar_editor_pantalla');
+```
+
+### 7. Deshabilitar editor de temas y plugins
+
+```php
+// wp-config.php (nivel más seguro, no se puede deshacer desde admin)
+
+// Deshabilitar editor de archivos (temas y plugins)
+define('DISALLOW_FILE_EDIT', true);
+
+// Opcional: Deshabilitar instalación/actualización de plugins y temas
+define('DISALLOW_FILE_MODS', true);
+```
+
+**Resultado crítico:** Cliente no puede:
+- Editar theme.php y romper toda la web
+- Modificar código de plugins
+- Instalar plugins/themes sospechosos
+
+### 8. Personalizar mensajes del footer
+
+```php
+function footer_admin_personalizado() {
+    echo '<span id="footer-thankyou">Panel gestionado por <a href="https://tuagencia.com" target="_blank">Tu Agencia</a> | ¿Necesitas ayuda? <a href="mailto:soporte@tuagencia.com">Contáctanos</a></span>';
+}
+add_filter('admin_footer_text', 'footer_admin_personalizado');
+
+function version_admin_personalizada() {
+    return 'Versión 2.1 | <a href="URL_MANUAL">Manual de usuario</a>';
+}
+add_filter('update_footer', 'version_admin_personalizada', 999);
+```
+
+**Resultado:** Branding de agencia + recordatorio de que estás disponible.
+
+### 9. Ocultar notificaciones y avisos innecesarios
+
+```php
+function ocultar_notificaciones_admin() {
+    // Solo para no-administradores
+    if (!current_user_can('manage_options')) {
+        // Ocultar avisos de actualización (alarman sin motivo)
+        remove_action('admin_notices', 'update_nag', 3);
+        
+        // Ocultar avisos de plugins (tú te encargas)
+        remove_all_actions('admin_notices');
+        remove_all_actions('network_admin_notices');
+        remove_all_actions('all_admin_notices');
+    }
+}
+add_action('admin_head', 'ocultar_notificaciones_admin', 1);
+```
+
+### 10. Forzar editor clásico (Gutenberg puede ser confuso)
+
+```php
+// Si Gutenberg es demasiado para tu cliente, vuelve al clásico
+
+function deshabilitar_gutenberg($use_block_editor, $post_type) {
+    // Deshabilitar para todos los tipos de contenido
+    return false;
+    
+    // O solo para algunos:
+    // if ($post_type === 'page') return false;
+    // return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'deshabilitar_gutenberg', 10, 2);
+
+// Remover CSS de Gutenberg del frontend
+function remover_gutenberg_css() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+}
+add_action('wp_enqueue_scripts', 'remover_gutenberg_css', 100);
+```
+
+**Nota:** Solo si tu cliente se siente más cómodo con el editor clásico. Gutenberg puede ser mejor si se simplifica correctamente.
+
+## Configuración por roles: Diferentes clientes, diferentes necesidades
+
+### Estrategia de roles
+
+**Administrador (tú o tu equipo):**
+- Ve TODO
+- Puede hacer TODO
+
+**Editor (cliente principal):**
+- Gestiona todo el contenido
+- NO puede cambiar apariencia, plugins, ajustes
+
+**Autor (colaboradores del cliente):**
+- Crea y edita solo SUS propias entradas
+- NO puede publicar sin revisión (si decides workflow con aprobación)
+
+**Colaborador (prácticas, becarios):**
+- Crea borradores
+- NO puede publicar
+- NO puede subir medios
+
+### Plugin recomendado para gestión de roles avanzada
+
+**User Role Editor** (gratuito)
+
+Permite control granular:
+- Activar/desactivar capacidades específicas por rol
+- Crear roles personalizados ("Gestor de Productos", "Gestor de Blog")
+- Clonar roles existentes y modificar
+
+**Ejemplo de uso:**
+
+Crear rol "Gestor de Productos" que:
+- ✅ Puede gestionar CPT "Productos"
+- ✅ Puede subir imágenes
+- ❌ NO puede tocar entradas del blog
+- ❌ NO puede gestionar usuarios
+- ❌ NO ve nada de Apariencia ni Plugins
+
+## Admin personalizado: Plantillas listas por tipo de cliente
+
+### Plantilla 1: Blog corporativo simple
+
+**Cliente necesita:**
+- Escribir artículos
+- Subir imágenes
+- Nada más
+
+**Configuración:**
+```
+Menú visible:
+├── Dashboard (widget bienvenida personalizado)
+├── Artículos
+│   ├── Todos los artículos
+│   ├── Añadir nuevo
+│   └── Categorías
+├── Imágenes
+└── Mi perfil
+```
+
+**Oculto:** Todo lo demás
+
+**Tiempo configuración:** 30 minutos
+
+### Plantilla 2: E-commerce (WooCommerce)
+
+**Cliente necesita:**
+- Gestionar productos
+- Ver pedidos
+- Gestionar cupones
+- Ver estadísticas básicas
+
+**Configuración:**
+```
+Menú visible:
+├── Dashboard (widget pedidos recientes)
+├── Productos
+│   ├── Todos los productos
+│   ├── Añadir producto
+│   ├── Categorías
+│   └── Etiquetas
+├── Pedidos
+├── Cupones
+├── Informes (solo ventas básicas)
+└── Mi perfil
+```
+
+**Oculto:** 
+- Ajustes de WooCommerce (peligrosos)
+- Extensiones
+- Estado del sistema (técnico)
+- Todo lo de WordPress core que no necesitan
+
+**Tiempo configuración:** 1 hora
+
+### Plantilla 3: Directorio/Catálogo con CPT
+
+**Cliente necesita:**
+- Gestionar empresas/productos/servicios (CPT)
+- Gestionar categorías
+- Ver estadísticas de uso
+
+**Configuración:**
+```
+Menú visible:
+├── Dashboard (stats personalizadas)
+├── Empresas del Directorio
+│   ├── Todas las empresas
+│   ├── Añadir nueva
+│   ├── Categorías
+│   └── Ubicaciones
+├── Solicitudes Pendientes (aprobar/rechazar)
+├── Imágenes y Documentos
+└── Mi perfil
+```
+
+**Funcionalidad especial:**
+- Workflow de aprobación
+- Estadísticas de visitas por empresa
+- Exportación a CSV
+
+**Tiempo configuración:** 2 horas
+
+### Plantilla 4: Sitio multiautor (revista, blog colectivo)
+
+**Cliente necesita:**
+- Múltiples autores
+- Editor jefe aprueba contenido
+- Secciones diferenciadas
+
+**Configuración:**
+
+**Roles personalizados:**
+
+**Editor Jefe:**
+```
+├── Dashboard (métricas de contenido)
+├── Todos los Artículos (de todos los autores)
+├── Artículos Pendientes Revisión
+├── Gestionar Autores
+├── Categorías y Etiquetas
+└── Estadísticas
+```
+
+**Autor:**
+```
+├── Dashboard (solo sus métricas)
+├── Mis Artículos
+├── Escribir Nuevo Artículo
+└── Mi Perfil
+```
+
+**Colaborador:**
+```
+├── Dashboard
+├── Mis Borradores
+├── Enviar Borrador a Revisión
+└── Mi Perfil
+```
+
+**Tiempo configuración:** 2.5 horas
+
+## El flujo de onboarding perfecto
+
+### 1. Entrega inicial (antes de dar acceso)
+
+**Documento preparado:**
+- Capturas de pantalla del admin limpio
+- Explicación de cada sección visible
+- Lo que pueden hacer / no pueden hacer
+- Datos de acceso
+
+**Sesión de training (30-45 min):**
+- Tour guiado del admin personalizado
+- Práctica supervisada de tareas comunes
+- Resolución de dudas
+- Grabación de la sesión para referencia
+
+### 2. Primeros días (soporte activo)
+
+**Check-in a las 48 horas:**
+"¿Has podido hacer lo que necesitabas? ¿Algo te resulta confuso?"
+
+**Ajustes basados en feedback:**
+Si dice "no encuentro cómo cambiar X", añades acceso rápido a X.
+
+### 3. Material de referencia
+
+**Manual PDF personalizado:**
+- Capturas de SU admin (no genéricas)
+- Paso a paso de tareas comunes
+- FAQs específicas
+- Datos de contacto destacados
+
+**Vídeos cortos (2-3 min c/u):**
+- "Cómo añadir un artículo"
+- "Cómo subir imágenes correctamente"
+- "Cómo editar una página existente"
+
+**Página de ayuda interna:**
+Widget en dashboard con enlaces a estos recursos.
+
+## Los errores comunes al personalizar admin
+
+### ❌ Error 1: Ocultar demasiado
+
+**Problema:** Cliente no puede hacer tareas legítimas sin llamarte.
+
+**Ejemplo real:** Ocultamos "Medios" pensando que subirían imágenes desde el editor. No sabían cómo gestionar imágenes ya subidas.
+
+**Solución:** Deja acceso pero simplifica. Medios es necesario.
+
+### ❌ Error 2: No comunicar los cambios
+
+**Problema:** Cliente se asusta al ver un admin "diferente".
+
+**Ejemplo real:** Cliente comparó con tutoriales de YouTube y llamó diciendo "mi WordPress está roto, falta todo".
+
+**Solución:** Explicación previa: "Hemos personalizado tu panel para que sea más simple y seguro. Solo ves lo que necesitas."
+
+### ❌ Error 3: Usar lenguaje técnico en renombrados
+
+**Problema:** Cambias "Posts" por "CPT Noticias" en lugar de "Noticias".
+
+**Mantén lenguaje humano:** "Artículos del Blog", "Imágenes", "Nuestro Equipo".
+
+### ❌ Error 4: No dar vía de escape
+
+**Problema:** Algo urgente necesita cambiar y el cliente te necesita (estás de vacaciones).
+
+**Solución:** Deja un "Usuario Administrador de Emergencia" con todos los permisos, credenciales en sobre sellado que solo abre si hay emergencia real. Instrúyeles: "Solo en caso de que no podamos atender y sea urgente de verdad".
+
+### ❌ Error 5: Personalizar demasiado pronto
+
+**Problema:** Personalizas el admin antes de entender flujo real del cliente.
+
+**Solución:** Deja 2 semanas con admin estándar (supervisado), observa qué usan y qué no. LUEGO personaliza basado en uso real.
+
+## Plugins que ayudan (con precaución)
+
+### White Label CMS (gratuito)
+- Cambiar logo de login
+- Personalizar admin completamente
+- Ocultar elementos
+- Branding de agencia
+
+**Cuándo usarlo:** Clientes que valoran ver su marca, no la de WordPress.
+
+### Admin Menu Editor (gratuito)
+- Reordenar menú
+- Ocultar elementos
+- Renombrar fácilmente
+- Añadir separadores
+
+**Cuándo usarlo:** Si no te sientes cómodo editando PHP directamente.
+
+### Adminimize (gratuito)
+- Control granular de visibilidad
+- Por rol
+- Por capacidad
+- Muy potente
+
+**Cuándo usarlo:** Casos complejos con muchos roles diferentes.
+
+### ⚠️ Advertencia sobre plugins de personalización
+
+**Problema:** Añades dependencia de plugin. Si se descontinúa o tiene bug, pierdes configuración.
+
+**Recomendación:** Código personalizado en mu-plugin (must-use) es más sólido a largo plazo.
+
+## El código en producción: Cómo implementarlo
+
+### Opción 1: Must-Use Plugin (recomendado)
+
+**Crear archivo:**
+`/wp-content/mu-plugins/admin-personalizado.php`
+
+```php
+<?php
+/*
+Plugin Name: Admin Personalizado - [Nombre Cliente]
+Description: Personalización del admin para simplificar gestión
+Version: 1.0
+Author: Tu Agencia
+*/
+
+// Incluye aquí todas las funciones de personalización
+
+function limpiar_menu_admin() {
+    // Código aquí...
+}
+add_action('admin_menu', 'limpiar_menu_admin', 999);
+
+// ... resto de funciones
+```
+
+**Ventajas:**
+- Se carga automáticamente
+- NO puede desactivarse desde admin
+- Perfecto para configuración crítica
+
+### Opción 2: Plugin personalizado regular
+
+**Solo si:** Cliente podría necesitar desactivarlo temporalmente para troubleshooting.
+
+### Opción 3: Functions.php del child theme
+
+**NO recomendado para esto:** Si cambias de theme, pierdes toda la personalización.
+
+## El coste vs beneficio real
+
+### Inversión inicial
+
+**Tiempo desarrollo (por proyecto):**
+- Admin simple (blog): 1-2 horas
+- Admin medio (e-commerce): 3-4 horas
+- Admin complejo (múltiples roles): 6-8 horas
+
+**Coste desarrollo:**
+- Simple: €80-160
+- Medio: €240-320
+- Complejo: €480-640
+
+### Retorno de inversión
+
+**Escenario conservador:**
+
+Cliente llama 1 vez/mes por "he roto algo" = 30 min/llamada
+- 12 llamadas/año × 0.5h = 6 horas/año
+- A €80/hora = €480/año
+- Inversión se recupera en: ~1 año (admin medio)
+
+**Escenario realista (sin admin personalizado):**
+
+Cliente con problemas frecuentes:
+- 2-3 llamadas/mes × 0.5h = 12-18 horas/año
+- A €80/hora = €960-1,440/año
+- **ROI:** Recuperas inversión en 2-4 meses
+
+**Beneficio intangible:**
+- Cliente feliz y confiado
+- Menos estrés en tu equipo
+- Mejor reputación (cliente recomienda)
+- Menos interrupciones = más productividad
+
+## Checklist de entrega: Admin listo para cliente
+
+Antes de dar acceso, verifica:
+
+**Funcional:**
+☐ Cliente puede hacer todas las tareas necesarias
+☐ Cliente NO puede acceder a áreas peligrosas
+☐ Widget de bienvenida personalizado visible
+☐ Enlaces de ayuda funcionan
+☐ Branding de agencia en footer
+☐ Notificaciones innecesarias ocultas
+☐ Editor configurado (Gutenberg o Clásico según caso)
+
+**Seguridad:**
+☐ Editor de archivos deshabilitado
+☐ Roles configurados correctamente
+☐ Usuario admin de emergencia creado (credenciales seguras)
+☐ Permisos de archivos correctos
+
+**Documentación:**
+☐ Manual PDF personalizado entregado
+☐ Vídeos tutoriales grabados (si aplica)
+☐ Credenciales de acceso enviadas de forma segura
+☐ Sesión de training agendada
+
+**Soporte:**
+☐ Cliente sabe cómo contactarte
+☐ Horario de soporte comunicado
+☐ Expectativas claras de tiempos de respuesta
+
+## Conclusión: Admin personalizado = Clientes felices
+
+Personalizar el admin de WordPress no es "un extra bonito". Es parte fundamental de entregar un proyecto profesional.
+
+**La diferencia entre:**
+
+❌ "Aquí tienes WordPress, aprende a usarlo" (lo que hacen muchos)
+
+✅ "Aquí tienes TU panel de gestión, diseñado para que hagas tu trabajo sin complicaciones" (lo que deberías hacer)
+
+**Esa diferencia se traduce en:**
+- Menos llamadas de soporte
+- Clientes más satisfechos
+- Mejores testimonios
+- Más recomendaciones
+- Menos estrés para ti
+
+**Invierte 2-6 horas en personalizar el admin.**
+
+**Ahorra 10-20 horas al año en soporte reactivo.**
+
+Haz los cálculos.
+
+---
+
+### ¿Entregas proyectos WordPress a clientes?
+
+Te ofrecemos nuestro **"Kit de Admin Personalizado"** que incluye:
+
+✓ Código base listo para copiar/pegar (mu-plugin)
+✓ Plantillas para 5 tipos de proyectos comunes
+✓ Widget de bienvenida personalizable
+✓ Checklist de entrega en PDF
+✓ Templates de manual de usuario editable
+
+**Gratis. Solo regístrate.**
+
+Porque entregar un admin limpio debería ser el estándar, no la excepción.
+
+*Un cliente que no puede romper tu web es un cliente feliz. Un cliente feliz es un cliente que vuelve.*

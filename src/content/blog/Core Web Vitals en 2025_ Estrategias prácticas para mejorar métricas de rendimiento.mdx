@@ -1,0 +1,330 @@
+---
+title: "Core Web Vitals en 2025: Estrategias prácticas para mejorar métricas de rendimiento"
+description: "El rendimiento web ya no es solo una ventaja competitiva, es una necesidad. Desde que Google introdujo los Core Web Vitals como factor de ranking en 2021, estas métricas se han convertido e"
+date: "2025-11-25"
+author: "ximo"
+image: "https://res.cloudinary.com/djjiagkho/image/upload/v1763594203/rngteunnct4akfo58cjs.png"
+category: "Core Web Vitals"
+---
+El rendimiento web ya no es solo una ventaja competitiva, es una necesidad. Desde que Google introdujo los Core Web Vitals como factor de ranking en 2021, estas métricas se han convertido en el estándar de la industria para medir la experiencia del usuario. En 2025, con usuarios cada vez más exigentes y dispositivos más diversos, optimizar estas métricas es crucial para el éxito de cualquier proyecto web.
+
+## ¿Qué son los Core Web Vitals?
+
+Los Core Web Vitals son un conjunto de métricas específicas que Google considera esenciales para la experiencia del usuario. Actualmente, se centran en tres aspectos fundamentales:
+
+### 1. Largest Contentful Paint (LCP)
+Mide el tiempo que tarda en cargarse el elemento de contenido más grande visible en la ventana del navegador. El objetivo es lograr un LCP de **2.5 segundos o menos**.
+
+**¿Qué mide realmente?** La percepción de velocidad de carga de tu página.
+
+### 2. Interaction to Next Paint (INP)
+Reemplazó a First Input Delay (FID) en marzo de 2024. Mide la capacidad de respuesta general de una página evaluando la latencia de todas las interacciones del usuario. El objetivo es mantener un INP por debajo de **200 milisegundos**.
+
+**¿Qué mide realmente?** Qué tan rápido responde tu sitio a las acciones del usuario.
+
+### 3. Cumulative Layout Shift (CLS)
+Mide la estabilidad visual de la página, cuantificando cuánto se mueve el contenido de forma inesperada. El objetivo es un CLS de **0.1 o menos**.
+
+**¿Qué mide realmente?** La estabilidad y predictibilidad de tu interfaz.
+
+## Estrategias prácticas para mejorar LCP
+
+### Optimiza tus imágenes
+Las imágenes son frecuentemente el elemento más grande de la página. Aquí algunas técnicas esenciales:
+
+```html
+<!-- Usa formatos modernos con fallback -->
+<picture>
+  <source srcset="hero.avif" type="image/avif">
+  <source srcset="hero.webp" type="image/webp">
+  <img src="hero.jpg" alt="Hero image" 
+       width="1200" height="600"
+       loading="eager">
+</picture>
+```
+
+**Recomendaciones clave:**
+- Usa formatos modernos como AVIF o WebP (reducción del 30-50% en tamaño)
+- Implementa `loading="eager"` en la imagen hero
+- Especifica siempre `width` y `height` para evitar shifts
+- Considera usar un CDN de imágenes con optimización automática
+
+### Prioriza recursos críticos
+```html
+<!-- Precarga recursos críticos -->
+<link rel="preload" as="image" 
+      href="hero.webp" 
+      type="image/webp">
+
+<!-- Preconecta a dominios externos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+```
+
+### Optimiza el servidor y el hosting
+- **Usa un CDN**: Reduce la distancia física entre el servidor y el usuario
+- **Implementa HTTP/3**: Mejora significativa en la velocidad de conexión
+- **Habilita compresión Brotli**: Mejor que Gzip para texto y JavaScript
+- **Considera edge computing**: Sirve contenido desde servidores cercanos al usuario
+
+### Server-Side Rendering (SSR) estratégico
+En aplicaciones modernas, combina SSR con hidratación parcial:
+
+```javascript
+// Ejemplo con Next.js
+export async function generateMetadata({ params }) {
+  return {
+    title: 'Mi página optimizada',
+  }
+}
+
+export default async function Page() {
+  // Los datos se cargan en el servidor
+  const data = await fetchData()
+  
+  return (
+    <div>
+      <HeroSection data={data} /> {/* Renderizado en servidor */}
+      <InteractiveSection /> {/* Hidratado en cliente */}
+    </div>
+  )
+}
+```
+
+## Estrategias prácticas para mejorar INP
+
+### Reduce el trabajo de JavaScript
+El INP mide todas las interacciones, no solo la primera. Aquí cómo optimizarlo:
+
+```javascript
+// ❌ Mal: Procesamiento bloqueante
+button.addEventListener('click', () => {
+  const result = heavyCalculation(data) // Bloquea el thread principal
+  updateUI(result)
+})
+
+// ✅ Bien: Usa requestIdleCallback o divide el trabajo
+button.addEventListener('click', async () => {
+  // Muestra feedback inmediato
+  showLoadingState()
+  
+  // Divide el trabajo en chunks
+  const result = await processInChunks(data)
+  updateUI(result)
+})
+
+function processInChunks(data) {
+  return new Promise(resolve => {
+    let index = 0
+    const chunkSize = 100
+    
+    function processChunk() {
+      const end = Math.min(index + chunkSize, data.length)
+      // Procesa un chunk pequeño
+      for (let i = index; i < end; i++) {
+        // procesamiento...
+      }
+      
+      index = end
+      
+      if (index < data.length) {
+        setTimeout(processChunk, 0) // Cede el control
+      } else {
+        resolve()
+      }
+    }
+    
+    processChunk()
+  })
+}
+```
+
+### Implementa debouncing y throttling
+```javascript
+// Para inputs de búsqueda
+const debouncedSearch = debounce((query) => {
+  performSearch(query)
+}, 300)
+
+// Para scroll events
+const throttledScroll = throttle(() => {
+  updateScrollPosition()
+}, 100)
+```
+
+### Code splitting inteligente
+```javascript
+// Divide tu código por rutas
+import { lazy, Suspense } from 'react'
+
+const Dashboard = lazy(() => import('./Dashboard'))
+const Settings = lazy(() => import('./Settings'))
+
+function App() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </Suspense>
+  )
+}
+```
+
+### Optimiza event handlers
+```javascript
+// ❌ Mal: Re-renderiza innecesariamente
+function List({ items }) {
+  return items.map((item, index) => (
+    <Item key={index} onClick={() => handleClick(item)} />
+  ))
+}
+
+// ✅ Bien: Usa useCallback y memoization
+function List({ items }) {
+  const handleClick = useCallback((item) => {
+    // handle click
+  }, [])
+  
+  return items.map((item) => (
+    <Item key={item.id} onClick={handleClick} data={item} />
+  ))
+}
+```
+
+## Estrategias prácticas para mejorar CLS
+
+### Reserva espacio para contenido dinámico
+```css
+/* Reserva espacio para imágenes */
+.image-container {
+  aspect-ratio: 16 / 9;
+  background: #f0f0f0;
+}
+
+/* Para anuncios o embeds */
+.ad-slot {
+  min-height: 250px;
+  background: #f5f5f5;
+}
+```
+
+```html
+<!-- Siempre especifica dimensiones -->
+<img src="photo.jpg" 
+     width="800" 
+     height="600" 
+     alt="Descripción">
+```
+
+### Maneja fuentes web correctamente
+```css
+/* Usa font-display para controlar el comportamiento */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('font.woff2') format('woff2');
+  font-display: swap; /* o 'optional' para mejor CLS */
+}
+
+/* Define fallbacks con métricas similares */
+body {
+  font-family: 'CustomFont', -apple-system, BlinkMacSystemFont, 
+               'Segoe UI', system-ui, sans-serif;
+}
+```
+
+### Evita insertar contenido sobre el existing content
+```javascript
+// ❌ Mal: Inserta contenido arriba
+function insertBanner() {
+  const banner = document.createElement('div')
+  document.body.insertBefore(banner, document.body.firstChild)
+}
+
+// ✅ Bien: Reserva espacio o inserta al final
+function insertBanner() {
+  const banner = document.getElementById('banner-placeholder')
+  banner.style.display = 'block' // Ya tenía espacio reservado
+}
+```
+
+### Animaciones que no causen layout shifts
+```css
+/* ❌ Mal: Causa reflow */
+.element {
+  transition: height 0.3s;
+}
+
+/* ✅ Bien: Usa transform */
+.element {
+  transition: transform 0.3s;
+  transform: scaleY(0);
+}
+
+.element.open {
+  transform: scaleY(1);
+}
+```
+
+## Herramientas de medición y monitoreo
+
+### Durante el desarrollo
+1. **Chrome DevTools**: Lighthouse y Performance panel
+2. **WebPageTest**: Análisis detallado desde múltiples ubicaciones
+3. **Core Web Vitals Chrome Extension**: Monitoreo en tiempo real
+
+### En producción
+1. **Google Search Console**: Datos reales de usuarios (Real User Monitoring)
+2. **PageSpeed Insights**: Combina datos de laboratorio y de campo
+3. **Herramientas RUM**: Sentry, Datadog, New Relic para monitoreo continuo
+
+```javascript
+// Implementa tu propio monitoreo con web-vitals
+import { onCLS, onINP, onLCP } from 'web-vitals'
+
+function sendToAnalytics(metric) {
+  // Envía a tu servicio de analytics
+  const body = JSON.stringify(metric)
+  
+  // Usa sendBeacon para asegurar que se envíe
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon('/analytics', body)
+  } else {
+    fetch('/analytics', { body, method: 'POST', keepalive: true })
+  }
+}
+
+onCLS(sendToAnalytics)
+onINP(sendToAnalytics)
+onLCP(sendToAnalytics)
+```
+
+## Checklist de optimización
+
+### Antes del lanzamiento
+- [ ] Todas las imágenes están optimizadas y tienen dimensiones
+- [ ] Los recursos críticos están precargados
+- [ ] El JavaScript está dividido por rutas
+- [ ] Las fuentes web usan `font-display: swap` u `optional`
+- [ ] Hay espacio reservado para contenido dinámico
+- [ ] El código está minificado y comprimido
+
+### Después del lanzamiento
+- [ ] Monitorea Core Web Vitals en Google Search Console
+- [ ] Implementa RUM para datos de usuarios reales
+- [ ] Establece alertas para regresiones de rendimiento
+- [ ] Revisa métricas semanalmente
+- [ ] Prueba en dispositivos móviles reales
+
+## Conclusión
+
+Optimizar los Core Web Vitals no es una tarea única, sino un proceso continuo. En 2025, con la creciente complejidad de las aplicaciones web y las expectativas de los usuarios, mantener métricas saludables requiere atención constante y decisiones arquitectónicas inteligentes desde el inicio.
+
+La clave está en medir primero, identificar cuellos de botella específicos, y aplicar optimizaciones dirigidas. Recuerda que cada proyecto es único, y lo que funciona para un sitio puede no ser óptimo para otro.
+
+**El rendimiento es una característica**, no un extra. Invierte tiempo en optimización desde el día uno, y tus usuarios (y tu SEO) te lo agradecerán.
+
+---
+
+*¿Quieres profundizar en alguna de estas técnicas? Las herramientas de Chrome DevTools y los recursos de web.dev son excelentes puntos de partida para continuar tu aprendizaje.*
