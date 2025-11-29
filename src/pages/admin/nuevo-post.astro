@@ -4,6 +4,24 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="Admin - Nuevo Post" description="Crear nuevo post del blog">
     <div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-4 px-4">
+        <!-- Enlace a Cloudinary -->
+        <div class="max-w-6xl mx-auto mb-4">
+            <a
+                href="https://console.cloudinary.com/app/c-31236b1e7b763f924293c5c43f79ff/assets/media_library/search?q=&view_mode=mosaic"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg shadow-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105"
+            >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                </svg>
+                🖼️ Gestionar Imágenes en Cloudinary
+            </a>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 ml-1">
+                Sube y gestiona tus imágenes para usar en los posts del blog
+            </p>
+        </div>
+
         <div
             class="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow p-4"
         >
