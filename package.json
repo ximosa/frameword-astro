@@ -1,5 +1,5 @@
 {
-  "name": "prueba-astro",
+  "name": "frameword-astro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,13 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.12",
-    "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@astrojs/vue": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "astro": "^5.0.0",
-    "tailwindcss": "^3.4.0",
-    "vue": "^3.4.0"
+    "astro": "^4.1.2"
   }
 }
+
+

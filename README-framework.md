@@ -405,9 +405,7 @@ Este proyecto está bajo la Licencia MIT.
 
 ## 🆘 Soporte
 
-- 📧 Email: soporte@frameword.dev
-- 📖 Docs: [Documentación Completa](https://docs.frameword.dev)
-- 💬 Discord: [Comunidad Frameword](https://discord.gg/frameword)
+
 
 ---
 
@@ -420,7 +418,7 @@ El CLI está disponible y permite crear nuevos proyectos basados en Frameword:
 npx create-frameword-app my-site
 
 # O usando el repositorio
-npx degit frameword/frameword-astro my-site
+npx degit ximosa/frameword-astro my-site
 ```
 
 ### ¿Qué incluye el CLI?
