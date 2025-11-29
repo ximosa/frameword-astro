@@ -1,41 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CardGrid from '../components/CardGrid.astro';
+
+const services = [
+  {
+    title: 'Desarrollo Web a Medida',
+    description: 'Creación de sitios web y aplicaciones web desde cero, totalmente personalizadas para cumplir con tus objetivos. Utilizo tecnologías modernas como Astro, React y Vue para construir experiencias rápidas e interactivas.',
+    buttonText: 'Saber más',
+    url: '#contacto'
+  },
+  {
+    title: 'Consultoría SEO',
+    description: 'Análisis y optimización de tu sitio web para mejorar su posicionamiento en motores de búsqueda como Google. Aumenta tu visibilidad, atrae más tráfico orgánico y consigue más clientes.',
+    buttonText: 'Consultar',
+    url: '#contacto'
+  },
+  {
+    title: 'Mantenimiento y Soporte Web',
+    description: 'Aseguro que tu sitio web funcione sin problemas con paquetes de mantenimiento que incluyen actualizaciones, copias de seguridad, y soporte técnico para que puedas centrarte en tu negocio.',
+    buttonText: 'Contactar',
+    url: '#contacto'
+  }
+];
 ---
 
-<Layout 
-	title="Servicios | MiSitio Web" 
+<Layout
+	title="Servicios | MiSitio Web"
 	description="Descubre los servicios que ofrezco para potenciar tu presencia online."
 >
-	<section>
-		<h1 class="text-4xl font-bold text-center mb-2">Mis Servicios</h1>
-		<p class="text-lg text-center text-gray-600 dark:text-gray-400 mb-12">
-			Soluciones a medida para tus necesidades digitales.
-		</p>
-
-		<div class="space-y-8">
-			<!-- Servicio 1 -->
-			<div class="p-8 border rounded-lg hover:shadow-lg transition-shadow duration-300 dark:border-gray-700">
-				<h2 class="text-2xl font-bold mb-3">Desarrollo Web a Medida</h2>
-				<p class="text-gray-600 dark:text-gray-400">
-					Creación de sitios web y aplicaciones web desde cero, totalmente personalizadas para cumplir con tus objetivos. Utilizo tecnologías modernas como Astro, React y Vue para construir experiencias rápidas e interactivas.
+	<section class="py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mis Servicios</h1>
+				<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+					Soluciones a medida para tus necesidades digitales.
 				</p>
 			</div>
 
-			<!-- Servicio 2 -->
-			<div class="p-8 border rounded-lg hover:shadow-lg transition-shadow duration-300 dark:border-gray-700">
-				<h2 class="text-2xl font-bold mb-3">Consultoría SEO</h2>
-				<p class="text-gray-600 dark:text-gray-400">
-					Análisis y optimización de tu sitio web para mejorar su posicionamiento en motores de búsqueda como Google. Aumenta tu visibilidad, atrae más tráfico orgánico y consigue más clientes.
-				</p>
-			</div>
-
-			<!-- Servicio 3 -->
-			<div class="p-8 border rounded-lg hover:shadow-lg transition-shadow duration-300 dark:border-gray-700">
-				<h2 class="text-2xl font-bold mb-3">Mantenimiento y Soporte Web</h2>
-				<p class="text-gray-600 dark:text-gray-400">
-					Aseguro que tu sitio web funcione sin problemas con paquetes de mantenimiento que incluyen actualizaciones, copias de seguridad, y soporte técnico para que puedas centrarte en tu negocio.
-				</p>
-			</div>
+			<CardGrid
+				items={services}
+				columns={3}
+				variant="generic"
+				showButton={true}
+				gap="large"
+				class="max-w-6xl mx-auto"
+			/>
 		</div>
 	</section>
 </Layout>
