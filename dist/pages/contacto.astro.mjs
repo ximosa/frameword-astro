@@ -1,0 +1,29 @@
+/* empty css                                  */
+import { c as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DHUdpo0D.mjs';
+import 'piccolore';
+import { $ as $$Layout } from '../chunks/Layout_DDPl3KK2.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Contacto = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contacto | MiSitio Web", "description": "Ponte en contacto conmigo para discutir tu pr\xF3ximo proyecto." }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"> <div class="grid grid-cols-1 gap-8 md:grid-cols-2"> <div class="md:py-4"> <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">Ponte en contacto</h2> <p class="mt-4 text-pretty text-gray-700">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed voluptas delectus alias
+					magni velit! Dicta corrupti dignissimos dolor consequatur illum tempore consectetur hic
+					a cupiditate sunt quam, earum nisi aperiam.
+</p> <dl class="mt-6 space-y-3"> <div> <dt class="sr-only">Número de teléfono</dt> <dd class="grid grid-cols-[24px_1fr] items-center gap-2 text-gray-700"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path> </svg> <span class="font-medium">+1 (555) 123-4567</span> </dd> </div> <div> <dt class="sr-only">Correo electrónico</dt> <dd class="grid grid-cols-[24px_1fr] items-center gap-2 text-gray-700"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"> <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path> </svg> <span class="font-medium">info@example.com</span> </dd> </div> <div> <dt class="sr-only">Ubicación</dt> <dd class="grid grid-cols-[24px_1fr] items-center gap-2 text-gray-700"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"> <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path> </svg> <span class="font-medium">123 Calle Principal, Cualquier Ciudad, España</span> </dd> </div> </dl> </div> <form action="#" class="space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6"> <div> <label class="block text-sm font-medium text-gray-900" for="name">Nombre</label> <input class="mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none" id="name" type="text" placeholder="Tu nombre"> </div> <div> <label class="block text-sm font-medium text-gray-900" for="email">Correo electrónico</label> <input class="mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none" id="email" type="email" placeholder="Tu correo electrónico"> </div> <div> <label class="block text-sm font-medium text-gray-900" for="message">Mensaje</label> <textarea class="mt-1 w-full resize-none rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none" id="message" rows="4" placeholder="Tu mensaje"></textarea> </div> <button class="block w-full rounded-lg border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-indigo-600" type="submit">
+Enviar Mensaje
+</button> </form> </div> </div> ` })}`;
+}, "C:/Users/Joaqu\xEDn/Documents/frameword-astro/src/pages/contacto.astro", void 0);
+
+const $$file = "C:/Users/Joaquín/Documents/frameword-astro/src/pages/contacto.astro";
+const $$url = "/contacto";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Contacto,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
