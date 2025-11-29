@@ -66,7 +66,7 @@ export interface ContentCollection {
 
 // Configuración por defecto del sitio
 export const siteConfig: SiteConfig = {
-  name: "Mi Sitio Web",
+  name: "Mi Sitio Webgae",
   description: "Un sitio web moderno construido con Astro",
   url: "https://misitio.com",
 

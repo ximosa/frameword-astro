@@ -83,6 +83,7 @@ import Layout from "../../layouts/Layout.astro";
                             required
                             class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                         />
+                        <p class="text-xs text-red-500 mt-1 hidden" id="date-error">Fecha inválida</p>
                     </div>
                     <div>
                         <label
@@ -110,6 +111,55 @@ import Layout from "../../layouts/Layout.astro";
                             placeholder="https://..."
                             class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                         />
+                        <p class="text-xs text-red-500 mt-1 hidden" id="image-error">URL inválida</p>
+                    </div>
+                </div>
+
+                <!-- Slug y Tags -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label
+                            for="slug"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Slug <span class="text-xs text-gray-500">(opcional)</span></label
+                        >
+                        <input
+                            type="text"
+                            id="slug"
+                            placeholder="auto-generado"
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                        <p class="text-xs text-gray-500 mt-1" id="slug-preview">Slug: <span id="slug-value">-</span></p>
+                    </div>
+                    <div>
+                        <label
+                            for="tags"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                            >Tags <span class="text-xs text-gray-500">(separados por comas)</span></label
+                        >
+                        <input
+                            type="text"
+                            id="tags"
+                            placeholder="seo, wordpress, tutorial"
+                            class="w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                </div>
+
+                <!-- Estado de publicación -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center">
+                        <input
+                            type="checkbox"
+                            id="published"
+                            checked
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label
+                            for="published"
+                            class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >Publicar inmediatamente</label
+                        >
                     </div>
                 </div>
 
@@ -398,6 +448,68 @@ import Layout from "../../layouts/Layout.astro";
             .replace(/^-+|-+$/g, "");
     }
 
+    function validateForm(): boolean {
+        let isValid = true;
+
+        // Validar fecha
+        const dateInput = document.getElementById("date") as HTMLInputElement;
+        const dateError = document.getElementById("date-error")!;
+        if (!dateInput.value) {
+            dateError.textContent = "Fecha requerida";
+            dateError.classList.remove("hidden");
+            isValid = false;
+        } else {
+            const date = new Date(dateInput.value);
+            if (isNaN(date.getTime())) {
+                dateError.textContent = "Fecha inválida";
+                dateError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                dateError.classList.add("hidden");
+            }
+        }
+
+        // Validar URL de imagen
+        const imageInput = document.getElementById("image") as HTMLInputElement;
+        const imageError = document.getElementById("image-error")!;
+        if (imageInput.value && !isValidUrl(imageInput.value)) {
+            imageError.classList.remove("hidden");
+            isValid = false;
+        } else {
+            imageError.classList.add("hidden");
+        }
+
+        // Validar título
+        const titleInput = document.getElementById("title") as HTMLInputElement;
+        if (!titleInput.value.trim()) {
+            titleInput.focus();
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function isValidUrl(string: string): boolean {
+        try {
+            new URL(string);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
+
+    function updateSlugPreview() {
+        const titleInput = document.getElementById("title") as HTMLInputElement;
+        const slugInput = document.getElementById("slug") as HTMLInputElement;
+        const slugValue = document.getElementById("slug-value")!;
+
+        const customSlug = slugInput.value.trim();
+        const generatedSlug = generateSlug(titleInput.value);
+
+        const finalSlug = customSlug || generatedSlug;
+        slugValue.textContent = finalSlug || "-";
+    }
+
     function generateMDX(): string {
         const title = (document.getElementById("title") as HTMLInputElement)
             .value;
@@ -413,13 +525,28 @@ import Layout from "../../layouts/Layout.astro";
         const category = (
             document.getElementById("category") as HTMLSelectElement
         ).value;
+        const slug = (document.getElementById("slug") as HTMLInputElement)
+            .value.trim();
+        const tagsInput = (document.getElementById("tags") as HTMLInputElement)
+            .value;
+        const published = (document.getElementById("published") as HTMLInputElement)
+            .checked;
         const content = (
             document.getElementById("content") as HTMLTextAreaElement
         ).value;
 
+        // Procesar tags
+        const tags = tagsInput
+            .split(",")
+            .map(tag => tag.trim())
+            .filter(tag => tag.length > 0);
+
         let mdx = `---\ntitle: "${title}"\ndescription: "${description}"\ndate: "${date}"\nauthor: "${author}"`;
         if (image) mdx += `\nimage: "${image}"`;
-        mdx += `\ncategory: "${category}"\n---\n\n${content}\n`;
+        mdx += `\ncategory: "${category}"`;
+        if (slug) mdx += `\nslug: "${slug}"`;
+        if (tags.length > 0) mdx += `\ntags: [${tags.map(tag => `"${tag}"`).join(", ")}]`;
+        mdx += `\npublished: ${published}\n---\n\n${content}\n`;
         return mdx;
     }
 
@@ -441,10 +568,48 @@ import Layout from "../../layouts/Layout.astro";
             (charCount.textContent = descriptionInput.value.length.toString()),
     );
 
+    // Inicializar fecha
     const dateInput = document.getElementById("date") as HTMLInputElement;
     dateInput.valueAsDate = new Date();
 
+    // Actualizar preview del slug en tiempo real
+    const titleInput = document.getElementById("title") as HTMLInputElement;
+    const slugInput = document.getElementById("slug") as HTMLInputElement;
+
+    titleInput.addEventListener("input", updateSlugPreview);
+    slugInput.addEventListener("input", updateSlugPreview);
+
+    // Inicializar preview del slug
+    updateSlugPreview();
+
+    // Validar fecha en tiempo real
+    dateInput.addEventListener("change", () => {
+        const date = new Date(dateInput.value);
+        const dateError = document.getElementById("date-error")!;
+        if (isNaN(date.getTime())) {
+            dateError.textContent = "Fecha inválida";
+            dateError.classList.remove("hidden");
+        } else {
+            dateError.classList.add("hidden");
+        }
+    });
+
+    // Validar URL en tiempo real
+    const imageInput = document.getElementById("image") as HTMLInputElement;
+    imageInput.addEventListener("input", () => {
+        const imageError = document.getElementById("image-error")!;
+        if (imageInput.value && !isValidUrl(imageInput.value)) {
+            imageError.classList.remove("hidden");
+        } else {
+            imageError.classList.add("hidden");
+        }
+    });
+
     document.getElementById("preview-btn")!.addEventListener("click", () => {
+        if (!validateForm()) {
+            showNotification("Por favor corrige los errores antes de ver la preview");
+            return;
+        }
         const mdx = generateMDX();
         const previewContent = document.querySelector("#preview-content code")!;
         previewContent.textContent = mdx;
@@ -456,6 +621,10 @@ import Layout from "../../layouts/Layout.astro";
     });
 
     document.getElementById("copy-btn")!.addEventListener("click", async () => {
+        if (!validateForm()) {
+            showNotification("Por favor corrige los errores antes de copiar");
+            return;
+        }
         const mdx = generateMDX();
         try {
             await navigator.clipboard.writeText(mdx);
@@ -467,11 +636,21 @@ import Layout from "../../layouts/Layout.astro";
 
     document.getElementById("post-form")!.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        if (!validateForm()) {
+            showNotification("Por favor corrige los errores antes de descargar");
+            return;
+        }
+
         const title = (document.getElementById("title") as HTMLInputElement)
             .value;
         const mdx = generateMDX();
-        const slug = generateSlug(title);
-        const filename = `${slug}.mdx`;
+
+        // Usar slug personalizado o generado
+        const customSlug = (document.getElementById("slug") as HTMLInputElement)
+            .value.trim();
+        const finalSlug = customSlug || generateSlug(title);
+        const filename = `${finalSlug}.mdx`;
 
         const blob = new Blob([mdx], { type: "text/markdown" });
         const url = URL.createObjectURL(blob);

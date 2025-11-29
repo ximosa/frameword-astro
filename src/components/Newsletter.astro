@@ -1,0 +1,140 @@
+---
+// src/components/Newsletter.astro
+interface Props {
+  title?: string;
+  description?: string;
+  placeholder?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Suscríbete a nuestro newsletter",
+  description = "Recibe las últimas actualizaciones y artículos directamente en tu email.",
+  placeholder = "Tu email aquí...",
+  buttonText = "Suscribirme"
+} = Astro.props;
+---
+
+<section class="newsletter bg-gray-50 dark:bg-gray-800 py-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        {title}
+      </h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-8">
+        {description}
+      </p>
+
+      <form
+        id="newsletter-form"
+        class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+        method="POST"
+        action="/api/newsletter"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder={placeholder}
+          required
+          class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          {buttonText}
+        </button>
+      </form>
+
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">
+        Sin spam, solo contenido de calidad. Puedes darte de baja en cualquier momento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('newsletter-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const email = formData.get('email');
+
+      // Mostrar loading
+      const button = form.querySelector('button[type="submit"]');
+      const originalText = button.textContent;
+      button.textContent = 'Enviando...';
+      button.disabled = true;
+
+      try {
+        // Aquí iría la lógica real de suscripción
+        // Por ahora simulamos una respuesta exitosa
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Mostrar mensaje de éxito
+        showMessage('¡Gracias por suscribirte! Revisa tu email para confirmar.', 'success');
+
+        // Limpiar formulario
+        form.reset();
+
+      } catch (error) {
+        showMessage('Hubo un error. Por favor intenta de nuevo.', 'error');
+      } finally {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+    });
+
+    function showMessage(message, type) {
+      // Remover mensajes anteriores
+      const existingMessage = document.querySelector('.newsletter-message');
+      if (existingMessage) {
+        existingMessage.remove();
+      }
+
+      // Crear nuevo mensaje
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `newsletter-message mt-4 p-3 rounded-lg text-sm ${
+        type === 'success'
+          ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200'
+          : 'bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-200'
+      }`;
+      messageDiv.textContent = message;
+
+      // Insertar después del formulario
+      form.parentNode.insertBefore(messageDiv, form.nextSibling);
+
+      // Auto-remover después de 5 segundos
+      setTimeout(() => {
+        if (messageDiv.parentNode) {
+          messageDiv.remove();
+        }
+      }, 5000);
+    }
+  });
+</script>
+
+<style>
+  .newsletter {
+    @apply border-t border-gray-200 dark:border-gray-700;
+  }
+
+  .newsletter-message {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

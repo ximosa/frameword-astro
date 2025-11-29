@@ -2,6 +2,10 @@
 
 Un framework moderno y flexible construido sobre Astro para crear sitios web rápidos, escalables y personalizables.
 
+## 📦 Despliegue
+
+Para instrucciones detalladas de cómo publicar el proyecto en **Firebase Hosting** y **Cloudflare Pages**, consulta el archivo [README-DEPLOY.md](README-DEPLOY.md).
+
 ## 🚀 Inicio Rápido
 
 ```bash
@@ -29,6 +33,8 @@ Para información detallada sobre instalación, configuración, personalización
 - 🛠️ **Configuración Centralizada** - Todo configurable desde archivos TypeScript
 - 📱 **Responsive** - Diseño mobile-first
 - 🌙 **Modo Oscuro** - Soporte nativo para temas claros y oscuros
+- 📢 **Componentes Avanzados** - SocialShare, Newsletter, Footer con admin
+- 🚀 **CLI Profesional** - Setup instantáneo de nuevos proyectos
 
 ## 📁 Estructura del Proyecto
 

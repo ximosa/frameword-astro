@@ -246,6 +246,24 @@ npm run preview
 - ✅ Importación automática de estilos de tema
 - ✅ Variables CSS disponibles globalmente
 
+#### SocialShare (`src/components/SocialShare.astro`) ⭐ **NUEVO**
+- ✅ Compartir en Twitter, Facebook, LinkedIn y WhatsApp
+- ✅ URLs codificadas automáticamente
+- ✅ Diseño responsive con iconos
+- ✅ Accesibilidad completa
+
+#### Newsletter (`src/components/Newsletter.astro`) ⭐ **NUEVO**
+- ✅ Formulario de suscripción con validación
+- ✅ Estados de loading y mensajes de éxito/error
+- ✅ Diseño responsive y accesible
+- ✅ Animaciones suaves
+
+#### Footer Mejorado (`src/components/Footer.astro`) ⭐ **ACTUALIZADO**
+- ✅ Icono de admin con enlace a `/admin/nuevo-post`
+- ✅ Tooltip descriptivo "Panel de Administración"
+- ✅ Enlaces a redes sociales (Twitter, GitHub)
+- ✅ Diseño responsive y accesible
+
 ### Sistema de Estilos
 
 #### Variables CSS (`src/styles/theme.css`)
@@ -316,6 +334,61 @@ const siteConfig = getSiteConfig();
   <p>{siteConfig.description}</p>
 </Layout>
 ```
+
+### Usar Componentes en Posts del Blog
+
+```astro
+---
+// src/content/blog/mi-articulo.mdx
+---
+title: "Mi Artículo Increíble"
+description: "Un artículo sobre desarrollo web"
+---
+
+import SocialShare from '../../components/SocialShare.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+# Mi Artículo Increíble
+
+Contenido del artículo...
+
+<!-- Compartir en redes sociales -->
+<SocialShare
+  url={Astro.url.href}
+  title={frontmatter.title}
+  description={frontmatter.description}
+/>
+
+<!-- Capturar emails -->
+<Newsletter
+  title="¿Te gustó este artículo?"
+  description="Suscríbete para recibir más contenido como este"
+/>
+```
+
+### Personalizar Newsletter
+
+```astro
+---
+// src/pages/index.astro
+import Newsletter from '../components/Newsletter.astro';
+---
+
+<Newsletter
+  title="Únete a nuestra comunidad"
+  description="Recibe tips semanales sobre desarrollo web"
+  placeholder="tu@email.com"
+  buttonText="¡Comenzar ahora!"
+/>
+```
+
+### Footer con Icono de Admin
+
+El footer incluye automáticamente:
+- ✅ **Icono de admin** (engranaje) enlazando a `/admin/nuevo-post`
+- ✅ **Enlaces sociales** a Twitter y GitHub
+- ✅ **Copyright dinámico** con el nombre del sitio
+- ✅ **Acceso rápido** al panel de administración desde cualquier página
 
 ## 🤝 Contribuir
 

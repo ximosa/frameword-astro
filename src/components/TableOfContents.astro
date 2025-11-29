@@ -143,7 +143,6 @@ const { headings } = Astro.props;
         // Función para abrir el modal
         function openTOC() {
             modal.classList.remove("hidden");
-            // Pequeño delay para que la transición funcione
             setTimeout(() => {
                 panel.classList.remove("translate-x-full");
             }, 10);
@@ -175,20 +174,27 @@ const { headings } = Astro.props;
         tocLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
                 e.preventDefault();
-                const targetId = link.getAttribute("href");
-                if (targetId) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        closeTOC();
-                        setTimeout(() => {
-                            targetElement.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start",
-                            });
-                            // Añadir un pequeño offset para el header sticky
-                            window.scrollBy(0, -80);
-                        }, 300);
-                    }
+                const href = link.getAttribute("href");
+                if (!href) return;
+
+                const targetId = href.replace(/^#/, "");
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    closeTOC();
+                    // Esperar a que el modal se cierre completamente y el overflow se restaure
+                    setTimeout(() => {
+                        const headerOffset = 80;
+                        const elementPosition =
+                            targetElement.getBoundingClientRect().top;
+                        const offsetPosition =
+                            elementPosition + window.scrollY - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth",
+                        });
+                    }, 350);
                 }
             });
         });
