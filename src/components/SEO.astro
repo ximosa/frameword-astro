@@ -1,36 +1,176 @@
 ---
-// Componente SEO mejorado con configuración centralizada
-interface Props {
+// Componente SEO Inteligente y Automatizado
+// Combina configuración global del sitio con datos específicos del contenido
+import { getSiteConfig } from '../../config/site.config';
+
+interface Frontmatter {
   title?: string;
   description?: string;
+  image?: string;
+  date?: string | Date;
+  author?: string;
+  category?: string;
+  tags?: string[];
+  published?: boolean;
 }
 
-// Valores por defecto
-const defaultTitle = 'Mi Sitio Web';
-const defaultDescription = 'Un sitio web moderno construido con Astro';
+interface Props {
+  // Props directas (para páginas personalizadas)
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'profile' | 'book' | 'video';
 
-const { title = defaultTitle, description = defaultDescription } = Astro.props;
+  // Frontmatter del contenido (para posts automáticos)
+  frontmatter?: Frontmatter;
 
-// Construir título completo
-const fullTitle = title === defaultTitle ? title : `${title} | ${defaultTitle}`;
+  // Opciones adicionales
+  noindex?: boolean;
+  canonical?: string;
+}
+
+const {
+  title: propTitle,
+  description: propDescription,
+  image: propImage,
+  url: propUrl,
+  type = 'website',
+  frontmatter,
+  noindex = false,
+  canonical
+} = Astro.props;
+
+// Obtener configuración global del sitio
+const siteConfig = getSiteConfig();
+
+// Determinar URL actual
+const currentUrl = propUrl || new URL(Astro.url.pathname, siteConfig.url).href;
+
+// Combinar datos: frontmatter tiene prioridad sobre props, luego configuración global
+const pageTitle = frontmatter?.title || propTitle || siteConfig.seo.title;
+const pageDescription = frontmatter?.description || propDescription || siteConfig.seo.description;
+const pageImage = frontmatter?.image || propImage || siteConfig.ogImage;
+const pageAuthor = frontmatter?.author || siteConfig.seo.author;
+const pageDate = frontmatter?.date ? new Date(frontmatter.date) : null;
+const pageTags = frontmatter?.tags || [];
+const pageCategory = frontmatter?.category;
+
+// Construir título completo (solo agregar nombre del sitio si no es la página principal)
+const isHomePage = Astro.url.pathname === '/';
+const fullTitle = isHomePage ? pageTitle : `${pageTitle} | ${siteConfig.name}`;
+
+// Construir URL canónica
+const canonicalUrl = canonical || currentUrl;
+
+// Determinar tipo de contenido para Open Graph
+const ogType = type === 'article' || frontmatter ? 'article' : 'website';
+
+// Construir imagen absoluta
+const absoluteImage = pageImage ? (pageImage.startsWith('http') ? pageImage : new URL(pageImage, siteConfig.url).href) : null;
+
+// Keywords combinadas
+const keywords = [
+  ...siteConfig.seo.keywords,
+  ...(pageTags || []),
+  pageCategory
+].filter(Boolean).join(', ');
 ---
 
 <!-- Título y metadatos básicos -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={pageDescription} />
 
-<!-- Open Graph -->
+<!-- Keywords y autor -->
+<meta name="keywords" content={keywords} />
+<meta name="author" content={pageAuthor} />
+
+<!-- Idioma y robots -->
+<meta name="language" content="es-ES" />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
+
+<!-- URL canónica -->
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
-<meta property="og:type" content="website" />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:url" content={canonicalUrl} />
+{absoluteImage && <meta property="og:image" content={absoluteImage} />}
+{absoluteImage && <meta property="og:image:alt" content={pageTitle} />}
+
+<!-- Open Graph para artículos -->
+{ogType === 'article' && pageAuthor && (
+  <meta property="article:author" content={pageAuthor} />
+)}
+{ogType === 'article' && pageDate && (
+  <meta property="article:published_time" content={pageDate.toISOString()} />
+)}
+{ogType === 'article' && pageCategory && (
+  <meta property="article:section" content={pageCategory} />
+)}
+{ogType === 'article' && pageTags && pageTags.map(tag => (
+  <meta property="article:tag" content={tag} />
+))}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={pageDescription} />
+{absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
+{absoluteImage && <meta name="twitter:image:alt" content={pageTitle} />}
+{siteConfig.social?.twitter && <meta name="twitter:site" content={`@${siteConfig.social.twitter}`} />}
+{siteConfig.seo.author && <meta name="twitter:creator" content={siteConfig.seo.author} />}
 
-<!-- Favicon -->
+<!-- LinkedIn -->
+{absoluteImage && <meta property="og:image:width" content="1200" />}
+{absoluteImage && <meta property="og:image:height" content="630" />}
+
+<!-- Favicon y iconos -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": ogType === 'article' ? "Article" : "WebSite",
+    "name": fullTitle,
+    "description": pageDescription,
+    "url": canonicalUrl,
+    "publisher": {
+      "@type": "Organization",
+      "name": siteConfig.name,
+      "url": siteConfig.url
+    },
+    ...(ogType === 'article' ? {
+      "headline": pageTitle,
+      "author": {
+        "@type": "Person",
+        "name": pageAuthor
+      },
+      "datePublished": pageDate?.toISOString(),
+      "dateModified": pageDate?.toISOString(),
+      "image": absoluteImage ? {
+        "@type": "ImageObject",
+        "url": absoluteImage,
+        "caption": pageTitle
+      } : undefined,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      }
+    } : {
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteConfig.url}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    })
+  })
+} />

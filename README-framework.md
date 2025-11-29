@@ -183,6 +183,197 @@ export default {
 - Ratings y reseñas
 - Información de la empresa
 
+## 🚀 Generación Automática de Páginas desde la Configuración ⭐ **POTENTE**
+
+El framework incluye un sistema revolucionario que **genera automáticamente todas las páginas necesarias** basándose únicamente en la configuración de contenido. ¡Ya no necesitas crear páginas manualmente para cada tipo de contenido nuevo!
+
+### El Problema Tradicional
+Anteriormente, cuando definías una nueva colección de contenido en `config/content.config.ts` (como "proyectos"), tenías que:
+- ❌ Crear manualmente `src/pages/proyectos/index.astro`
+- ❌ Crear manualmente `src/pages/proyectos/[slug].astro`
+- ❌ Escribir código repetitivo para listar y mostrar contenido
+
+### La Solución Automática ✨
+Ahora, con las **rutas dinámicas universales**, el framework lee automáticamente tu `content.config.ts` y genera todas las páginas necesarias:
+
+#### Página de Listado Genérica (`src/pages/[collection]/index.astro`)
+```astro
+---
+// src/pages/[collection]/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getCollectionsConfig } from '../../../config/content.config';
+
+const { collection: collectionParam } = Astro.params;
+
+// 1. Encontrar la configuración de la colección actual
+const collectionsConfig = getCollectionsConfig();
+const collectionConfig = collectionsConfig.find(c => c.name === collectionParam);
+
+// 2. Si la colección no está en el config, mostrar 404
+if (!collectionConfig) {
+  return new Response(null, { status: 404, statusText: 'Not Found' });
+}
+
+// 3. Obtener todas las entradas para esa colección
+const entries = await getCollection(collectionParam);
+---
+
+<Layout
+  title={collectionConfig.label || `Archivo de ${collectionParam}`}
+  description={`Explora todas las entradas en la categoría de ${collectionConfig.label}`}
+>
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-6">
+      {collectionConfig.label || `Archivo de ${collectionParam}`}
+    </h1>
+    <ul class="space-y-4">
+      {entries.map(entry => (
+        <li>
+          <a href={`/${collectionParam}/${entry.slug}`} class="text-2xl font-semibold text-primary-600 hover:underline">
+            {entry.data.title}
+          </a>
+          {entry.data.description && <p class="text-gray-600 mt-1">{entry.data.description}</p>}
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>
+```
+
+#### Página de Detalle Genérica (`src/pages/[collection]/[slug].astro`)
+```astro
+---
+// src/pages/[collection]/[slug].astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// 1. Generar todas las rutas posibles para todas las colecciones
+export async function getStaticPaths() {
+  const collectionsConfig = getCollectionsConfig();
+  const paths = [];
+
+  for (const collection of collectionsConfig) {
+    const entries = await getCollection(collection.name);
+    for (const entry of entries) {
+      paths.push({
+        params: { collection: collection.name, slug: entry.slug },
+        props: { entry },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+>
+  <main class="container mx-auto px-4 py-8 prose lg:prose-xl">
+    <h1 class="text-4xl font-bold mb-4">{entry.data.title}</h1>
+    {entry.data.pubDate && (
+      <p class="text-gray-500 mb-6">
+        Publicado el: {entry.data.pubDate.toLocaleDateString()}
+      </p>
+    )}
+    <article>
+      <Content />
+    </article>
+  </main>
+</Layout>
+```
+
+### Cómo Funciona
+
+1. **Define tu colección** en `config/content.config.ts`:
+```typescript
+// Ejemplo: Agregar colección de proyectos
+{
+  name: 'proyectos',
+  label: 'Proyectos',
+  description: 'Portafolio de proyectos',
+  route: '/proyectos',
+  slug: 'title',
+  schema: commonSchemas.project,
+}
+```
+
+2. **Crea el directorio de contenido** en `src/content/proyectos/`:
+```
+src/content/proyectos/
+├── proyecto-1.mdx
+├── proyecto-2.mdx
+└── proyecto-3.mdx
+```
+
+3. **¡Listo!** Las páginas se generan automáticamente:
+- 📄 `/proyectos/` - Lista todos los proyectos
+- 📄 `/proyectos/proyecto-1` - Página detalle del proyecto 1
+- 📄 `/proyectos/proyecto-2` - Página detalle del proyecto 2
+- etc.
+
+### Beneficios
+
+✅ **Cero código repetitivo** - Una sola página genérica maneja todos los tipos de contenido
+✅ **Escalable infinitamente** - Agrega nuevas colecciones sin tocar código
+✅ **Mantenimiento cero** - Las páginas se actualizan automáticamente con la config
+✅ **SEO automático** - Cada página tiene meta tags apropiados
+✅ **Rendimiento óptimo** - Generación estática para todas las rutas
+
+### Ejemplo Práctico: Agregar "Proyectos"
+
+Solo necesitas:
+
+1. **Configurar la colección** en `config/content.config.ts`:
+```typescript
+// Ya está incluido en defaultCollections como 'projects'
+// Pero puedes agregar cualquier colección personalizada
+const proyectosCollection = createCollection('proyectos', {
+  label: 'Proyectos',
+  route: '/proyectos',
+  schema: commonSchemas.project,
+  pagination: { enabled: true, perPage: 12 }
+});
+```
+
+2. **Crear contenido** en `src/content/proyectos/mi-proyecto.mdx`:
+```mdx
+---
+title: "Mi Proyecto Increíble"
+description: "Un proyecto que cambió mi vida"
+date: 2024-01-15
+image: "/images/proyecto.jpg"
+demoUrl: "https://demo.com"
+repoUrl: "https://github.com/user/repo"
+technologies: ["React", "Node.js", "MongoDB"]
+featured: true
+---
+
+# Mi Proyecto Increíble
+
+Este es el contenido detallado de mi proyecto...
+```
+
+3. **¡Acceder automáticamente!**
+- 🌐 `/proyectos/` - Lista todos los proyectos
+- 🌐 `/proyectos/mi-proyecto-increible` - Página del proyecto (slug generado automáticamente)
+
+### Personalización Avanzada
+
+Puedes personalizar las páginas genéricas modificando `src/pages/[collection]/index.astro` y `src/pages/[collection]/[slug].astro` para agregar:
+
+- 🎨 **Estilos personalizados** por colección
+- 🔍 **Filtros y búsqueda** avanzada
+- 📄 **Paginación** automática
+- 🏷️ **Categorización** y tags
+- 📊 **Ordenamiento** personalizado
+- 🎯 **Componentes específicos** por tipo de contenido
+
 ## 🛠️ Desarrollo
 
 ### Instalación
@@ -236,11 +427,16 @@ npm run preview
 - ✅ Soporte para enlaces externos
 - ✅ Menú responsive
 
-#### SEO (`src/components/SEO.astro`)
-- ✅ Meta tags dinámicos
-- ✅ Open Graph automático
-- ✅ Twitter Cards
-- ✅ Keywords y autor configurables
+#### SEO Mejorado (`src/components/SEO.astro`) ⭐ **MEJORADO**
+- ✅ **Configuración automática** desde `site.config.ts`
+- ✅ **Frontmatter inteligente** para posts del blog
+- ✅ **Open Graph avanzado** con datos de artículos
+- ✅ **Twitter Cards** completas
+- ✅ **Structured Data (JSON-LD)** para SEO
+- ✅ **URLs canónicas** automáticas
+- ✅ **Keywords combinadas** (globales + tags + categoría)
+- ✅ **Imágenes absolutas** para redes sociales
+- ✅ **Detección automática** de tipo de contenido (website/article)
 
 #### Layout (`src/layouts/Layout.astro`)
 - ✅ Importación automática de estilos de tema
@@ -389,6 +585,66 @@ El footer incluye automáticamente:
 - ✅ **Enlaces sociales** a Twitter y GitHub
 - ✅ **Copyright dinámico** con el nombre del sitio
 - ✅ **Acceso rápido** al panel de administración desde cualquier página
+
+### SEO Inteligente Automático
+
+El componente SEO mejorado se configura automáticamente según el contexto:
+
+#### Para Posts del Blog (Automático)
+```astro
+---
+// Las páginas dinámicas usan automáticamente el frontmatter
+// src/pages/[collection]/[slug].astro
+---
+<SEO frontmatter={entry.data} type="article" />
+```
+
+#### Para Páginas Personalizadas
+```astro
+---
+// src/pages/acerca.astro
+---
+<SEO
+  title="Acerca de Nosotros"
+  description="Conoce nuestro equipo y historia"
+  image="/images/equipo.jpg"
+  type="website"
+/>
+```
+
+#### Para la Página Principal
+```astro
+---
+// src/pages/index.astro
+---
+<SEO />  <!-- Usa configuración por defecto -->
+```
+
+#### Ejemplo de Frontmatter Completo
+```mdx
+---
+title: "Cómo Optimizar tu Sitio Web"
+description: "Guía completa para mejorar el rendimiento de tu web"
+date: "2024-01-15"
+author: "Juan Pérez"
+image: "https://example.com/og-image.jpg"
+category: "SEO"
+tags: ["optimización", "rendimiento", "web"]
+published: true
+---
+
+# Cómo Optimizar tu Sitio Web
+
+Contenido del artículo...
+```
+
+**Resultado automático:**
+- ✅ **Título**: "Cómo Optimizar tu Sitio Web | Mi Sitio Web"
+- ✅ **Open Graph**: Tipo "article" con fecha, autor, categoría
+- ✅ **Twitter Card**: Imagen y metadatos completos
+- ✅ **Structured Data**: JSON-LD para motores de búsqueda
+- ✅ **Keywords**: "astro, web, desarrollo, optimización, rendimiento, web"
+- ✅ **URLs canónicas**: Generadas automáticamente
 
 ## 🤝 Contribuir
 

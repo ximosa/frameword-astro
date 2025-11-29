@@ -219,6 +219,9 @@ export function getActiveCollections(): ContentCollectionConfig[] {
   return defaultCollections; // En el futuro podría filtrar por configuración
 }
 
+// Alias para compatibilidad con páginas dinámicas
+export const getCollectionsConfig = getActiveCollections;
+
 // Función helper para crear nueva colección
 export function createCollection(
   name: string,

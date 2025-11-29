@@ -1,0 +1,41 @@
+---
+// src/pages/[collection]/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getCollectionsConfig } from '../../../config/content.config';
+
+const { collection: collectionParam } = Astro.params;
+
+// 1. Encontrar la configuración de la colección actual
+const collectionsConfig = getCollectionsConfig();
+const collectionConfig = collectionsConfig.find(c => c.name === collectionParam);
+
+// 2. Si la colección no está en el config, mostrar 404
+if (!collectionConfig) {
+  return new Response(null, { status: 404, statusText: 'Not Found' });
+}
+
+// 3. Obtener todas las entradas para esa colección
+const entries = await getCollection(collectionParam);
+---
+
+<Layout
+  title={collectionConfig.label || `Archivo de ${collectionParam}`}
+  description={`Explora todas las entradas en la categoría de ${collectionConfig.label}`}
+>
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-6">
+      {collectionConfig.label || `Archivo de ${collectionParam}`}
+    </h1>
+    <ul class="space-y-4">
+      {entries.map(entry => (
+        <li>
+          <a href={`/${collectionParam}/${entry.slug}`} class="text-2xl font-semibold text-primary-600 hover:underline">
+            {entry.data.title}
+          </a>
+          {entry.data.description && <p class="text-gray-600 mt-1">{entry.data.description}</p>}
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>

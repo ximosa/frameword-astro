@@ -1,0 +1,49 @@
+---
+// src/pages/[collection]/[slug].astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SEO from '../../components/SEO.astro';
+import { getCollectionsConfig } from '../../../config/content.config';
+
+// 1. Generar todas las rutas posibles para todas las colecciones
+export async function getStaticPaths() {
+  const collectionsConfig = getCollectionsConfig();
+  const paths = [];
+
+  for (const collection of collectionsConfig) {
+    const entries = await getCollection(collection.name);
+    for (const entry of entries) {
+      paths.push({
+        params: { collection: collection.name, slug: entry.slug },
+        props: { entry },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+>
+  <SEO
+    frontmatter={entry.data}
+    type="article"
+  />
+  <main class="container mx-auto px-4 py-8 prose lg:prose-xl">
+    <h1 class="text-4xl font-bold mb-4">{entry.data.title}</h1>
+    {entry.data.pubDate && (
+      <p class="text-gray-500 mb-6">
+        Publicado el: {entry.data.pubDate.toLocaleDateString()}
+      </p>
+    )}
+    <article>
+      <Content />
+    </article>
+  </main>
+</Layout>
