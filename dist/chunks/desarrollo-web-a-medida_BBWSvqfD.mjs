@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./desarrollo-web-a-medida_CSKry5Ft.mjs');
+						return import('./desarrollo-web-a-medida_DfgHVqdm.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

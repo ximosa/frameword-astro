@@ -12,10 +12,6 @@ const frontmatter = {
 };
 function getHeadings() {
   return [{
-    "depth": 1,
-    "slug": "desarrollo-web-a-medida",
-    "text": "Desarrollo Web a Medida"
-  }, {
     "depth": 2,
     "slug": "por-qué-elegir-desarrollo-a-medida",
     "text": "¿Por qué elegir desarrollo a medida?"
@@ -109,7 +105,6 @@ function _createMdxContent(props) {
   const _components = {
     a: "a",
     em: "em",
-    h1: "h1",
     h2: "h2",
     h3: "h3",
     hr: "hr",
@@ -121,10 +116,7 @@ function _createMdxContent(props) {
     ...props.components
   };
   return createVNode(Fragment, {
-    children: [createVNode(_components.h1, {
-      id: "desarrollo-web-a-medida",
-      children: "Desarrollo Web a Medida"
-    }), "\n", createVNode(_components.p, {
+    children: [createVNode(_components.p, {
       children: ["¿Necesitas una presencia web que refleje exactamente tu visión y se adapte perfectamente a tus procesos? Nuestro servicio de ", createVNode(_components.strong, {
         children: "Desarrollo Web a Medida"
       }), " está diseñado para empresas que buscan soluciones digitales únicas y personalizadas."]

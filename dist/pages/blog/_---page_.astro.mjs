@@ -1,8 +1,8 @@
 /* empty css                                     */
 import { c as createComponent, d as createAstro, r as renderComponent, b as renderTemplate, m as maybeRenderHead, F as Fragment, e as addAttribute } from '../../chunks/astro/server_DHUdpo0D.mjs';
 import 'piccolore';
-import { g as getCollection } from '../../chunks/_astro_content_DwXBnoml.mjs';
-import { $ as $$Layout } from '../../chunks/Layout_DDPl3KK2.mjs';
+import { g as getCollection } from '../../chunks/_astro_content_DL7yatQU.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_C8Z0hdBb.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro();

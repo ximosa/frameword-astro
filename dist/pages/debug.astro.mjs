@@ -2,7 +2,7 @@
 import { c as createComponent, m as maybeRenderHead, b as renderTemplate } from '../chunks/astro/server_DHUdpo0D.mjs';
 import 'piccolore';
 import 'clsx';
-import { g as getCollection } from '../chunks/_astro_content_DwXBnoml.mjs';
+import { g as getCollection } from '../chunks/_astro_content_DL7yatQU.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Debug = createComponent(async ($$result, $$props, $$slots) => {

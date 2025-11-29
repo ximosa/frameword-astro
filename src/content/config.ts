@@ -26,7 +26,22 @@ const servicesCollection = defineCollection({
   }),
 });
 
+const projectsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    image: z.string().optional(),
+    demoUrl: z.string().optional(),
+    repoUrl: z.string().optional(),
+    technologies: z.array(z.string()).optional(),
+    featured: z.boolean().optional(),
+  }),
+});
+
 export const collections = {
   'blog': blogCollection,
   'services': servicesCollection,
+  'projects': projectsCollection,
 };

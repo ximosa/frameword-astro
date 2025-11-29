@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CardGrid from '../components/CardGrid.astro';
+
+const projects = [
+  {
+    title: 'Portafolio Fotografía Profesional',
+    description: 'Sitio web elegante y minimalista para fotógrafo profesional. Diseño limpio que pone el foco en las imágenes con navegación intuitiva y galería responsive.',
+    buttonText: 'Ver proyecto',
+    url: '/projects/portafolio-photografia'
+  },
+  // Agregar más proyectos aquí cuando se creen
+];
+---
+
+<Layout
+	title="Proyectos | MiSitio Web"
+	description="Descubre mi portafolio de proyectos de desarrollo web y diseño."
+>
+	<section class="py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mis Proyectos</h1>
+				<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+					Una selección de proyectos que he desarrollado, desde sitios web corporativos hasta aplicaciones web innovadoras.
+				</p>
+			</div>
+
+			<CardGrid
+				items={projects}
+				columns={3}
+				variant="generic"
+				showButton={true}
+				gap="large"
+				class="max-w-6xl mx-auto"
+			/>
+		</div>
+	</section>
+</Layout>

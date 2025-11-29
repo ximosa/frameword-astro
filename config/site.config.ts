@@ -73,6 +73,7 @@ export const siteConfig: SiteConfig = {
   navigation: {
     main: [
       { label: "Inicio", href: "/" },
+      { label: "Proyectos", href: "/proyectos" },
       { label: "Servicios", href: "/servicios" },
       { label: "Blog", href: "/blog" },
       { label: "Contacto", href: "/contacto" }
